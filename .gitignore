@@ -3,60 +3,60 @@
 # # # # # # # # # #
 #
 # Android Studio
-	.navigation/
-	captures/
+.navigation/
+captures/
 # Application Specific 
-	app/release/output.json
-	local.properties
+app/release/output.json
+local.properties
 # Built
-	*.apk
-	*.aar
-	*.ap_
-	*.aab# Files for the ART/Dalvik VM
-	*.dex# Java class files
-	*.class# Generated files
-	bin/
-	gen/
-	out/
-	release/
+*.apk
+*.aar
+*.ap_
+*.aab# Files for the ART/Dalvik VM
+*.dex# Java class files
+*.class# Generated files
+bin/
+gen/
+out/
+release/
 # External
-	.externalNativeBuild
-	.cxx/
+.externalNativeBuild
+.cxx/
 # Gradle
-	.gradle/
-	build/
+.gradle/
+build/
 # Google Services
-	google-services.json
+google-services.json
 # IntelliJ
-	*.iml
-	.idea/
-	.idea/workspace.xml
-	.idea/tasks.xml
-	.idea/gradle.xml
-	.idea/assetWizardSettings.xml
-	.idea/dictionaries
-	.idea/libraries/
-	.idea/caches
-	.idea/modules.xml
-	.idea/codeStyles/
+*.iml
+.idea/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+.idea/libraries
+.idea/caches
+.idea/modules.xml
+.idea/codeStyles/
 # Keystore
-	*.jks
-	*.keystore
+*.jks
+*.keystore
 # Lint
-	lint/intermediates/
-	lint/generated/
-	lint/outputs/
-	lint/tmp/
-	lint/reports/
+lint/intermediates/
+lint/generated/
+lint/outputs/
+lint/tmp/
+lint/reports/
 # Local
-	local.properties
+local.properties
 # Log
-	*.log
+*.log
 # MacOS
-	.DS_Store
+.DS_Store
 # Navigation
-	.idea/navEditor.xml
+.idea/navEditor.xml
 # Proguard
-	proguard/
+proguard/
 # Version Control
-	vcs.xml
+vcs.xml
