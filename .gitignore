@@ -7,7 +7,7 @@
 	captures/
 # Application Specific 
 	app/release/output.json
-	.idea/codeStyles/
+	local.properties
 # Built
 	*.apk
 	*.aar
@@ -35,9 +35,10 @@
 	.idea/gradle.xml
 	.idea/assetWizardSettings.xml
 	.idea/dictionaries
-	.idea/libraries
+	.idea/libraries/
 	.idea/caches
 	.idea/modules.xml
+	.idea/codeStyles/
 # Keystore
 	*.jks
 	*.keystore
