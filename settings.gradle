@@ -1,0 +1,30 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "PQ"
+include ':app'
+//include ':a_0'
+//include ':a_1'
+//include ':a_2'
+//include ':a_3'
+//include ':a_4'
+//include ':a_5'
+//include ':a_6'
+include ':a_0'
+include ':a_1'
+include ':a_2'
+include ':a_3'
+include ':a_4'
+include ':a_5'
+include ':a_6'

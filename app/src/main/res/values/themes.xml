@@ -1,0 +1,17 @@
+<resources>
+    <style name="Theme.PQ" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorLightPrimaryDark</item>
+        <item name="colorPrimary">@color/colorLightPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorLightPrimaryVariant</item>
+        <item name="colorSecondary">@color/colorLightSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorLightSecondaryVariant</item>
+        <item name="background">@color/colorLightBackground</item>
+        <item name="colorSurface">@color/colorLightSurface</item>
+        <item name="colorError">@color/colorLightError</item>
+        <item name="colorOnPrimary">@color/colorLightOnPrimary</item>
+        <item name="colorOnSecondary">@color/colorLightOnSecondary</item>
+        <item name="colorOnBackground">@color/colorLightOnBackground</item>
+        <item name="colorOnSurface">@color/colorLightOnSurface</item>
+        <item name="colorOnError">@color/colorLightOnError</item>
+    </style>
+</resources>
