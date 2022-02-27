@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-android-extensions'
 }
 
 android {
@@ -33,7 +32,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding {
+    viewBinding {
         enabled = true
     }
     packagingOptions {
@@ -56,7 +55,6 @@ dependencies {
     api "androidx.appcompat:appcompat:${versions.appcompat}"
     api "androidx.core:core-ktx:${versions.ktxCore}"
     api "com.google.android.play:core-ktx:${versions.playcore}"
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
     api "com.google.android.material:material:${versions.material}"
     api "androidx.constraintlayout:constraintlayout:${versions.constraint}"
     testImplementation "junit:junit:${versions.junit}"

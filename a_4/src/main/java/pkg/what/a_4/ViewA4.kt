@@ -9,6 +9,11 @@ class ViewA4 : AppCompatActivity() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         setContentView(R.layout.layout_a4)
-        Snackbar.make(findViewById(R.id.layout_a4),getString(R.string.feature_title_a_4), Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(
+            findViewById(R.id.layout_a4)
+            ,getString(R.string.feature_title_a_4)
+            ,Snackbar.LENGTH_SHORT)
+            .setTextColor(getColor(R.color.colorLight)
+            ).show()
     }
 }

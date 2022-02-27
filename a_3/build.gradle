@@ -7,7 +7,6 @@ android {
     defaultConfig {
         minSdk versions.minSdk
         targetSdk versions.targetSdk
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -19,9 +18,4 @@ android {
 
 dependencies {
     implementation project(":app")
-    implementation "androidx.core:core-ktx:${versions.ktxCore}"
-    testImplementation "junit:junit:${versions.junit}"
-    androidTestImplementation "androidx.test.ext:junit:${versions.junitExt}"
-    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.junitEspresso}"
-    androidTestImplementation "androidx.annotation:annotation:${versions.annotation}"
 }
