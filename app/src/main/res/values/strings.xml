@@ -31,14 +31,16 @@
     <string name="class_a6">pkg.what.a_6.ViewA6</string>
     <string name="class_pq">pkg.what.pq.ActivityPQ</string>
     <!-- button strings -->
-    <string name="select_pq_a0">Select A_0</string>
-    <string name="select_pq_a1">Select A_1</string>
-    <string name="select_pq_a2">Select A_2</string>
-    <string name="select_pq_a3">Select A_3</string>
-    <string name="select_pq_a4">Select A_4</string>
-    <string name="select_pq_a5">Select A_5</string>
-    <string name="select_pq_a6">Select A_6</string>
-    <string name="select_pq_pq">Select PQ</string>
+    <string name="select_pq_a0">String_A_0</string>
+    <string name="select_pq_a1">String_A_1</string>
+    <string name="select_pq_a2">String_A_2</string>
+    <string name="select_pq_a3">String_A_3</string>
+    <string name="select_pq_a4">String_A_4</string>
+    <string name="select_pq_a5">String_A_5</string>
+    <string name="select_pq_a6">String_A_6</string>
+    <string name="select_pq_pq">String_PQ</string>
+    <string name="a0_mel1">String_TextInputLayout</string>
+    <string name="a0_met1">String_TextInputEditText</string>
     <!-- tooltip string -->
     <string name="a_0_tool_tip">application: PQ</string>
     <string name="a_1_tool_tip">domain: lifecycle &amp; states</string>
@@ -51,4 +53,16 @@
     <string name="select_loading">Invoking: Loading</string>
     <string name="select_success">Invoking: Success</string>
     <string name="select_failure">Invoking: Failure</string>
+    <!-- action strings for snackbar -->
+    <string name="sb_dismiss">DISMISS</string>
+    <!-- purpose strings for snackbar -->
+    <string name="purpose_a0">Purpose: application pq</string>
+    <string name="purpose_a1">Purpose: domain lifecycle &amp; states  </string>
+    <string name="purpose_a2">Purpose: api permissions </string>
+    <string name="purpose_a3">Purpose: sdk google sign-in &amp; oauth_2.0 </string>
+    <string name="purpose_a4">Purpose: network client, data, and objects </string>
+    <string name="purpose_a5">Purpose: ui recycler view </string>
+    <string name="purpose_a7">Purpose: ui notifications </string>
+    <!--string tools -->
+    <string name="is_empty">""</string>
 </resources>
