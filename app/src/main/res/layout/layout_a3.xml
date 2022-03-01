@@ -5,6 +5,21 @@
     android:id="@+id/layout_a3"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/a3_google_sign_in_btn"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="@string/sign_in_to_google"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorDark"
+        android:backgroundTint="@color/colorLight"
+        app:layout_constraintTop_toTopOf="@id/a3_gl25_h"
+        app:layout_constraintBottom_toBottomOf="@+id/a3_gl25_h"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:elevation="7dp"
+        app:elevation="7dp"/>
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/a3_mtv_1"
         android:text="@string/pq_a3"

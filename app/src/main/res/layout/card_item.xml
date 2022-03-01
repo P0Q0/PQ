@@ -22,13 +22,18 @@
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:text="@string/card_item_button"
+                android:textSize="13sp"
+                android:textStyle="bold"
                 android:textColor="@color/colorYellow"
                 app:rippleColor="@color/colorLight"
                 app:backgroundTint="@color/colorDark"
+                android:backgroundTint="@color/colorDark"
                 app:layout_constraintTop_toTopOf="@id/card_gl50_h"
                 app:layout_constraintBottom_toBottomOf="@id/card_gl50_h"
                 app:layout_constraintStart_toStartOf="@+id/card_gl25_v"
-                app:layout_constraintEnd_toEndOf="@id/card_gl75_v"/>
+                app:layout_constraintEnd_toEndOf="@id/card_gl75_v"
+                android:elevation="7dp"
+                app:elevation="7dp"/>
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/card_gl25_v"
                 android:layout_width="0dp"

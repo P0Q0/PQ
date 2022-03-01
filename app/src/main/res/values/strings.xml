@@ -57,6 +57,7 @@
     <string name="select_failure">Invoking: Failure</string>
     <!-- ui action strings for snackbar -->
     <string name="sb_dismiss">DISMISS</string>
+    <string name="sb_on_click">Snackbar, lambda onClick(…).</string>
     <string name="sb_permission_storage_read_required">Permission is required to Read from Storage</string>
     <string name="sb_permission_storage_write_required">Permission is required to Write from Storage</string>
     <string name="sb_permission_read_has_been_granted">READ PERMISSION HAS ALREADY BEEN GRANTED</string>
@@ -76,6 +77,8 @@
     <string name="purpose_a6">Purpose: ui notifications </string>
     <!-- ui card view item-->
     <string name="card_item_button">card view button</string>
+    <!-- ui google sign in -->
+    <string name="sign_in_to_google">Sign In to Google</string>
     <!--data string tools -->
     <string name="is_empty">""</string>
 </resources>

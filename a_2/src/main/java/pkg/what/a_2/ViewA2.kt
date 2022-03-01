@@ -32,7 +32,7 @@ class ViewA2 : AppCompatActivity() {
         this.permissions[PERMISSION_EXTERNAL_STORAGE_READ] = read
         this.permissions[PERMISSION_EXTERNAL_STORAGE_WRITE] = write
         snack(R.string.purpose_a2
-            ,"$localClassName , Snackbar, lambda onClick(...).")
+            ,"$localClassName , ${resources.getString(R.string.sb_on_click)}")
         setUiData()
         setListeners()
     }

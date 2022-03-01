@@ -19,7 +19,7 @@ class ViewA4 : AppCompatActivity() {
             ,Snackbar.LENGTH_SHORT)
             .setTextColor(getColor(R.color.colorLight))
             .setAction(getString(R.string.sb_dismiss))
-            { Log.d(LOG_DEBUG_TAG,"$localClassName , Snackbar, lambda onClick(...).") }
+            { Log.d(LOG_DEBUG_TAG,"$localClassName , ${resources.getString(R.string.sb_on_click)}") }
             .show()
         setListeners()
     }
