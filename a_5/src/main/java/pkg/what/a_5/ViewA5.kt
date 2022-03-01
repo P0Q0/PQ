@@ -10,6 +10,8 @@ import pkg.what.pq.databinding.LayoutA5Binding
 class ViewA5 : AppCompatActivity() {
     private lateinit var bind: LayoutA5Binding
 
+    private val source by lazy { DataSource("p","r") }
+
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         this.bind = LayoutA5Binding.inflate(layoutInflater).also { setContentView(it.root) }
@@ -21,15 +23,22 @@ class ViewA5 : AppCompatActivity() {
             .setAction(getString(R.string.sb_dismiss))
             { Log.d(LOG_DEBUG_TAG,"$localClassName , Snackbar, lambda onClick(...).") }
             .show()
-        setListeners()
+        setupData()
+        setupUi()
     }
 
-    private fun setListeners(){
-        //TODO: setListeners ViewA5
+    private fun setupData(){
+        source.q = "q"
+        if(source.q != null) source.d.add(source.q!!)
+    }
+
+    private fun setupUi(){
+        bind.a5Rv.adapter = CardAdapter(source)
     }
 
     /** @desc file specific definitions, states, logging, strings */
     companion object{
         const val LOG_DEBUG_TAG = "VIEW_A5_DEBUG_TAG"
+        const val BUTTON_TOAST_MSG = "CardAdapter.ViewHolder"
     }
 }

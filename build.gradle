@@ -30,7 +30,8 @@ ext.versions = [
     'junitEspresso'     : '3.4.0',
     'kotlin'            : '1.6.10',
     'ktxCore'           : '1.7.0',
-    'playcore'          : '1.8.1'
+    'playcore'          : '1.8.1',
+    'recyclerview'      : '1.2.1'
 ]
 
 tasks.withType(Test) {

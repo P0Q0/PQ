@@ -35,4 +35,5 @@
     <!-- Generic Palette -->
     <color name="colorDark">#000000</color>
     <color name="colorLight">#F0F0F0</color>
+    <color name="colorYellow">#FFFF00</color>
 </resources>

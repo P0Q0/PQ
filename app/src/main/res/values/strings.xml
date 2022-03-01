@@ -74,6 +74,8 @@
     <string name="purpose_a4">Purpose: network client, data, and objects </string>
     <string name="purpose_a5">Purpose: ui recycler view </string>
     <string name="purpose_a6">Purpose: ui notifications </string>
+    <!-- ui card view item-->
+    <string name="card_item_button">card view button</string>
     <!--data string tools -->
     <string name="is_empty">""</string>
 </resources>

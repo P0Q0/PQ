@@ -57,6 +57,7 @@ dependencies {
     api "com.google.android.play:core-ktx:${versions.playcore}"
     api "com.google.android.material:material:${versions.material}"
     api "androidx.constraintlayout:constraintlayout:${versions.constraint}"
+    api "androidx.recyclerview:recyclerview:${versions.recyclerview}"
     testImplementation "junit:junit:${versions.junit}"
     androidTestImplementation "androidx.test.ext:junit:${versions.junitExt}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${versions.junitEspresso}"
