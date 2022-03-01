@@ -1,9 +1,9 @@
 <resources
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="Typos">
-    <!-- application strings -->
+    <!-- framework application strings -->
     <string name="app_name">PQ</string>
-    <!-- feature titles -->
+    <!-- domain titles -->
     <string name="feature_title_a_0">A_0</string>
     <string name="feature_title_a_1">A_1</string>
     <string name="feature_title_a_2">A_2</string>
@@ -12,7 +12,7 @@
     <string name="feature_title_a_5">A_5</string>
     <string name="feature_title_a_6">A_6</string>
     <string name="feature_title_PQ">PQ</string>
-    <!-- feature names -->
+    <!-- domain feature names -->
     <string name="module_a0">a_0</string>
     <string name="module_a1">a_1</string>
     <string name="module_a2">a_2</string>
@@ -21,7 +21,7 @@
     <string name="module_a5">a_5</string>
     <string name="module_a6">a_6</string>
     <string name="module_aPQ">PQ</string>
-    <!-- feature packages -->
+    <!-- domain feature packages -->
     <string name="class_a0">pkg.what.a_0.ViewA0</string>
     <string name="class_a1">pkg.what.a_1.ViewA1</string>
     <string name="class_a2">pkg.what.a_2.ViewA2</string>
@@ -30,18 +30,20 @@
     <string name="class_a5">pkg.what.a_5.ViewA5</string>
     <string name="class_a6">pkg.what.a_6.ViewA6</string>
     <string name="class_pq">pkg.what.pq.ActivityPQ</string>
-    <!-- button strings -->
-    <string name="select_pq_a0">String_A_0</string>
-    <string name="select_pq_a1">String_A_1</string>
-    <string name="select_pq_a2">String_A_2</string>
-    <string name="select_pq_a3">String_A_3</string>
-    <string name="select_pq_a4">String_A_4</string>
-    <string name="select_pq_a5">String_A_5</string>
-    <string name="select_pq_a6">String_A_6</string>
-    <string name="select_pq_pq">String_PQ</string>
-    <string name="a0_mel1">String_TextInputLayout</string>
-    <string name="a0_met1">String_TextInputEditText</string>
-    <!-- tooltip string -->
+    <!-- ui strings for elements -->
+    <string name="pq_a0">String_A_0</string>
+    <string name="pq_a1">String_A_1</string>
+    <string name="pq_a2">String_A_2</string>
+    <string name="pq_a3">String_A_3</string>
+    <string name="pq_a4">String_A_4</string>
+    <string name="pq_a5">String_A_5</string>
+    <string name="pq_a6">String_A_6</string>
+    <string name="pq_pq">String_PQ</string>
+    <string name="a1_mel1">String_TextInputLayout</string>
+    <string name="a1_met1">String_TextInputEditText</string>
+    <string name="a2_btn1">Storage R/W Permissions</string>
+    <string name="a2_mtv1">SHOWING ACTIVE PERMISSIONS</string>
+    <!-- ui tooltip string -->
     <string name="a_0_tool_tip">application: PQ</string>
     <string name="a_1_tool_tip">domain: lifecycle &amp; states</string>
     <string name="a_2_tool_tip">api: permissions</string>
@@ -53,16 +55,25 @@
     <string name="select_loading">Invoking: Loading</string>
     <string name="select_success">Invoking: Success</string>
     <string name="select_failure">Invoking: Failure</string>
-    <!-- action strings for snackbar -->
+    <!-- ui action strings for snackbar -->
     <string name="sb_dismiss">DISMISS</string>
-    <!-- purpose strings for snackbar -->
+    <string name="sb_permission_storage_read_required">Permission is required to Read from Storage</string>
+    <string name="sb_permission_storage_write_required">Permission is required to Write from Storage</string>
+    <string name="sb_permission_read_has_been_granted">READ PERMISSION HAS ALREADY BEEN GRANTED</string>
+    <string name="sb_permission_read_has_been_denied">READ PERMISSION HAS ALREADY BEEN DENIED</string>
+    <string name="sb_permission_write_has_been_granted">WRITE PERMISSION HAS ALREADY BEEN GRANTED</string>
+    <string name="sb_permission_write_has_been_denied">WRITE PERMISSION HAS ALREADY BEEN DENIED</string>
+    <string name="sb_permission_granted">PERMISSION: GRANTED</string>
+    <string name="sb_permission_denied">PERMISSION: DENIED</string>
+    <string name="sb_permission_unknown">PERMISSION: UNKNOWN</string>
+    <!-- ui purpose strings for snackbar -->
     <string name="purpose_a0">Purpose: application pq</string>
     <string name="purpose_a1">Purpose: domain lifecycle &amp; states  </string>
     <string name="purpose_a2">Purpose: api permissions </string>
     <string name="purpose_a3">Purpose: sdk google sign-in &amp; oauth_2.0 </string>
     <string name="purpose_a4">Purpose: network client, data, and objects </string>
     <string name="purpose_a5">Purpose: ui recycler view </string>
-    <string name="purpose_a7">Purpose: ui notifications </string>
-    <!--string tools -->
+    <string name="purpose_a6">Purpose: ui notifications </string>
+    <!--data string tools -->
     <string name="is_empty">""</string>
 </resources>

@@ -5,16 +5,79 @@
     android:id="@+id/layout_a2"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/a1_mtv_2"
-        android:text="@string/select_pq_a2"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/a2_permission_btn_1"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="@string/a2_btn1"
         android:textSize="13sp"
         android:textStyle="bold"
         android:textColor="@color/colorDark"
+        android:backgroundTint="@color/colorLight"
+        app:layout_constraintTop_toTopOf="@id/a2_gl25_h"
+        app:layout_constraintBottom_toBottomOf="@+id/a2_gl25_h"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:elevation="7dp"
+        app:elevation="7dp"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/a2_permissions_mtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/a2_mtv1"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorDark"
+        app:layout_constraintTop_toTopOf="@id/a2_gl50_h"
+        app:layout_constraintBottom_toBottomOf="@+id/a2_gl50_h"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/a2_mtv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pq_a2"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorDark"
+        app:layout_constraintTop_toTopOf="@id/a2_gl75_h"
+        app:layout_constraintBottom_toBottomOf="@+id/a2_gl75_h"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/a2_gl25_v"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/a2_gl50_v"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/a2_gl75_v"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/a2_gl25_h"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/a2_gl50_h"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/a2_gl75_h"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

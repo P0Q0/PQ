@@ -41,7 +41,7 @@
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/a1_mtv_1"
-        android:text="@string/select_pq_a1"
+        android:text="@string/pq_a1"
         android:textSize="13sp"
         android:textStyle="bold"
         android:textColor="@color/colorDark"
@@ -58,11 +58,23 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.25"/>
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/a1_gl50_v"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50"/>
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/a1_gl75_v"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.75"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/a1_gl25_h"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/a1_gl50_h"
         android:layout_width="0dp"

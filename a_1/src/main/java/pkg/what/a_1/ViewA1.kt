@@ -132,16 +132,14 @@ class ViewA1 : AppCompatActivity() {
         })
     }
 
-    /**
-     * @desc file specific definitions, states, logging, strings
-     */
+    /** @desc file specific definitions, states, logging, strings */
     companion object {
         const val SHARED_PREFERENCES_DISK_KEY = "pkg.what.PREFERENCE_FILE_KEY"
         const val SHARED_PREFERENCES_NULL     = "NULL_SHARED_PREFERENCES"
         const val STATE_MEMORY_STASH  =   "STATE_MEMORY_STASH"
         const val STATE_DISK_STASH    =   "STATE_DISK_STASH"
-        const val LOG_INFO_TAG  =   "VIEW_AO_INFO_TAG"
-        const val LOG_DEBUG_TAG =   "VIEW_AO_DEBUG_TAG"
+        const val LOG_INFO_TAG  =   "VIEW_A1_INFO_TAG"
+        const val LOG_DEBUG_TAG =   "VIEW_A1_DEBUG_TAG"
         const val LOG_CREATE    =   "ON_CREATE"
         const val LOG_START     =   "ON_START"
         const val LOG_RESUME    =   "ON_RESUME"
