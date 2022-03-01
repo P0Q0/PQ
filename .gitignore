@@ -7,6 +7,7 @@
 captures/
 # Application Specific 
 app/release/output.json
+credentials.json
 local.properties
 # Built
 *.apk
@@ -48,8 +49,6 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 lint/reports/
-# Local
-local.properties
 # Log
 *.log
 # MacOS
