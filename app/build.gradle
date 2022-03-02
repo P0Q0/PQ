@@ -59,6 +59,7 @@ dependencies {
     api "androidx.constraintlayout:constraintlayout:${versions.constraint}"
     api "androidx.recyclerview:recyclerview:${versions.recyclerview}"
     api "com.google.android.gms:play-services-auth:${versions.playauth}"
+    api "com.squareup.okhttp3:okhttp:${versions.okhttp}"
     testImplementation "junit:junit:${versions.junit}"
     androidTestImplementation "androidx.test.ext:junit:${versions.junitExt}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${versions.junitEspresso}"

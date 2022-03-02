@@ -80,6 +80,9 @@
     <!-- ui google sign in -->
     <string name="sign_in_to_google">Sign In to Google</string>
     <string name="sign_out_of_google">Sign Out of Google</string>
+    <!-- ui network -->
+    <string name="net_req_user_data">GET Users</string>
+    <string name="net_req_img_data">GET Images</string>
     <!--data string tools -->
     <string name="is_empty">""</string>
 </resources>

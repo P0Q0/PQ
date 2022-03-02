@@ -30,6 +30,7 @@ ext.versions = [
     'junitEspresso'     : '3.4.0',
     'kotlin'            : '1.6.10',
     'ktxCore'           : '1.7.0',
+    'okhttp'            : '5.0.0-alpha.5',
     'playcore'          : '1.8.1',
     'playauth'          : '20.1.0',
     'recyclerview'      : '1.2.1'
