@@ -31,7 +31,7 @@ ext.versions = [
     'kotlin'            : '1.6.10',
     'ktxCore'           : '1.7.0',
     'playcore'          : '1.8.1',
-    'playauth'       : '20.1.0',
+    'playauth'          : '20.1.0',
     'recyclerview'      : '1.2.1'
 ]
 

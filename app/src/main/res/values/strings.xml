@@ -79,6 +79,7 @@
     <string name="card_item_button">card view button</string>
     <!-- ui google sign in -->
     <string name="sign_in_to_google">Sign In to Google</string>
+    <string name="sign_out_of_google">Sign Out of Google</string>
     <!--data string tools -->
     <string name="is_empty">""</string>
 </resources>

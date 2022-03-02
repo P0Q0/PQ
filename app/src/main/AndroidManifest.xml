@@ -3,6 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="pkg.what.pq">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name="pkg.what.pq.ApplicationPQ"
         android:allowBackup="true"

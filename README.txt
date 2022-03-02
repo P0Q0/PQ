@@ -19,3 +19,9 @@ but as a further improvement, the following could be added to "modernize" the ap
 add clear permissions ui reset individual permissions, add clear all permissions ui to reset all permissions,
 polish file i/o, add additional ui for setting each permission individually, support multiple storage from different vendors,
 migrate to scoped storage, migrate to dynamic on single use permissions this would clear on each app destroyed event
+-module a3, FIX google sign-out button functionality consider revoke access as well, ui to display status
+-module a4, TODO: readme.md,A4
+-module a5, further extension to adapter with abstraction to reduce boilerplate for future adapters
+-module a6, TODO: readme.md,A6
+-module a7, TODO: readme.md,A7
+-module a0, TODO: readme.md,A0

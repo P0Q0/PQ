@@ -3,12 +3,15 @@ package pkg.what.a_5
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.Snackbar
 import pkg.what.a_5.ViewA5.Companion.BUTTON_TOAST_MSG
 
-class CardAdapter(private val source: DataSource) : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+/** @desc shorten alias with a meaningful representation */
+typealias CardHolder = CardAdapter.ViewHolder
+
+class CardAdapter(private val source: DataSource) : RecyclerView.Adapter<CardHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val button = view.findViewById<MaterialButton>(pkg.what.pq.R.id.card_btn)
@@ -19,7 +22,7 @@ class CardAdapter(private val source: DataSource) : RecyclerView.Adapter<CardAda
 
         private fun setupListeners(view: View) {
             button.setOnClickListener {
-                Toast.makeText(view.context,"$BUTTON_TOAST_MSG button_text=${button.text}",Toast.LENGTH_SHORT).show()
+                Snackbar.make(it,"$BUTTON_TOAST_MSG button_text=${button.text}",Snackbar.LENGTH_SHORT).show()
             }
         }
 
@@ -28,13 +31,13 @@ class CardAdapter(private val source: DataSource) : RecyclerView.Adapter<CardAda
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(pkg.what.pq.R.layout.card_item, parent,false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: CardAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CardHolder, position: Int) {
         holder.bind(source.d[position])
     }
 
