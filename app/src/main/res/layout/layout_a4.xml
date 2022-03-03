@@ -32,6 +32,7 @@
         android:elevation="7dp"
         app:elevation="7dp"/>
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/a4_network_data_mtv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/net_req_img_data"

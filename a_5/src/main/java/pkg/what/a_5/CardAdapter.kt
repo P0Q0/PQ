@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
-import pkg.what.a_5.ViewA5.Companion.BUTTON_TOAST_MSG
+import pkg.what.a_5.ViewA5.Companion.BUTTON_SNACK_MSG
 
 /** @desc shorten alias with a meaningful representation */
 typealias CardHolder = CardAdapter.ViewHolder
@@ -22,7 +22,7 @@ class CardAdapter(private val source: DataSource) : RecyclerView.Adapter<CardHol
 
         private fun setupListeners(view: View) {
             button.setOnClickListener {
-                Snackbar.make(it,"$BUTTON_TOAST_MSG button_text=${button.text}",Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(it,"$BUTTON_SNACK_MSG button_text=${button.text}",Snackbar.LENGTH_SHORT).show()
             }
         }
 

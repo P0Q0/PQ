@@ -39,6 +39,6 @@ class ViewA5 : AppCompatActivity() {
     /** @desc file specific definitions, states, logging, strings */
     companion object{
         const val LOG_DEBUG_TAG = "VIEW_A5_DEBUG_TAG"
-        const val BUTTON_TOAST_MSG = "CardAdapter.ViewHolder"
+        const val BUTTON_SNACK_MSG = "CardAdapter.ViewHolder"
     }
 }
