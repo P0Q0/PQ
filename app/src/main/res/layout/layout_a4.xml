@@ -42,9 +42,18 @@
         android:layout_marginTop="05dp"
         android:layout_marginBottom="05dp"
         app:layout_constraintTop_toBottomOf="@id/a4_net_req_img_btn"
-        app:layout_constraintBottom_toTopOf="@id/a4_mtv_1"
+        app:layout_constraintBottom_toTopOf="@id/a4_gl50_h"
         app:layout_constraintLeft_toLeftOf="@id/a4_gl25_v"
         app:layout_constraintRight_toRightOf="@id/a4_gl75_v"/>
+    <ImageView
+        android:id="@+id/a4_network_img_iv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/a4_network_data_mtv"
+        app:layout_constraintBottom_toTopOf="@id/a4_mtv_1"
+        app:layout_constraintLeft_toLeftOf="@id/a4_gl25_v"
+        app:layout_constraintRight_toRightOf="@id/a4_gl75_v"
+        android:contentDescription="@string/remote_source_image_view_description" />
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/a4_mtv_1"
         android:text="@string/pq_a4"

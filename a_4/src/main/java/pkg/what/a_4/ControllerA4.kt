@@ -3,11 +3,11 @@ package pkg.what.a_4
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okhttp3.*
-import pkg.what.a_4.ModelA4.Companion.MAP_KEY_IMAGE_DATA
-import pkg.what.a_4.ModelA4.Companion.MAP_KEY_USER_DATA
 import pkg.what.a_4.ViewA4.Companion.LOG_DEBUG_TAG
 import java.io.IOException
 
@@ -34,18 +34,19 @@ class ControllerA4 : OkHttpCapableIf {
                     if (response.isSuccessful) { debugResponse(response) }
                     else { Log.d(LOG_DEBUG_TAG,LOG_CONNECT_FAILED) }
 
-                    //TODO: fix this, we need to switch to BEGIN_OBJECT but was BEGIN_ARRAY...
-                    val data = parser.fromJson(
-                        response.body?.charStream()
-                        , ModelA4.UserModel::class.java)
+                    val type = object : TypeToken<Collection<ModelA4.UserModel>>(){}.type
+                    val data: List<ModelA4.UserModel> = parser.fromJson(response.body?.charStream(),type)
 
-                    model.data[MAP_KEY_USER_DATA] = data
+                    for(e in data.indices){
+                        model.dataOfUsers[e] = data[e]
+                    }
 
                     //notify the view with the received data
                     //change this to a .post or .emit using livedata
                     //for demo purposes do it like this
                     //similar to callback
-                    view.update(data)
+                    val temp : ModelA4.UserModel? = null
+                    view.update(temp)
                 }
             })
         }
@@ -53,31 +54,14 @@ class ControllerA4 : OkHttpCapableIf {
 
     /**@desc requests the data specified on the endpoint parameter
      * @note this fx is going to die gracefully when the [view] is destroyed due to lifecycleScope */
-    fun fireRobohashCall(request: Request, view: ViewA4, model: ModelA4){
+    fun fireRobohashCall(endpoint: String, view: ViewA4, model: ModelA4){
         view.lifecycleScope.launch(Dispatchers.IO){
-            client.newCall(request).enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) {
-                    Log.d(LOG_DEBUG_TAG,LOG_NET_FAILURE +" "+ e.message +" "+ e.stackTrace)
-                }
-                override fun onResponse(call: Call, response: Response) {
-                    Log.d(LOG_DEBUG_TAG,LOG_NET_SUCCESS)
-                    if (response.isSuccessful) { debugResponse(response) }
-                    else { Log.d(LOG_DEBUG_TAG,LOG_CONNECT_FAILED) }
+            val bitmap = Picasso.get().load(endpoint).get()
 
-                    //TODO: fix this, we need to switch to BEGIN_OBJECT but was BEGIN_ARRAY...
-                    val data = parser.fromJson(
-                        response.body?.charStream()
-                        , ModelA4.ImageModel::class.java)
+            model.dataOfImages.add(bitmap)
 
-                    model.data[MAP_KEY_IMAGE_DATA] = data
-
-                    //notify the view with the received data
-                    //change this to a .post or .emit using livedata
-                    //for demo purposes do it like this
-                    //similar to callback
-                    view.update(data)
-                }
-            })
+            val temp : ModelA4.ImageModel? = null
+            view.update(temp)
         }
     }
 
@@ -95,8 +79,7 @@ class ControllerA4 : OkHttpCapableIf {
         const val BASE_ROBOHASH_ENDPOINT = "https://robohash.org/"
         const val BASE_TYPICODE_ENDPOINT = "http://jsonplaceholder.typicode.com/"
         const val USERS_PATH = "Users/"
-        const val IMAGES_PATH = "Images/"
-        const val QWERTY_PATH = "qwerty/"
+        const val IMAGES_PATH = "qwerty/"
     }
 
     /** @desc file specific definitions, states, logging, strings */
