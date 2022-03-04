@@ -1,3 +1,6 @@
+//TODO: file is healthy, but to silence gradle warnings suppress , remove after implementing items tagged with 'TODO'
+@file:Suppress("unused")
+
 package pkg.what.a_6
 
 import android.annotation.SuppressLint
@@ -14,6 +17,8 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.TaskStackBuilder
 import com.google.android.material.snackbar.Snackbar
 import pkg.what.a_6.UiNotifierStates.Companion.TAG_EMITTER
+import pkg.what.a_6.UiNotifierStates.Companion.TAG_INJECT_EMIT
+import pkg.what.a_6.UiNotifierStates.Companion.TAG_INJECT_OMIT
 import pkg.what.a_6.UiNotifierStates.Companion.TAG_OMITTER
 import pkg.what.a_6.UiNotifierStates.Companion.TAG_UNKNOWN
 import pkg.what.pq.R
@@ -205,6 +210,8 @@ sealed class UiNotifierStates : UiNotifier {
         const val TAG_EMITTER = "emitter"
         const val TAG_SHORT = "short"
         const val TAG_LONG = "long"
+        const val TAG_INJECT_OMIT = "inject omit"
+        const val TAG_INJECT_EMIT = "inject emit"
     }
 }
 
@@ -218,8 +225,8 @@ sealed interface UiNotifierFlow {
 
 /** @desc definition for the flow, it omits and it emits */
 sealed class NotifierFlow : NotificationFlowControl {
-    override fun omit(status: String){ status.plus("inject omit") }
-    override fun emit(status: String){ status.plus("inject emit") }
+    override fun omit(status: String){ status.plus(TAG_INJECT_OMIT) }
+    override fun emit(status: String){ status.plus(TAG_INJECT_EMIT) }
 }
 
 /** @desc definition for the flow control */
