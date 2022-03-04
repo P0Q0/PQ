@@ -26,7 +26,7 @@ module a_6
 : notifications, notify types, grammar: sealed, typealias, object, data, interface, channels, sdk versioning,
  inheritance, encapsulation, abstraction, polymorphism, intents: explicit and implicit, custom api
 
-* Note *
+* Note about modernization *
  * The following could be added to "modernize" the application: *
 -migrate to abstraction with core support for inheritable data
 -migrate to some form of architecture with agreed sdk and api
@@ -42,7 +42,7 @@ module a_6
 -support code quality alerts by lint
 -support isolate toolkit for generic api (shared preferences,firebase,permissions,etc.)
 
-* Note *
+* Note about roadmap *
  * Roadmap for new features by module: *
 -module a1, fab button to clear shared preferences, fab button to invoke dialog and see ui further, foreground background
 -module a2, observers to reflect available permissions, improve permissions workflow with dialogs, add external storage uiIF,
@@ -55,3 +55,26 @@ migrate to scoped storage, migrate to dynamic on single use permissions this wou
 -module a6, support for generic expansion, worthwhile to investigate compile and runtime polymorphic type expectations,
 finish dev on different types of notifications including wearables, support for legacy sdks
 -module a0, TODO: readme.md,A0
+
+* Note about libraries *
+ * Libraries that were used: *
+    Annotations
+    AppCompat
+    Constraint
+    Coroutines
+    GSON
+    Material
+    Kotlin
+    Lifecycle
+    OkHttp
+    Picasso
+    Google Play
+    Recycler
+        Junit - TODO: junit test testing
+        Espresso - TODO: espresso test testing
+        Mockito - TODO: mockito for mock testing support
+
+* Note about SDK: *
+    'compileSdk'        : 31,
+    'minSdk'            : 30,
+    'targetSdk'         : 31,
