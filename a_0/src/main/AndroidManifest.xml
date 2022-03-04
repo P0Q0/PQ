@@ -15,7 +15,7 @@
     <application
         tools:ignore="AllowBackup,MissingApplicationIcon"
         android:hardwareAccelerated="true">
-        <activity android:name="pkg.what.a_0.ViewA0"
+        <activity android:name="pkg.what.a_0.ui.view.ViewPQ"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.View" />

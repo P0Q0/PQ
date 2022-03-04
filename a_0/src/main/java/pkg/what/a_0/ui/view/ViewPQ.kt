@@ -1,4 +1,4 @@
-package pkg.what.a_0
+package pkg.what.a_0.ui.view
 
 import android.os.Bundle
 import android.util.Log
@@ -7,7 +7,8 @@ import com.google.android.material.snackbar.Snackbar
 import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutA0Binding
 
-class ViewA0 : AppCompatActivity() {
+/** @desc  TODO:ViewPQ */
+class ViewPQ : AppCompatActivity() {
     private lateinit var bind: LayoutA0Binding
 
     override fun onCreate(state: Bundle?) {

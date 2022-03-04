@@ -5,6 +5,10 @@ core
 
 module a_0
 : TODO: module a_o readme.md
+: TODO: single activity, navigation graph,
+: TODO: dependency injection, mockito, espresso, junit,
+: TODO: retrofit, moshi, work manager, live data
+: TODO: mvvm design pattern, architecture components
 
 module a_1
 : kotlin, activity lifecycle, states, shared preferences, io: memory and disk, lambdas, ui binding, logging
@@ -25,6 +29,12 @@ module a_5
 module a_6
 : notifications, notify types, grammar: sealed, typealias, object, data, interface, channels, sdk versioning,
  inheritance, encapsulation, abstraction, polymorphism, intents: explicit and implicit, custom api
+
+module a_7
+: TODO:  module a_7, cameraX
+
+module a_8
+: TODO:  module a_8, fragments
 
 * Note about modernization *
  * The following could be added to "modernize" the application: *
@@ -54,6 +64,8 @@ migrate to scoped storage, migrate to dynamic on single use permissions this wou
 -module a5, further extension to adapter with abstraction to reduce boilerplate for future adapters
 -module a6, support for generic expansion, worthwhile to investigate compile and runtime polymorphic type expectations,
 finish dev on different types of notifications including wearables, support for legacy sdks
+-module a7: TODO: readme.md,A7 cameraX
+-module a8: TODO: readme.md,A8 fragments
 -module a0, TODO: readme.md,A0
 
 * Note about libraries *
