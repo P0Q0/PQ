@@ -69,7 +69,7 @@ class ViewA6 : AppCompatActivity() {
         this.regularIntent = Intent(this, ViewRegularAlertDetailsActivity::class.java)
             .apply { flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK }
         this.regularPendingIntent = PendingIntent.getActivity(
-            this, PENDING_REGULAR_REQUEST_CODE, intent, PendingIntent.FLAG_IMMUTABLE)
+            this, PENDING_REGULAR_REQUEST_CODE, regularIntent, PendingIntent.FLAG_IMMUTABLE)
     }
 
     @Suppress("SameParameterValue") //TODO: can remove after implementing other fx that call this
