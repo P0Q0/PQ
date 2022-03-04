@@ -44,5 +44,11 @@ class ActivityPQ : AppCompatActivity() {
         this.bind.pqA6.setOnClickListener {
             Intent().setClassName(packageName, getString(R.string.class_a6)).also { startActivity(it) }
         }
+        this.bind.pqA7.setOnClickListener {
+            Intent().setClassName(packageName, getString(R.string.class_a7)).also { startActivity(it) }
+        }
+        this.bind.pqA8.setOnClickListener {
+            Intent().setClassName(packageName, getString(R.string.class_a8)).also { startActivity(it) }
+        }
     }
 }

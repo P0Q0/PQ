@@ -1,6 +1,4 @@
-<resources
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="Typos">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="Typos">
     <!-- framework application strings -->
     <string name="app_name">PQ</string>
     <!-- domain titles -->
@@ -11,6 +9,8 @@
     <string name="feature_title_a_4">A_4</string>
     <string name="feature_title_a_5">A_5</string>
     <string name="feature_title_a_6">A_6</string>
+    <string name="feature_title_a_7">A_7</string>
+    <string name="feature_title_a_8">A_8</string>
     <string name="feature_title_PQ">PQ</string>
     <!-- domain feature names -->
     <string name="module_a0">a_0</string>
@@ -20,15 +20,19 @@
     <string name="module_a4">a_4</string>
     <string name="module_a5">a_5</string>
     <string name="module_a6">a_6</string>
+    <string name="module_a7">a_7</string>
+    <string name="module_a8">a_8</string>
     <string name="module_aPQ">PQ</string>
     <!-- domain feature packages -->
-    <string name="class_a0">pkg.what.a_0.ViewA0</string>
+    <string name="class_a0">pkg.what.a_0.ViewPQ</string>
     <string name="class_a1">pkg.what.a_1.ViewA1</string>
     <string name="class_a2">pkg.what.a_2.ViewA2</string>
     <string name="class_a3">pkg.what.a_3.ViewA3</string>
     <string name="class_a4">pkg.what.a_4.ViewA4</string>
     <string name="class_a5">pkg.what.a_5.ViewA5</string>
     <string name="class_a6">pkg.what.a_6.ViewA6</string>
+    <string name="class_a7">pkg.what.a_7.ViewA7</string>
+    <string name="class_a8">pkg.what.a_8.ViewA8</string>
     <string name="class_pq">pkg.what.pq.ActivityPQ</string>
     <!-- ui strings for elements -->
     <string name="pq_a0">String_A_0</string>
@@ -38,6 +42,8 @@
     <string name="pq_a4">String_A_4</string>
     <string name="pq_a5">String_A_5</string>
     <string name="pq_a6">String_A_6</string>
+    <string name="pq_a7">String_A_7</string>
+    <string name="pq_a8">String_A_8</string>
     <string name="pq_pq">String_PQ</string>
     <string name="a1_mel1">String_TextInputLayout</string>
     <string name="a1_met1">String_TextInputEditText</string>
@@ -50,7 +56,9 @@
     <string name="a_3_tool_tip">sdk: google sign-in &amp; oauth_2.0</string>
     <string name="a_4_tool_tip">network: client, data, and objects</string>
     <string name="a_5_tool_tip">ui: recycler view</string>
-    <string name="a_6_tool_tip">ui: notifications</string>
+    <string name="a_6_tool_tip">api: notifications</string>
+    <string name="a_7_tool_tip">api: camerax</string>
+    <string name="a_8_tool_tip">api: fragments</string>
     <!-- ui string for dynamic feature invoking states -->
     <string name="select_loading">Invoking: Loading</string>
     <string name="select_success">Invoking: Success</string>
@@ -74,7 +82,9 @@
     <string name="purpose_a3">Purpose: sdk google sign-in &amp; oauth_2.0 </string>
     <string name="purpose_a4">Purpose: network client, data, and objects </string>
     <string name="purpose_a5">Purpose: ui recycler view </string>
-    <string name="purpose_a6">Purpose: ui notifications </string>
+    <string name="purpose_a6">Purpose: api notifications </string>
+    <string name="purpose_a7">Purpose: api camerax </string>
+    <string name="purpose_a8">Purpose: api fragments </string>
     <!-- ui card view item-->
     <string name="card_item_button">card view button</string>
     <!-- ui google sign in -->

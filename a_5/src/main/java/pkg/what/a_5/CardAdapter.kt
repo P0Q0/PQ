@@ -20,6 +20,7 @@ class CardAdapter(private val source: DataSource) : RecyclerView.Adapter<CardHol
             setupListeners(view)
         }
 
+        @Suppress("UNUSED_PARAMETER") //TODO: remove when view is used for now suppress to silence build warnings
         private fun setupListeners(view: View) {
             button.setOnClickListener {
                 Snackbar.make(it,"$BUTTON_SNACK_MSG button_text=${button.text}",Snackbar.LENGTH_SHORT).show()
