@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
     package="pkg.what.a_8">
 
     <dist:module
@@ -11,4 +12,14 @@
         </dist:delivery>
         <dist:fusing dist:include="true" />
     </dist:module>
+    <application
+        tools:ignore="AllowBackup,MissingApplicationIcon"
+        android:hardwareAccelerated="true">
+        <activity android:name="pkg.what.a_8.ViewA8"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>

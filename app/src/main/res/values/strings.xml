@@ -24,7 +24,7 @@
     <string name="module_a8">a_8</string>
     <string name="module_aPQ">PQ</string>
     <!-- domain feature packages -->
-    <string name="class_a0">pkg.what.a_0.ViewPQ</string>
+    <string name="class_a0">pkg.what.a_0.ui.view.ViewPQ</string>
     <string name="class_a1">pkg.what.a_1.ViewA1</string>
     <string name="class_a2">pkg.what.a_2.ViewA2</string>
     <string name="class_a3">pkg.what.a_3.ViewA3</string>

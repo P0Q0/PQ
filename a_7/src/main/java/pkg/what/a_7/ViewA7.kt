@@ -21,7 +21,7 @@ class ViewA7 : AppCompatActivity() {
     /** @desc file specific for short snackbar */
     private fun snack(ui_msg: Int, log_msg: String) =
         Snackbar.make(
-            findViewById(R.id.layout_a2)
+            findViewById(R.id.layout_a7)
             ,getString(ui_msg)
             , Snackbar.LENGTH_SHORT)
             .setTextColor(getColor(R.color.colorLight))
