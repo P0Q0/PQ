@@ -11,6 +11,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.app.TaskStackBuilder
 import com.google.android.material.snackbar.Snackbar
 import pkg.what.a_6.UiNotifierStates.Companion.TAG_EMITTER
 import pkg.what.a_6.UiNotifierStates.Companion.TAG_OMITTER
@@ -66,10 +67,14 @@ class ViewA6 : AppCompatActivity() {
             this, PENDING_SPECIAL_REQUEST_CODE, specialIntent,
             (PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         )
+
         this.regularIntent = Intent(this, ViewRegularAlertDetailsActivity::class.java)
-            .apply { flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK }
-        this.regularPendingIntent = PendingIntent.getActivity(
-            this, PENDING_REGULAR_REQUEST_CODE, regularIntent, PendingIntent.FLAG_IMMUTABLE)
+        val stackBuilder: TaskStackBuilder = TaskStackBuilder.create(this)
+        stackBuilder.addParentStack(ViewRegularAlertDetailsActivity::class.java)
+        stackBuilder.addNextIntent(regularIntent)
+        this.regularPendingIntent =
+            PendingIntent.getActivity(this, PENDING_REGULAR_REQUEST_CODE, regularIntent,
+                (PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE))
     }
 
     @Suppress("SameParameterValue") //TODO: can remove after implementing other fx that call this
