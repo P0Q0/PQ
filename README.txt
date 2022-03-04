@@ -6,7 +6,7 @@ but as a further improvement, the following could be added to "modernize" the ap
 -migrate to design patterns such as an mvc variations mvvm
 -migrate to single activity multiple fragments
 -migrate to navigation graph
--migrate to not clean
+-migrate to clean
 -support dynamic feature deployment to google play
 -support backwards compatibility for older sdks
 -support dark mode
@@ -22,5 +22,6 @@ migrate to scoped storage, migrate to dynamic on single use permissions this wou
 -module a3, FIX google sign-out button functionality consider revoke access as well, ui to display status
 -module a4, improve with viewmodel api and livedata which will constrain and keep the network flow tight
 -module a5, further extension to adapter with abstraction to reduce boilerplate for future adapters
--module a6, TODO: readme.md,A6
+-module a6, support for generic expansion, worthwhile to investigate compile and runtime polymorphic type expectations,
+finish dev on different types of notifications including wearables, support for legacy sdks
 -module a0, TODO: readme.md,A0
