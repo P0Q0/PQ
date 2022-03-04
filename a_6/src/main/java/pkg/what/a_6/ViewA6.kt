@@ -21,13 +21,9 @@ import pkg.what.pq.databinding.LayoutA6Binding
 class ViewA6 : AppCompatActivity() {
     private lateinit var bind: LayoutA6Binding
 
-    val explicitIntent = Intent(this, ViewAlertDetails::class.java).apply {
-        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-    }
+    private lateinit var tempExplicitIntent: Intent
 
-    val pendingIntent: PendingIntent =
-        PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-
+    private lateinit var tempPendingIntent: PendingIntent
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
@@ -37,6 +33,11 @@ class ViewA6 : AppCompatActivity() {
     }
 
     private fun fireUiNotifier(){
+        this.tempExplicitIntent = Intent(this, ViewAlertDetails::class.java)
+            .apply { flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK }
+        this.tempPendingIntent = PendingIntent.getActivity(
+            this, PENDING_REQUEST_CODE, intent, PendingIntent.FLAG_IMMUTABLE)
+
         uiNotifier(
             UiNotifierStates.Unknown(TAG_UNKNOWN))
         val builder = generateContent(
@@ -79,7 +80,7 @@ class ViewA6 : AppCompatActivity() {
 
     private fun generateAction(builder: NotificationCompat.Builder) {
         builder
-            .setContentIntent(pendingIntent)
+            .setContentIntent(tempPendingIntent)
             .setAutoCancel(true)
     }
 
@@ -150,6 +151,7 @@ class ViewA6 : AppCompatActivity() {
         const val NOTIFICATION_ID_STATUS_BAR = 0x01
         const val NOTIFICATION_ID_HEADS_UP = 0x02
         const val NOTIFICATION_ID_BADGE = 0x03
+        const val PENDING_REQUEST_CODE = 0xFF
     }
 }
 
