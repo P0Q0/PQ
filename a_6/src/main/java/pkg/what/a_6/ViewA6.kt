@@ -21,9 +21,13 @@ import pkg.what.pq.databinding.LayoutA6Binding
 class ViewA6 : AppCompatActivity() {
     private lateinit var bind: LayoutA6Binding
 
-    private lateinit var tempExplicitIntent: Intent
+    private lateinit var specialIntent: Intent
 
-    private lateinit var tempPendingIntent: PendingIntent
+    private lateinit var specialPendingIntent: PendingIntent
+
+    private lateinit var regularIntent: Intent
+
+    private lateinit var regularPendingIntent: PendingIntent
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
@@ -33,10 +37,7 @@ class ViewA6 : AppCompatActivity() {
     }
 
     private fun fireUiNotifier(){
-        this.tempExplicitIntent = Intent(this, ViewRegularAlertDetailsActivity::class.java)
-            .apply { flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK }
-        this.tempPendingIntent = PendingIntent.getActivity(
-            this, PENDING_REQUEST_CODE, intent, PendingIntent.FLAG_IMMUTABLE)
+        prepIntents()
 
         uiNotifier(
             UiNotifierStates.Unknown(TAG_UNKNOWN))
@@ -55,6 +56,20 @@ class ViewA6 : AppCompatActivity() {
         showNotification(
             builder
         )
+    }
+
+    private fun prepIntents(){
+        this.specialIntent = Intent(this, ViewSpecialAlertDetailsActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        this.specialPendingIntent = PendingIntent.getActivity(
+            this, PENDING_SPECIAL_REQUEST_CODE, specialIntent,
+            (PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        )
+        this.regularIntent = Intent(this, ViewRegularAlertDetailsActivity::class.java)
+            .apply { flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK }
+        this.regularPendingIntent = PendingIntent.getActivity(
+            this, PENDING_REGULAR_REQUEST_CODE, intent, PendingIntent.FLAG_IMMUTABLE)
     }
 
     @Suppress("SameParameterValue") //TODO: can remove after implementing other fx that call this
@@ -80,8 +95,10 @@ class ViewA6 : AppCompatActivity() {
 
     private fun generateAction(builder: NotificationCompat.Builder) {
         builder
-            .setContentIntent(tempPendingIntent)
-            .setAutoCancel(true)
+            .addAction(androidx.core.R.drawable.notification_icon_background
+                ,getString(R.string.ui_action_regular_btn), regularPendingIntent)
+            .addAction(androidx.core.R.drawable.notification_icon_background
+                ,getString(R.string.ui_action_special_btn), specialPendingIntent)
     }
 
     private fun showNotification(builder: NotificationCompat.Builder) {
@@ -89,12 +106,6 @@ class ViewA6 : AppCompatActivity() {
             notify(NOTIFICATION_ID_UI, builder.build())
         }
     }
-
-    // TODO: design your notification to open your app and specific activities
-    private fun invokeApp(){}
-
-    // TODO: design your notification to open your app and specific activities
-    private fun specifyAct(){}
 
     private fun uiStatusBarNotifier(){ TODO(reason = "uiStatusBarNotifier under development") }
 
@@ -151,7 +162,8 @@ class ViewA6 : AppCompatActivity() {
         const val NOTIFICATION_ID_STATUS_BAR = 0x01
         const val NOTIFICATION_ID_HEADS_UP = 0x02
         const val NOTIFICATION_ID_BADGE = 0x03
-        const val PENDING_REQUEST_CODE = 0xFF
+        const val PENDING_SPECIAL_REQUEST_CODE = 0xFE
+        const val PENDING_REGULAR_REQUEST_CODE = 0xFF
     }
 }
 
