@@ -101,7 +101,8 @@
     <string name="badge_title">Badge Channel Title</string>
     <string name="badge_title_text">Badge Channel Text</string>
     <string name="ui_notifications">Notifications</string>
-    <string name="ui_view_alert_details">View Alert Details</string>
+    <string name="ui_view_regular_alert_details">View Regular Alert Details</string>
+    <string name="ui_view_special_alert_details">View Special Alert Details</string>
     <!--data string tools -->
     <string name="is_empty">""</string>
     <string name="remote_source_image_view_description">an image pulled from a remote source</string>

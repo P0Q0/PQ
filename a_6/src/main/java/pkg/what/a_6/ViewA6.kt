@@ -33,7 +33,7 @@ class ViewA6 : AppCompatActivity() {
     }
 
     private fun fireUiNotifier(){
-        this.tempExplicitIntent = Intent(this, ViewAlertDetails::class.java)
+        this.tempExplicitIntent = Intent(this, ViewRegularAlertDetailsActivity::class.java)
             .apply { flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK }
         this.tempPendingIntent = PendingIntent.getActivity(
             this, PENDING_REQUEST_CODE, intent, PendingIntent.FLAG_IMMUTABLE)

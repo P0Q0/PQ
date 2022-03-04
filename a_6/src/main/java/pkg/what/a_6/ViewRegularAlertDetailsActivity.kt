@@ -5,21 +5,21 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import pkg.what.pq.R
-import pkg.what.pq.databinding.LayoutViewAlertDetailsBinding
+import pkg.what.pq.databinding.LayoutViewRegularAlertDetailsBinding
 
-class ViewAlertDetails : AppCompatActivity() {
-    private lateinit var bind: LayoutViewAlertDetailsBinding
+class ViewRegularAlertDetailsActivity : AppCompatActivity() {
+    private lateinit var bind: LayoutViewRegularAlertDetailsBinding
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
-        this.bind = LayoutViewAlertDetailsBinding.inflate(layoutInflater).also { setContentView(it.root) }
-        snack(getString(R.string.ui_view_alert_details))
+        this.bind = LayoutViewRegularAlertDetailsBinding.inflate(layoutInflater).also { setContentView(it.root) }
+        snack(getString(R.string.ui_view_regular_alert_details))
     }
 
     /** @desc file specific for short snackbar */
     private fun snack(msg: String) =
         Snackbar.make(
-            findViewById(R.id.layout_a6)
+            findViewById(R.id.layout_view_regular_alert_details)
             ,msg
             , Snackbar.LENGTH_SHORT)
             .setTextColor(getColor(R.color.colorLight))
