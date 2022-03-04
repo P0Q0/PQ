@@ -1,7 +1,8 @@
 * README *
 
 * module a_0 layers *
-```data
+```md
+data
  -io
   -disk
   -network
@@ -17,7 +18,8 @@ domain
 ui
  -notifications
  -view
-utils```
+utils
+```
 
 module a_0
 : TODO: module a_o readme.md
