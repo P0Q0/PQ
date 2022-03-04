@@ -1,6 +1,33 @@
 * README *
-Note this project is following a specific requirement that might not require the "latest" practices,
-but as a further improvement, the following could be added to "modernize" the application:
+
+core
+: modules, manifest, gradle
+
+module a_0
+: TODO: module a_o readme.md
+
+module a_1
+: kotlin, activity lifecycle, states, shared preferences, io: memory and disk, lambdas, ui binding, logging
+
+module a_2
+: runtime permissions, external storage, internal storage, ui interfacing, sdk aware
+
+module a_3
+: google api, synchronous calls, ui listeners, debugging
+
+module a_4
+: network data, asynchronous calls, data structures, serialization, lifecycle scope, coroutines, dispatchers,
+ tokenization, json, parsers, lazy and val, mutability, bitmaps, extensions, scope functions, mvc design pattern
+
+module a_5
+: recycler view strategy: adapter pattern and view holder pattern, material design,
+
+module a_6
+: notifications, notify types, grammar: sealed, typealias, object, data, interface, channels, sdk versioning,
+ inheritance, encapsulation, abstraction, polymorphism, intents: explicit and implicit, custom api
+
+* Note *
+ * The following could be added to "modernize" the application: *
 -migrate to abstraction with core support for inheritable data
 -migrate to some form of architecture with agreed sdk and api
 -migrate to design patterns such as an mvc variations mvvm
@@ -14,6 +41,9 @@ but as a further improvement, the following could be added to "modernize" the ap
 -support ci/cd
 -support code quality alerts by lint
 -support isolate toolkit for generic api (shared preferences,firebase,permissions,etc.)
+
+* Note *
+ * Roadmap for new features by module: *
 -module a1, fab button to clear shared preferences, fab button to invoke dialog and see ui further, foreground background
 -module a2, observers to reflect available permissions, improve permissions workflow with dialogs, add external storage uiIF,
 add clear permissions ui reset individual permissions, add clear all permissions ui to reset all permissions,
