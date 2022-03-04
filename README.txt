@@ -1,7 +1,23 @@
 * README *
 
-core
-: modules, manifest, gradle
+* module a_0 layers *
+```data
+ -io
+  -disk
+  -network
+ -model
+domain
+ -config
+ -controller
+ -core
+ -pref
+  -constants
+  -di
+ -settings
+ui
+ -notifications
+ -view
+utils```
 
 module a_0
 : TODO: module a_o readme.md
@@ -35,6 +51,9 @@ module a_7
 
 module a_8
 : TODO:  module a_8, fragments
+
+entire entity
+: modules, manifest, gradle
 
 * Note about modernization *
  * The following could be added to "modernize" the application: *
