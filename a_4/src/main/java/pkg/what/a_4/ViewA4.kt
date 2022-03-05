@@ -24,14 +24,9 @@ class ViewA4 : AppCompatActivity() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         this.bind = LayoutA4Binding.inflate(layoutInflater).also { setContentView(it.root) }
-        Snackbar.make(
-            findViewById(R.id.layout_a4)
-            ,getString(R.string.purpose_a4)
-            ,Snackbar.LENGTH_SHORT)
-            .setTextColor(getColor(R.color.colorLight))
-            .setAction(getString(R.string.sb_dismiss))
-            { Log.d(LOG_DEBUG_TAG,"$localClassName , ${resources.getString(R.string.sb_on_click)}") }
-            .show()
+        snack(
+            R.string.purpose_a4
+            ,"$localClassName , ${resources.getString(R.string.sb_on_click)}")
         setListeners()
     }
 
@@ -84,9 +79,21 @@ class ViewA4 : AppCompatActivity() {
         { Log.d(LOG_DEBUG_TAG,"$localClassName , ${resources.getString(R.string.sb_on_click)}") }
         .show()
 
+    /** @desc file specific for short snackbar */
+    private fun snack(ui_msg: Int, log_msg: String) =
+        Snackbar.make(
+            findViewById(R.id.layout_a4)
+            ,getString(ui_msg)
+            , Snackbar.LENGTH_SHORT)
+            .setTextColor(getColor(R.color.colorLight))
+            .setAction(getString(R.string.sb_dismiss))
+            { Log.d(LOG_INFO_TAG,log_msg) }
+            .show()
+
     /** @desc file specific definitions, states, logging, strings */
     companion object{
         const val LOG_DEBUG_TAG = "VIEW_A4_DEBUG_TAG"
+        const val LOG_INFO_TAG = "VIEW_A4_INFO_TAG"
         const val LOG_NET_CALLED = "after network call succeeded"
         const val LOG_USER_MODEL = "ModelA4.UserModel"
         const val LOG_IMAGE_MODEL = "ModelA4.ImageModel"

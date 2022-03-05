@@ -140,6 +140,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:elevation="7dp"
         app:elevation="7dp"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pq_a9"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="@string/pq_a9"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorDark"
+        android:backgroundTint="@color/colorLight"
+        android:tooltipText="@string/a_9_tool_tip"
+        app:layout_constraintTop_toBottomOf="@+id/pq_a8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="7dp"
+        app:elevation="7dp"/>
     <ProgressBar
         android:id="@+id/pq_progress_bar"
         android:layout_width="wrap_content"

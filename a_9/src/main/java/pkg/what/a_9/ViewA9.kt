@@ -1,33 +1,27 @@
-package pkg.what.a_0.ui.view
+package pkg.what.a_9
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import pkg.what.pq.R
-import pkg.what.pq.databinding.LayoutA0Binding
+import pkg.what.pq.databinding.LayoutA9Binding
 
-/** @desc  TODO:ViewPQ */
-class ViewPQ : AppCompatActivity() {
-    private lateinit var bind: LayoutA0Binding
+class ViewA9 : AppCompatActivity() {
+    private lateinit var bind: LayoutA9Binding
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
-        this.bind = LayoutA0Binding.inflate(layoutInflater).also { setContentView(it.root) }
+        this.bind = LayoutA9Binding.inflate(layoutInflater).also { setContentView(it.root) }
         snack(
-            R.string.purpose_a0
+            R.string.purpose_a9
             ,"$localClassName , ${resources.getString(R.string.sb_on_click)}")
-        setListeners()
-    }
-
-    private fun setListeners(){
-        //TODO: setListeners ViewA0
     }
 
     /** @desc file specific for short snackbar */
     private fun snack(ui_msg: Int, log_msg: String) =
         Snackbar.make(
-            findViewById(R.id.layout_a0)
+            findViewById(R.id.layout_a9)
             ,getString(ui_msg)
             , Snackbar.LENGTH_SHORT)
             .setTextColor(getColor(R.color.colorLight))
@@ -36,8 +30,8 @@ class ViewPQ : AppCompatActivity() {
             .show()
 
     /** @desc file specific definitions, states, logging, strings */
-    companion object{
-        const val LOG_DEBUG_TAG = "VIEW_PQ_A0_DEBUG_TAG"
-        const val LOG_INFO_TAG = "VIEW_PQ_A0_INFO_TAG"
+    companion object {
+        const val LOG_DEBUG_TAG = "VIEW_A9_DEBUG_TAG"
+        const val LOG_INFO_TAG = "VIEW_A9_INFO_TAG"
     }
 }

@@ -56,8 +56,11 @@ utils
 ##### *** module a_8 ***
     : TODO:  module a_8, fragments
 
-##### *** entire entity ***
-    : modules, manifest, gradle
+##### *** module a_9 ***
+    : debugging tools: logcat & adb, for, forensics and analysis: logs, bugs, and crashes
+
+##### *** module_app ***
+    :  manifest, gradle, dynamic feature modules, resources: layouts, values, and themes
 
 ##### *** Note about modernization ***
 ###### **** The following could be added to "modernize" the application: ****
@@ -89,7 +92,9 @@ utils
     finish dev on different types of notifications including wearables, support for legacy sdks
     -module a7: TODO: readme.md,A7 cameraX
     -module a8: TODO: readme.md,A8 fragments
+    -module a9: TODO: readme.md,A9 debug
     -module a0, TODO: readme.md,A0
+    -module app, recycler with grid displaying items that'll invoke unique features
 
 ##### *** Note about libraries ***
 ###### **** Libraries that were used: ****

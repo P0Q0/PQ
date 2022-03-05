@@ -27,14 +27,9 @@ class ViewA1 : AppCompatActivity() {
         this.stashedMemory = state?.getString(STATE_MEMORY_STASH).toString()
         this.stashedDisk = state?.getString(STATE_DISK_STASH).toString()
         this.bind = LayoutA1Binding.inflate(layoutInflater).also { setContentView(it.root) }
-        Snackbar.make(
-            findViewById(R.id.layout_a1)
-            ,getString(R.string.purpose_a1)
-            ,Snackbar.LENGTH_SHORT)
-            .setTextColor(getColor(R.color.colorLight))
-            .setAction(getString(R.string.sb_dismiss))
-            { Log.d(LOG_DEBUG_TAG,"$localClassName , ${resources.getString(R.string.sb_on_click)}") }
-            .show()
+        snack(
+            R.string.purpose_a1
+            ,"$localClassName , ${resources.getString(R.string.sb_on_click)}")
         setListeners()
     }
 
@@ -131,6 +126,17 @@ class ViewA1 : AppCompatActivity() {
             }
         })
     }
+
+    /** @desc file specific for short snackbar */
+    private fun snack(ui_msg: Int, log_msg: String) =
+        Snackbar.make(
+            findViewById(R.id.layout_a1)
+            ,getString(ui_msg)
+            , Snackbar.LENGTH_SHORT)
+            .setTextColor(getColor(R.color.colorLight))
+            .setAction(getString(R.string.sb_dismiss))
+            { Log.d(LOG_INFO_TAG,log_msg) }
+            .show()
 
     /** @desc file specific definitions, states, logging, strings */
     companion object {

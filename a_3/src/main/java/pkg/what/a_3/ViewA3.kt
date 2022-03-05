@@ -39,14 +39,9 @@ class ViewA3 : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         this.bind = LayoutA3Binding.inflate(layoutInflater).also { setContentView(it.root) }
-        Snackbar.make(
-            findViewById(R.id.layout_a3)
-            ,getString(R.string.purpose_a3)
-            ,Snackbar.LENGTH_SHORT)
-            .setTextColor(getColor(R.color.colorLight))
-            .setAction(getString(R.string.sb_dismiss))
-            { Log.d(LOG_DEBUG_TAG,"$localClassName , ${resources.getString(R.string.sb_on_click)}") }
-            .show()
+        snack(
+            R.string.purpose_a3
+            ,"$localClassName , ${resources.getString(R.string.sb_on_click)}")
         register()
         setUi()
     }
@@ -181,6 +176,17 @@ class ViewA3 : AppCompatActivity(), View.OnClickListener {
                 ,Toast.LENGTH_SHORT).show()
         }
     }
+
+    /** @desc file specific for short snackbar */
+    private fun snack(ui_msg: Int, log_msg: String) =
+        Snackbar.make(
+            findViewById(R.id.layout_a3)
+            ,getString(ui_msg)
+            , Snackbar.LENGTH_SHORT)
+            .setTextColor(getColor(R.color.colorLight))
+            .setAction(getString(R.string.sb_dismiss))
+            { Log.d(LOG_INFO_TAG,log_msg) }
+            .show()
 
     /** @desc file specific definitions, states, logging, strings */
     companion object{

@@ -15,14 +15,9 @@ class ViewA5 : AppCompatActivity() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         this.bind = LayoutA5Binding.inflate(layoutInflater).also { setContentView(it.root) }
-        Snackbar.make(
-            findViewById(R.id.layout_a5)
-            ,getString(R.string.purpose_a5)
-            ,Snackbar.LENGTH_SHORT)
-            .setTextColor(getColor(R.color.colorLight))
-            .setAction(getString(R.string.sb_dismiss))
-            { Log.d(LOG_DEBUG_TAG,"$localClassName , ${resources.getString(R.string.sb_on_click)}") }
-            .show()
+        snack(
+            R.string.purpose_a5
+            ,"$localClassName , ${resources.getString(R.string.sb_on_click)}")
         setupData()
         setupUi()
     }
@@ -36,9 +31,21 @@ class ViewA5 : AppCompatActivity() {
         bind.a5Rv.adapter = CardAdapter(source)
     }
 
+    /** @desc file specific for short snackbar */
+    private fun snack(ui_msg: Int, log_msg: String) =
+        Snackbar.make(
+            findViewById(R.id.layout_a5)
+            ,getString(ui_msg)
+            , Snackbar.LENGTH_SHORT)
+            .setTextColor(getColor(R.color.colorLight))
+            .setAction(getString(R.string.sb_dismiss))
+            { Log.d(LOG_INFO_TAG,log_msg) }
+            .show()
+
     /** @desc file specific definitions, states, logging, strings */
     companion object{
         const val LOG_DEBUG_TAG = "VIEW_A5_DEBUG_TAG"
+        const val LOG_INFO_TAG = "VIEW_A5_INFO_TAG"
         const val BUTTON_SNACK_MSG = "CardAdapter.ViewHolder"
     }
 }

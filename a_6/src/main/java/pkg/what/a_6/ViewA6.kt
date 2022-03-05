@@ -163,7 +163,8 @@ class ViewA6 : AppCompatActivity() {
 
     /** @desc file specific definitions, states, logging, strings */
     companion object{
-        const val LOG_DEBUG_TAG = "VIEW_A6_DEBUG_TAG"
+        const val LOG_DEBUG_TAG = "VIEW_A9_DEBUG_TAG"
+        const val LOG_INFO_TAG = "VIEW_A9_INFO_TAG"
         const val CHANNEL_ID_UI = "0x00"
         const val CHANNEL_ID_STATUS_BAR = "0x01"
         const val CHANNEL_ID_HEADS_UP = "0x02"
