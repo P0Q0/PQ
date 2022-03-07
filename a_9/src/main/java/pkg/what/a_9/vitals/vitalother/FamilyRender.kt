@@ -6,7 +6,7 @@ import pkg.what.a_9.vitals.VitalType
 import java.util.logging.Logger
 
 class FamilyRender : VitalFamily() {
-    override val type: VitalType by lazy { VitalType.CoreGroup(javaClass.name) }
+    override val type: VitalType by lazy { VitalType.OtherGroup(javaClass.name) }
     override val log: Int = Log.d(LOG_CLASS_TAG, LOG_CLASS_MSG)
     override val logger: Logger = Logger.getLogger(FamilyRender::javaClass.name)
 
