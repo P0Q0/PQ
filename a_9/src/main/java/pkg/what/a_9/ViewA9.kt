@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import pkg.what.a_9.vitals.VitalTools
 import pkg.what.a_9.vitals.vitalcore.FamilyANR
 import pkg.what.a_9.vitals.vitalcore.FamilyCrash
 import pkg.what.a_9.vitals.vitalother.FamilyRender
@@ -19,6 +20,10 @@ class ViewA9 : AppCompatActivity() {
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
+
+        /** @note, enable vital tools to monitor/catch anr culprits **/
+        VitalTools()
+
         this.bind = LayoutA9Binding.inflate(layoutInflater).also { setContentView(it.root) }
         snack(
             R.string.purpose_a9
