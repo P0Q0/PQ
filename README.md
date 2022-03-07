@@ -27,7 +27,7 @@ utils
     : TODO: module a_o readme.md
     : TODO: single activity, navigation graph,
     : TODO: dependency injection, mockito, espresso, junit,
-    : TODO: retrofit, moshi, work manager, live data
+    : TODO: retrofit, moshi, work manager, room, live data
     : TODO: mvvm design pattern, architecture components
 
 ##### *** module a_1 ***
@@ -92,7 +92,7 @@ utils
     finish dev on different types of notifications including wearables, support for legacy sdks
     -module a7: TODO: readme.md,A7 cameraX
     -module a8: TODO: readme.md,A8 fragments
-    -module a9: TODO: readme.md,A9 debug
+    -module a9, dev for each type of vital, grid view for section title and section items
     -module a0, TODO: readme.md,A0
     -module app, recycler with grid displaying items that'll invoke unique features
 

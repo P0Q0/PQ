@@ -121,6 +121,10 @@
     <string name="ui_notifications">Notifications</string>
     <string name="ui_view_regular_alert_details">View Regular Alert Details</string>
     <string name="ui_view_special_alert_details">View Special Alert Details</string>
+    <!-- ui notifications -->
+    <string name="debug_anr_vital">Vital: ANR</string>
+    <string name="debug_render_vital">Vital: Render</string>
+    <string name="debug_crash_vital">Vital: Crash</string>
     <!--data string tools -->
     <string name="is_empty">""</string>
     <string name="remote_source_image_view_description">an image pulled from a remote source</string>

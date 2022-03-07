@@ -4,8 +4,15 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import pkg.what.a_9.vitals.vitalcore.FamilyANR
+import pkg.what.a_9.vitals.vitalcore.FamilyCrash
+import pkg.what.a_9.vitals.vitalother.FamilyRender
 import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutA9Binding
+
+/**
+ *  @WARNING use of this class should be done with care, it *will* cause BAD behavior.
+ **/
 
 class ViewA9 : AppCompatActivity() {
     private lateinit var bind: LayoutA9Binding
@@ -16,6 +23,13 @@ class ViewA9 : AppCompatActivity() {
         snack(
             R.string.purpose_a9
             ,"$localClassName , ${resources.getString(R.string.sb_on_click)}")
+        setListeners()
+    }
+
+    private fun setListeners(){
+        bind.a9DeadlockBtn.setOnClickListener { FamilyANR(this) }
+        bind.a9LinearlayoutBtn.setOnClickListener { FamilyRender() }
+        bind.a9NpeBtn.setOnClickListener { FamilyCrash() }
     }
 
     /** @desc file specific for short snackbar */
