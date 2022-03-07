@@ -124,7 +124,7 @@ utils
 
 [METADATA](https://github.com/P0Q0/PQ/tree/main/metadata "See Metadata") where data about data exists, usually text files and binaries
 
-[RECORDINGS](https://github.com/P0Q0/PQ/tree/main/media/screenrecordings "See Recrodings") where a video walkthrough exists, usually gifs 
+[RECORDINGS](https://github.com/P0Q0/PQ/tree/main/media/screenrecordings "See Recordings") where a video walkthrough exists, usually gifs 
 
 ##### *** media ***
 ### module a_9, debug anr using adb, rootcause: deadlock
