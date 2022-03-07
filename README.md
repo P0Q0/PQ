@@ -121,9 +121,13 @@ utils
 
 
 ##### *** module a_9 debug supplemental ***
-    METADATA: /...
-    RECORDINGS: /...
 
-##### *** recordings ***
-### module a_9, debug anr using adb
-[GIF_LINK]
+[METADATA](https://github.com/P0Q0/PQ/tree/main/metadata "See Metadata") where data about data exists, usually text files and binaries
+
+[RECORDINGS](https://github.com/P0Q0/PQ/tree/main/media/screenrecordings "See Recrodings") where a video walkthrough exists, usually gifs 
+
+##### *** media ***
+### module a_9, debug anr using adb, rootcause: deadlock
+<p>
+<img align="left" src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/pq_p9_anr_thread_deadlock.gif" width="750" height="350">
+</p>
