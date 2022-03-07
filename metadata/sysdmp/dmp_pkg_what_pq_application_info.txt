@@ -1,0 +1,196 @@
+##### THIS DUMPSYS WAS CAPTURED BY RUNNING:
+    ##### reproduce: dumpsys package pkg.what.pq > /storage/self/primary/Download/dmp_pkg_what_pq_application_info.txt
+        ##### file location: /storage/self/primary/Download/
+            ##### file type: .txt
+
+Activity Resolver Table:
+  Non-Data Actions:
+      android.intent.action.MAIN:
+        7d98002 pkg.what.pq/.ActivityPQ filter 284d13
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.LAUNCHER"
+      android.intent.action.View:
+        856cb50 pkg.what.pq/pkg.what.a_0.ui.view.ViewPQ filter ec72149
+          Action: "android.intent.action.View"
+        e639a4e pkg.what.pq/pkg.what.a_1.ViewA1 filter fc0a76f
+          Action: "android.intent.action.View"
+        6e54c7c pkg.what.pq/pkg.what.a_2.ViewA2 filter d78905
+          Action: "android.intent.action.View"
+        6630d5a pkg.what.pq/pkg.what.a_3.ViewA3 filter 3da4b8b
+          Action: "android.intent.action.View"
+        f78b468 pkg.what.pq/pkg.what.a_4.ViewA4 filter dccb081
+          Action: "android.intent.action.View"
+        2b4a526 pkg.what.pq/pkg.what.a_5.ViewA5 filter 2a01567
+          Action: "android.intent.action.View"
+        958af14 pkg.what.pq/pkg.what.a_6.ViewA6 filter d92d3bd
+          Action: "android.intent.action.View"
+        535edb2 pkg.what.pq/pkg.what.a_6.ViewRegularAlertDetailsActivity filter ea103
+          Action: "android.intent.action.View"
+        69ba880 pkg.what.pq/pkg.what.a_6.ViewSpecialAlertDetailsActivity filter 9deeb9
+          Action: "android.intent.action.View"
+        e1132fe pkg.what.pq/pkg.what.a_7.ViewA7 filter 9504a5f
+          Action: "android.intent.action.View"
+        252ccac pkg.what.pq/pkg.what.a_8.ViewA8 filter a5bd75
+          Action: "android.intent.action.View"
+        3c9810a pkg.what.pq/pkg.what.a_9.ViewA9 filter 9d92d7b
+          Action: "android.intent.action.View"
+        5760798 pkg.what.pq/pkg.what.a_0.ui.view.ViewPQ filter 121bbf1
+          Action: "android.intent.action.View"
+        6a3d6 pkg.what.pq/pkg.what.a_1.ViewA1 filter 6432657
+          Action: "android.intent.action.View"
+        e900544 pkg.what.pq/pkg.what.a_2.ViewA2 filter b85262d
+          Action: "android.intent.action.View"
+        d212762 pkg.what.pq/pkg.what.a_3.ViewA3 filter 8e9d0f3
+          Action: "android.intent.action.View"
+        82a31b0 pkg.what.pq/pkg.what.a_4.ViewA4 filter 33af829
+          Action: "android.intent.action.View"
+        6e57ae pkg.what.pq/pkg.what.a_5.ViewA5 filter c46894f
+          Action: "android.intent.action.View"
+        9f8b8dc pkg.what.pq/pkg.what.a_6.ViewA6 filter d61ede5
+          Action: "android.intent.action.View"
+        d4c40ba pkg.what.pq/pkg.what.a_6.ViewRegularAlertDetailsActivity filter f0c6b6b
+          Action: "android.intent.action.View"
+        c686c8 pkg.what.pq/pkg.what.a_6.ViewSpecialAlertDetailsActivity filter 8488361
+          Action: "android.intent.action.View"
+        cedae86 pkg.what.pq/pkg.what.a_7.ViewA7 filter e045347
+          Action: "android.intent.action.View"
+        9214774 pkg.what.pq/pkg.what.a_8.ViewA8 filter ea8f49d
+          Action: "android.intent.action.View"
+        6e62d12 pkg.what.pq/pkg.what.a_9.ViewA9 filter fa8dce3
+          Action: "android.intent.action.View"
+
+Registered ContentProviders:
+  pkg.what.pq/androidx.startup.InitializationProvider:
+    Provider{3512a0a pkg.what.pq/androidx.startup.InitializationProvider}
+  pkg.what.pq/com.squareup.picasso.PicassoProvider:
+    Provider{21a227b pkg.what.pq/com.squareup.picasso.PicassoProvider}
+
+ContentProvider Authorities:
+  [pkg.what.pq.com.squareup.picasso]:
+    Provider{21a227b pkg.what.pq/com.squareup.picasso.PicassoProvider}
+      applicationInfo=ApplicationInfo{b800640 pkg.what.pq}
+  [pkg.what.pq.androidx-startup]:
+    Provider{3512a0a pkg.what.pq/androidx.startup.InitializationProvider}
+      applicationInfo=ApplicationInfo{cea5979 pkg.what.pq}
+
+Key Set Manager:
+  [pkg.what.pq]
+      Signing KeySets: 13
+
+Packages:
+  Package [pkg.what.pq] (adfdcd6):
+    userId=10121
+    pkg=Package{a1e6b57 pkg.what.pq}
+    codePath=/data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==
+    resourcePath=/data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==
+    legacyNativeLibraryDir=/data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/lib
+    primaryCpuAbi=null
+    secondaryCpuAbi=null
+    versionCode=1 minSdk=30 targetSdk=31
+    versionName=1.0
+    splits=[base, a_0, a_1, a_2, a_3, a_4, a_5, a_6, a_7, a_8, a_9]
+    apkSigningVersion=2
+    applicationInfo=ApplicationInfo{a1e6b57 pkg.what.pq}
+    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA TEST_ONLY ALLOW_BACKUP ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    forceQueryable=false
+    queriesPackages=[]
+    dataDir=/data/user/0/pkg.what.pq
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2022-03-07 12:54:03
+    firstInstallTime=2022-03-07 12:02:54
+    lastUpdateTime=2022-03-07 12:54:03
+    signatures=PackageSignatures{ff26644 version:2, signatures:[5b97f3c8], past signatures:[]}
+    installPermissionsFixed=true
+    pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA TEST_ONLY ALLOW_BACKUP ]
+    requested permissions:
+      android.permission.INTERNET
+      android.permission.FOREGROUND_SERVICE
+      android.permission.READ_EXTERNAL_STORAGE: restricted=true
+      android.permission.WRITE_EXTERNAL_STORAGE: restricted=true
+    install permissions:
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.INTERNET: granted=true
+    User 0: ceDataInode=123431 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false
+    overlay paths:
+      /product/overlay/DisplayCutoutEmulationEmu01/DisplayCutoutEmulationEmu01Overlay.apk
+      gids=[3003]
+      runtime permissions:
+        android.permission.READ_EXTERNAL_STORAGE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT]
+        android.permission.WRITE_EXTERNAL_STORAGE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT]
+
+Queries:
+  system apps queryable: false
+  queries via package name:
+  queries via intent:
+  queryable via interaction:
+    User 0:
+      [com.android.server.telecom,android,com.android.location.fused,com.android.settings,com.android.localtransport,com.android.dynsystem,com.android.keychain,com.android.wallpaperbackup,com.android.providers.settings,com.android.inputdevices,com.android.emulator.multidisplay]:
+        pkg.what.pq
+      com.android.inputmethod.latin:
+        pkg.what.pq
+
+Package Changes:
+  Sequence number=301
+  User 0:
+    seq=0, package=com.android.permissioncontroller
+    seq=1, package=com.android.systemui
+    seq=3, package=com.google.android.sdksetup
+    seq=4, package=com.android.provision
+    seq=5, package=com.android.cellbroadcastreceiver.module
+    seq=25, package=com.android.messaging
+    seq=83, package=com.android.settings
+    seq=145, package=com.android.calendar
+    seq=148, package=com.google.android.gsf
+    seq=151, package=com.android.camera2
+    seq=152, package=com.android.gallery3d
+    seq=153, package=com.android.inputmethod.latin
+    seq=160, package=com.android.nfc
+    seq=178, package=com.android.stk
+    seq=181, package=com.android.traceur
+    seq=245, package=com.google.android.apps.maps
+    seq=298, package=com.google.android.gms
+    seq=300, package=pkg.what.pq
+
+
+Dexopt state:
+  [pkg.what.pq]
+    path: /data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/base.apk
+      x86: [status=run-from-apk] [reason=unknown]
+    path: /data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/split_a_0.apk
+      x86: [status=run-from-apk] [reason=unknown]
+    path: /data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/split_a_1.apk
+      x86: [status=run-from-apk] [reason=unknown]
+    path: /data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/split_a_2.apk
+      x86: [status=run-from-apk] [reason=unknown]
+    path: /data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/split_a_3.apk
+      x86: [status=run-from-apk] [reason=unknown]
+    path: /data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/split_a_4.apk
+      x86: [status=run-from-apk] [reason=unknown]
+    path: /data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/split_a_5.apk
+      x86: [status=run-from-apk] [reason=unknown]
+    path: /data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/split_a_6.apk
+      x86: [status=run-from-apk] [reason=unknown]
+    path: /data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/split_a_7.apk
+      x86: [status=run-from-apk] [reason=unknown]
+    path: /data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/split_a_8.apk
+      x86: [status=run-from-apk] [reason=unknown]
+    path: /data/app/~~aT1J6k5lA_V3Y9RHaSSBsA==/pkg.what.pq-pBH3sAlHR80fasrGVFO6Ng==/split_a_9.apk
+      x86: [status=run-from-apk] [reason=unknown]
+
+
+Compiler stats:
+  [pkg.what.pq]
+    (No recorded stats)
+
+APEX session state:
+
+Active APEX packages:
+
+
+Inactive APEX packages:
+
+
+Factory APEX packages:
+
+

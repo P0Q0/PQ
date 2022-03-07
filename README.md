@@ -118,3 +118,12 @@ utils
     'compileSdk'        : 31,
     'minSdk'            : 30,
     'targetSdk'         : 31,
+
+
+##### *** module a_9 debug supplemental ***
+    METADATA: /...
+    RECORDINGS: /...
+
+##### *** recordings ***
+### module a_9, debug anr using adb
+[GIF_LINK]
