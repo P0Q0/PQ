@@ -83,12 +83,13 @@ class ViewLogin : Fragment(), View.OnClickListener {
 
     private fun reflectUi(account: GoogleSignInAccount?){
         if(account != null){
+            Toast.makeText(requireContext(),SIGN_IN_TAG,Toast.LENGTH_SHORT).show()
             bind.a0GoogleSignInBtn.visibility = View.GONE
             bind.a0GoogleSignOutBtn.visibility = View.VISIBLE
             debugSnack(account)
-
             navCntrl?.navigate(R.id.nav_fragment_a0_display)
         } else {
+            Toast.makeText(requireContext(), SIGN_OUT_TAG,Toast.LENGTH_SHORT).show()
             bind.a0GoogleSignInBtn.visibility = View.VISIBLE
             bind.a0GoogleSignOutBtn.visibility = View.GONE
             debugSnack(account)
@@ -142,7 +143,7 @@ class ViewLogin : Fragment(), View.OnClickListener {
         if(v != null) {
             when (v.id) {
                 R.id.a0_google_sign_in_btn -> { fireSignIn() }
-                R.id.a0_google_sign_out_btn -> { fireSignOut() }
+                R.id.a0_google_sign_out_btn -> { fireRevoke() }
             }
         } else {
             Toast.makeText(requireContext()
@@ -163,8 +164,20 @@ class ViewLogin : Fragment(), View.OnClickListener {
     }
 
     private fun fireSignOut(){
-        gsc?.signOut()?.addOnCompleteListener(requireActivity(), object : OnCompleteListener<Void?> {
-            override fun onComplete(p0: Task<Void?>) {
+        fireGoogleSignInConfigurationStage()
+        fireGoogleSignInBuildClientStage()
+        gsc?.signOut()?.addOnCompleteListener(requireActivity(), object : OnCompleteListener<Void> {
+            override fun onComplete(p0: Task<Void>) {
+                reflectUi(null)
+            }
+        })
+    }
+
+    private fun fireRevoke(){
+        fireGoogleSignInConfigurationStage()
+        fireGoogleSignInBuildClientStage()
+        gsc?.revokeAccess()?.addOnCompleteListener(requireActivity(), object : OnCompleteListener<Void> {
+            override fun onComplete(p0: Task<Void>) {
                 reflectUi(null)
             }
         })
@@ -211,6 +224,7 @@ class ViewLogin : Fragment(), View.OnClickListener {
         const val LOG_DEBUG_TAG = "A0_VIEW_LOGIN_DEBUG_TAG"
         const val LOG_INFO_TAG = "A0_VIEW_LOGIN_INFO_TAG"
         const val SIGN_IN_TAG = "SignInActivity"
+        const val SIGN_OUT_TAG = "SignOutActivity"
         const val RESULT_CODE_SIGN_IN = 9001
         const val RESULT_CODE_SIGN_OUT = 9002
         const val UI_SNACK_HEIGHT = 500

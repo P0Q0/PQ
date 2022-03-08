@@ -79,10 +79,12 @@ class ViewA3 : AppCompatActivity(), View.OnClickListener {
 
     private fun reflectUi(account: GoogleSignInAccount?){
         if(account != null){
+            Toast.makeText(this, SIGN_IN_TAG,Toast.LENGTH_SHORT).show()
             bind.a3GoogleSignInBtn.visibility = View.GONE
             bind.a3GoogleSignOutBtn.visibility = View.VISIBLE
             debugSnack(account)
         } else {
+            Toast.makeText(this, SIGN_OUT_TAG,Toast.LENGTH_SHORT).show()
             bind.a3GoogleSignInBtn.visibility = View.VISIBLE
             bind.a3GoogleSignOutBtn.visibility = View.GONE
             debugSnack(account)
@@ -93,7 +95,7 @@ class ViewA3 : AppCompatActivity(), View.OnClickListener {
         if(v != null) {
             when (v.id) {
                 R.id.a3_google_sign_in_btn -> { fireSignIn() }
-                R.id.a3_google_sign_out_btn -> { fireSignOut() }
+                R.id.a3_google_sign_out_btn -> { fireRevoke() }
             }
         } else {
             Toast.makeText(this
@@ -114,7 +116,19 @@ class ViewA3 : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun fireSignOut(){
+        fireGoogleSignInConfigurationStage()
+        fireGoogleSignInBuildClientStage()
         gsc?.signOut()?.addOnCompleteListener(this, object : OnCompleteListener<Void?> {
+            override fun onComplete(p0: Task<Void?>) {
+                reflectUi(null)
+            }
+        })
+    }
+
+    private fun fireRevoke(){
+        fireGoogleSignInConfigurationStage()
+        fireGoogleSignInBuildClientStage()
+        gsc?.revokeAccess()?.addOnCompleteListener(this, object : OnCompleteListener<Void?> {
             override fun onComplete(p0: Task<Void?>) {
                 reflectUi(null)
             }
@@ -191,6 +205,7 @@ class ViewA3 : AppCompatActivity(), View.OnClickListener {
         const val LOG_DEBUG_TAG = "VIEW_A3_DEBUG_TAG"
         const val LOG_INFO_TAG ="VIEW_A3_INFO_TAG"
         const val SIGN_IN_TAG = "SignInActivity"
+        const val SIGN_OUT_TAG = "SignOutActivity"
         const val RESULT_CODE_SIGN_IN = 9001
         const val RESULT_CODE_SIGN_OUT = 9002
     }
