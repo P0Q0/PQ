@@ -72,7 +72,7 @@ class ViewA4 : AppCompatActivity() {
         findViewById(R.id.layout_a4)
         , "$LOG_NET_CALLED and returned a $who"
         , Snackbar.LENGTH_SHORT)
-        .setTextColor(getColor(R.color.colorLight))
+        .setTextColor(getColor(R.color.colorDark))
         .setAction(getString(R.string.sb_dismiss))
         { Log.d(LOG_DEBUG_TAG,"$localClassName , ${resources.getString(R.string.sb_on_click)}") }
         .show()
@@ -83,7 +83,7 @@ class ViewA4 : AppCompatActivity() {
             findViewById(R.id.layout_a4)
             ,getString(ui_msg)
             , Snackbar.LENGTH_SHORT)
-            .setTextColor(getColor(R.color.colorLight))
+            .setTextColor(getColor(R.color.colorDark))
             .setAction(getString(R.string.sb_dismiss))
             { Log.d(LOG_INFO_TAG,log_msg) }
             .show()

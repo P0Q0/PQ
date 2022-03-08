@@ -246,7 +246,7 @@ class ViewA2 : AppCompatActivity() {
             findViewById(R.id.layout_a2)
             ,getString(ui_msg)
             ,Snackbar.LENGTH_SHORT)
-            .setTextColor(getColor(R.color.colorLight))
+            .setTextColor(getColor(R.color.colorDark))
             .setAction(getString(R.string.sb_dismiss))
             { Log.d(LOG_INFO_TAG,log_msg) }
             .show()
@@ -257,7 +257,7 @@ class ViewA2 : AppCompatActivity() {
             findViewById(R.id.layout_a2)
             ,getString(ui_msg)
             ,Snackbar.LENGTH_INDEFINITE)
-            .setTextColor(getColor(R.color.colorLight))
+            .setTextColor(getColor(R.color.colorDark))
             .setAction(getString(R.string.sb_dismiss)) {
                 ActivityCompat.requestPermissions(this,per,req)
             }.show()

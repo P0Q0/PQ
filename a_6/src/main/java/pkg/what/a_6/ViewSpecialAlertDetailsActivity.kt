@@ -22,7 +22,7 @@ class ViewSpecialAlertDetailsActivity : AppCompatActivity() {
             findViewById(R.id.layout_view_special_alert_details)
             ,msg
             , Snackbar.LENGTH_SHORT)
-            .setTextColor(getColor(R.color.colorLight))
+            .setTextColor(getColor(R.color.colorDark))
             .setAction(getString(R.string.sb_dismiss))
             { Log.d(ViewA6.LOG_DEBUG_TAG,"$localClassName , ${resources.getString(R.string.sb_on_click)}") }
             .show()

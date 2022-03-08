@@ -154,7 +154,7 @@ class ViewA6 : AppCompatActivity() {
             findViewById(R.id.layout_a6)
             ,msg
             ,Snackbar.LENGTH_SHORT)
-            .setTextColor(getColor(R.color.colorLight))
+            .setTextColor(getColor(R.color.colorDark))
             .setAction(getString(R.string.sb_dismiss))
             { Log.d(LOG_DEBUG_TAG,"$localClassName , ${resources.getString(R.string.sb_on_click)}") }
             .show()

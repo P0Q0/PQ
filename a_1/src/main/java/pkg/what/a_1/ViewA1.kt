@@ -133,7 +133,7 @@ class ViewA1 : AppCompatActivity() {
             findViewById(R.id.layout_a1)
             ,getString(ui_msg)
             , Snackbar.LENGTH_SHORT)
-            .setTextColor(getColor(R.color.colorLight))
+            .setTextColor(getColor(R.color.colorDark))
             .setAction(getString(R.string.sb_dismiss))
             { Log.d(LOG_INFO_TAG,log_msg) }
             .show()
