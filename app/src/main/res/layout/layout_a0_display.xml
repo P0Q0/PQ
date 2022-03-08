@@ -6,6 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLight">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/a0_display_rv"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:layout_constraintTop_toTopOf="@id/a0_display_gl05_h"
+        app:layout_constraintBottom_toBottomOf="@id/a0_display_gl85_h"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layoutManager="LinearLayoutManager"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/a0_display_sign_out_btn"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="Sign Out"
+        android:textColor="@color/colorDark"
+        android:backgroundTint="@color/colorLight"
+        app:layout_constraintTop_toTopOf="@id/a0_display_gl95_h"
+        app:layout_constraintBottom_toBottomOf="@+id/a0_display_gl95_h"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:elevation="7dp"
+        app:elevation="7dp"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/a0_display_gl25_v"
         android:layout_width="0dp"
@@ -25,6 +47,12 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.75"/>
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/a0_display_gl05_h"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05"/>
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/a0_display_gl25_h"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -42,4 +70,16 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.75"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/a0_display_gl85_h"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/a0_display_gl95_h"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

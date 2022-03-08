@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import pkg.what.a_0.data.io.network.DataSourceImages
+import pkg.what.a_0.data.io.network.DataSourceUsers
+import pkg.what.a_0.data.model.CardAdapter
 import pkg.what.a_0.domain.controller.ViewModelDisplay
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_CREATE_VIEW
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_VIEW_CREATED
@@ -34,6 +37,8 @@ class ViewDisplay : Fragment() {
         this.navCntrl = Navigation.findNavController(view)
 
         listenOnUiObservers()
+        setupData()
+        setupUi()
     }
 
     private fun listenOnUiObservers(){
@@ -41,6 +46,16 @@ class ViewDisplay : Fragment() {
             //TODO:ViewDisplay, ui updates on observer
             Log.d(LOG_DEBUG_TAG, "$users, in ${javaClass.name}")
         }
+    }
+
+    private fun setupData(){
+        //TODO: ViewDisplay, get the data, setupData
+    }
+
+    private fun setupUi(){
+        val source = DataSourceUsers() //TODO: ViewDisplay, package into a map of pairs, <ItemNumber, Pair<Source,Image>>
+        val images = DataSourceImages() //TODO: ViewDisplay, package into a map of pairs, <ItemNumber, Pair<Source,Image>>
+        bind.a0DisplayRv.adapter = CardAdapter(source)
     }
 
     /** @desc file specific definitions, states, logging, strings */
