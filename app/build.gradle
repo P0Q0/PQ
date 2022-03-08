@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -66,6 +67,9 @@ dependencies {
     api "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycle}"
     api "com.google.code.gson:gson:${versions.gson}"
     api "com.squareup.picasso:picasso:${versions.picasso}"
+    api "androidx.fragment:fragment-ktx:1.4.1"
+    api "androidx.navigation:navigation-fragment-ktx:${versions.navfragment}"
+    api "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
     testImplementation "junit:junit:${versions.junit}"
     androidTestImplementation "androidx.test.ext:junit:${versions.junitExt}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${versions.junitEspresso}"

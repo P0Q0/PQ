@@ -22,7 +22,18 @@ class ActivityPQ : AppCompatActivity() {
 
     private fun setListeners(){
         this.bind.pqA0.setOnClickListener {
-            Intent().setClassName(packageName, getString(R.string.class_a0)).also { startActivity(it) }
+            Intent().setClassName(packageName, getString(R.string.class_a0)).also {
+                /** @note, ensure backstack is cleared before proceeding
+                 * , either clear the top or run the logic, reset task or clear task
+                 * , single activity compliance, from here on out, only fragments, and this activity **/
+                it.flags =
+                    (Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK) xor
+                            Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(it)
+                this.finishAffinity()
+                this.finish()
+            }
         }
         this.bind.pqA1.setOnClickListener {
             Intent().setClassName(packageName, getString(R.string.class_a1)).also { startActivity(it) }

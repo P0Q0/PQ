@@ -2,52 +2,54 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layout_a0"
+    android:id="@+id/layout_a0_login"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_height="match_parent"
+    android:background="#abcabc">
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/a0_login_mtv_1"
+        android:text="@string/pq_a0_login"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/a0_login_gl75_h"
+        app:layout_constraintBottom_toBottomOf="@+id/a0_login_gl75_h"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph" />
+        app:layout_constraintRight_toRightOf="parent"/>
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/a0_gl25_v"
+        android:id="@+id/a0_login_gl25_v"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.25"/>
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/a0_gl50_v"
+        android:id="@+id/a0_login_gl50_v"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.50"/>
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/a0_gl75_v"
+        android:id="@+id/a0_login_gl75_v"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.75"/>
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/a0_gl25_h"
+        android:id="@+id/a0_login_gl25_h"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.25"/>
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/a0_gl50_h"
+        android:id="@+id/a0_login_gl50_h"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.50"/>
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/a0_gl75_h"
+        android:id="@+id/a0_login_gl75_h"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"

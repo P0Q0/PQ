@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutA0Binding
 
-/** @desc  TODO:ViewPQ */
+import pkg.what.pq.R
+
 class ViewPQ : AppCompatActivity() {
     private lateinit var bind: LayoutA0Binding
 
@@ -17,11 +17,6 @@ class ViewPQ : AppCompatActivity() {
         snack(
             R.string.purpose_a0
             ,"$localClassName , ${resources.getString(R.string.sb_on_click)}")
-        setListeners()
-    }
-
-    private fun setListeners(){
-        //TODO: setListeners ViewA0
     }
 
     /** @desc file specific for short snackbar */
@@ -30,7 +25,7 @@ class ViewPQ : AppCompatActivity() {
             findViewById(R.id.layout_a0)
             ,getString(ui_msg)
             , Snackbar.LENGTH_SHORT)
-            .setTextColor(getColor(R.color.colorLight))
+            .setTextColor(getColor(R.color.colorDark))
             .setAction(getString(R.string.sb_dismiss))
             { Log.d(LOG_INFO_TAG,log_msg) }
             .show()

@@ -39,6 +39,8 @@
     <string name="class_pq">pkg.what.pq.ActivityPQ</string>
     <!-- ui strings for elements -->
     <string name="pq_a0">String_A_0</string>
+    <string name="pq_a0_login">String_A_0_Login</string>
+    <string name="pq_a0_display">String_A_0_Display</string>
     <string name="pq_a1">String_A_1</string>
     <string name="pq_a2">String_A_2</string>
     <string name="pq_a3">String_A_3</string>
@@ -82,6 +84,8 @@
     <string name="sb_permission_unknown">PERMISSION: UNKNOWN</string>
     <!-- ui purpose strings for snackbar -->
     <string name="purpose_a0">Purpose: application pq</string>
+    <string name="purpose_a0_login">Purpose: Snack, login</string>
+    <string name="purpose_a0_display">Purpose: Snack, display</string>
     <string name="purpose_a1">Purpose: domain lifecycle &amp; states  </string>
     <string name="purpose_a2">Purpose: api permissions </string>
     <string name="purpose_a3">Purpose: sdk google sign-in &amp; oauth_2.0 </string>

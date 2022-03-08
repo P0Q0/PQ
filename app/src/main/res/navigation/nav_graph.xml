@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_fragment_a0_login">
+    <fragment
+        android:id="@+id/nav_activity_a0"
+        android:name="pkg.what.a_0.ui.view.ViewPQ"
+        android:label="Activity:ViewPQ"
+        tools:layout="@layout/layout_a0">
+        <action
+            android:id="@+id/action_nav_activity_a0"
+            app:destination="@id/nav_fragment_a0_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_fragment_a0_login"
+        android:name="pkg.what.a_0.ui.view.ViewLogin"
+        android:label="Fragment:ViewLogin"
+        tools:layout="@layout/layout_a0_login">
+        <action
+            android:id="@+id/action_nav_fragment_a0_display"
+            app:destination="@id/nav_fragment_a0_display" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_fragment_a0_display"
+        android:name="pkg.what.a_0.ui.view.ViewDisplay"
+        android:label="Fragment:ViewDisplay"
+        tools:layout="@layout/layout_a0_display">
+    </fragment>
+</navigation>
