@@ -164,7 +164,7 @@ class ViewA3 : AppCompatActivity(), View.OnClickListener {
                         ", ACCOUNT_SERV_AUTH_CODE: ${account.serverAuthCode}" +
                         ", OBJECT: $account"
                 ,Snackbar.LENGTH_SHORT)
-                .setTextColor(getColor(R.color.colorLight))
+                .setTextColor(getColor(R.color.colorDark))
                 .setAction(getString(R.string.sb_dismiss))
                 { Log.d(LOG_DEBUG_TAG,"$localClassName , ${resources.getString(R.string.sb_on_click)}") }
                 .show()

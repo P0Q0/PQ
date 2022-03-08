@@ -8,6 +8,7 @@ import pkg.what.a_0.domain.controller.ViewModelPQ
 /** @desc holds instance of view model that will expose data to the ui
  * , updates state managed through the callers lifecycle */
 sealed class UiStateHolder {
+    /** @TODO: UiStateHolder: let ui have a vm as long as it is container here */
     val vmPQ: ViewModelPQ by lazy { ViewModelPQ() }
     val vmLogin: ViewModelLogin by lazy { ViewModelLogin() }
     val vmDisplay: ViewModelDisplay by lazy { ViewModelDisplay() }

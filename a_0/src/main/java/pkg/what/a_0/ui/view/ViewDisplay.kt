@@ -24,7 +24,7 @@ class ViewDisplay : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, parent: ViewGroup?, state: Bundle?): View? {
         this.bind = LayoutA0DisplayBinding.inflate(layoutInflater, parent, false)
-        Log.d(LOG_INFO_TAG,LOG_CREATE_VIEW)
+        Log.d(LOG_INFO_TAG, LOG_CREATE_VIEW)
         return bind.root
     }
 
