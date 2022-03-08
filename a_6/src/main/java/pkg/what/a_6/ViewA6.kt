@@ -82,7 +82,6 @@ class ViewA6 : AppCompatActivity() {
                 (PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE))
     }
 
-    @Suppress("SameParameterValue") //TODO: can remove after implementing other fx that call this
     private fun generateContent(title: String, text: String, worth: Int): NotificationCompat.Builder {
         return NotificationCompat.Builder(this, CHANNEL_ID_UI)
             .setSmallIcon(androidx.core.R.drawable.notification_icon_background)
@@ -91,7 +90,6 @@ class ViewA6 : AppCompatActivity() {
             .setPriority(worth)
     }
 
-    @Suppress("SameParameterValue") //TODO: can remove after implementing other fx that call this
     private fun generateChannel(id: String, name: String, details: String, worth: Int){
         if(supportsChannelApi()){
             val channel = NotificationChannel(id, name, worth).apply { description = details }

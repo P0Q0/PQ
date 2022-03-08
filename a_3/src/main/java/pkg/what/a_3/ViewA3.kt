@@ -22,8 +22,6 @@ import com.google.android.material.snackbar.Snackbar
 import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutA3Binding
 
-@Suppress("unused") /** @note, this is rly bad but mindfully for completeness, suppress unused stuff */
-
 class ViewA3 : AppCompatActivity(), View.OnClickListener {
     private lateinit var bind: LayoutA3Binding
 

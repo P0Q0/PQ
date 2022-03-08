@@ -45,7 +45,6 @@ class ViewA4 : AppCompatActivity() {
 
     /** @param [data] is a false-positive, it is null and should remain null, this is a real lazy way to fx overload
      * , an alternative would be another fx name, but doing it like this semantics feel more intuitive, suppress for this */
-    @Suppress("UNUSED_PARAMETER")
     fun update(data: ModelA4.UserModel?) {
         var display = ""
         var debug = ""
@@ -61,7 +60,6 @@ class ViewA4 : AppCompatActivity() {
         }
     }
 
-    @Suppress("UNUSED_PARAMETER")
     fun update(data: ModelA4.ImageModel?){
         this.lifecycleScope.launch(Dispatchers.Main) {
             bind.a4NetworkImgIv.setImageBitmap(model.dataOfImages[IMAGE_ITEM])
