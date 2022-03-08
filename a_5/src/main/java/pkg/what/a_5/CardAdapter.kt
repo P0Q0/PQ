@@ -14,7 +14,7 @@ typealias CardHolder = CardAdapter.ViewHolder
 class CardAdapter(private val source: DataSource) : RecyclerView.Adapter<CardHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val button = view.findViewById<MaterialButton>(pkg.what.pq.R.id.card_btn)
+        private val button = view.findViewById<MaterialButton>(pkg.what.pq.R.id.card_btn_a5)
 
         init {
             setupListeners(view)
@@ -33,7 +33,7 @@ class CardAdapter(private val source: DataSource) : RecyclerView.Adapter<CardHol
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(pkg.what.pq.R.layout.card_item, parent,false)
+            .inflate(pkg.what.pq.R.layout.card_item_a5, parent,false)
         return ViewHolder(view)
     }
 

@@ -132,4 +132,6 @@
     <!--data string tools -->
     <string name="is_empty">""</string>
     <string name="remote_source_image_view_description">an image pulled from a remote source</string>
+    <!-- other data -->
+    <string name="card_tv_a0_str">Name:</string>
 </resources>
