@@ -5,19 +5,7 @@
     android:id="@+id/layout_a0_display"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#cbacba">
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/a0_display_mtv_1"
-        android:text="@string/pq_a0_display"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorDark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/a0_display_gl75_h"
-        app:layout_constraintBottom_toBottomOf="@+id/a0_display_gl75_h"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+    android:background="@color/colorLight">
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/a0_display_gl25_v"
         android:layout_width="0dp"
