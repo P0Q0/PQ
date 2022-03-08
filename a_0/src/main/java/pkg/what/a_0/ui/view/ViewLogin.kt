@@ -83,6 +83,7 @@ class ViewLogin : Fragment(), View.OnClickListener {
 
     private fun reflectUi(account: GoogleSignInAccount?){
         if(account != null){
+            //TODO: ViewLogin, stash login account in shared preferences
             Toast.makeText(requireContext(),SIGN_IN_TAG,Toast.LENGTH_SHORT).show()
             bind.a0GoogleSignInBtn.visibility = View.GONE
             bind.a0GoogleSignOutBtn.visibility = View.VISIBLE

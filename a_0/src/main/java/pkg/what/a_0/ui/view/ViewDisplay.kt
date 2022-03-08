@@ -38,7 +38,7 @@ class ViewDisplay : Fragment() {
 
     private fun listenOnUiObservers(){
         vmDisplay.getUsers().observe(viewLifecycleOwner) { users ->
-            //TODO: ui updates on observer
+            //TODO:ViewDisplay, ui updates on observer
             Log.d(LOG_DEBUG_TAG, "$users, in ${javaClass.name}")
         }
     }

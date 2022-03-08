@@ -17,6 +17,7 @@ class ViewModelDisplay : ViewModel(){
     }
 
     private fun loadUsers() {
-        //TODO: network io
+        //TODO: network io load users
+        //TODO: network io load images
     }
 }
