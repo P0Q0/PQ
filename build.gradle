@@ -28,6 +28,7 @@ ext.versions = [
     'coroutinesandroid' : '1.6.0-native-mt',
     'coroutinescore'    : '1.6.0-native-mt',
     'gson'              : '2.9.0',
+    'gsonCvr'           : '2.9.0',
     'fragment'          : '1.4.1',
     'material'          : '1.5.0',
     'junit'             : '4.13.2',

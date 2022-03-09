@@ -2,6 +2,7 @@ package pkg.what.a_0.data.model
 
 import android.graphics.Bitmap
 import android.widget.ImageView
+import com.google.gson.JsonObject
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_ADDRESS_TAG
@@ -46,14 +47,14 @@ class DataModel {
      * [company] is a company object defined as [CompanyModel] */
     @JsonClass(generateAdapter = true)
     data class UserModel(
-        @field: Json(name = NET_DATA_ID_TAG) var id : Int?     = null,
-        @field: Json(name = NET_DATA_NAME_TAG) var name : String?  = null,
-        @field: Json(name = NET_DATA_USERNAME_TAG) var username : String?  = null,
-        @field: Json(name = NET_DATA_EMAIL_TAG) var email : String?  = null,
-        @field: Json(name = NET_DATA_ADDRESS_TAG) var address : AddressModel? = AddressModel(),
-        @field: Json(name = NET_DATA_PHONE_TAG) var phone : String?  = null,
-        @field: Json(name = NET_DATA_WEBSITE_TAG) var website : String?  = null,
-        @field: Json(name = NET_DATA_COMPANY_TAG) var company : CompanyModel? = CompanyModel()
+        @Json(name = NET_DATA_ID_TAG) var id : Int?     = null,
+        @Json(name = NET_DATA_NAME_TAG) var name : String?  = null,
+        @Json(name = NET_DATA_USERNAME_TAG) var username : String?  = null,
+        @Json(name = NET_DATA_EMAIL_TAG) var email : String?  = null,
+        @Json(name = NET_DATA_ADDRESS_TAG) var address : AddressModel? = AddressModel(),
+        @Json(name = NET_DATA_PHONE_TAG) var phone : String?  = null,
+        @Json(name = NET_DATA_WEBSITE_TAG) var website : String?  = null,
+        @Json(name = NET_DATA_COMPANY_TAG) var company : CompanyModel? = CompanyModel()
     )
     /**@desc definition for an address,
      * [geo] is a geographical object defined as [GeoModel] */
@@ -69,7 +70,7 @@ class DataModel {
     /**@desc definition for a company */
     @JsonClass(generateAdapter = true)
     data class CompanyModel(
-        @field: Json(name = NET_DATA_NAME_TAG) var name : String? = null,
+        @field: Json(name = "NET_DATA_COMPANY_MODEL_TAG") var name : String? = null,
         @field: Json(name = NET_DATA_CATCHPHRASE_TAG) var catchPhrase : String? = null,
         @field: Json(name = NET_DATA_BS_TAG) var bs : String? = null
     )

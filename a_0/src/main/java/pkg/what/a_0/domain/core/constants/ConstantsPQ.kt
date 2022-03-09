@@ -43,10 +43,8 @@ object NetDataTags {
 }
 
 object NetEptTags {
-    const val BASE_ROBOHASH_ENDPOINT = "https://robohash.org/"
-    const val BASE_TYPICODE_ENDPOINT = "http://jsonplaceholder.typicode.com/"
-    const val USERS_PATH = "Users/"
-    const val IMAGES_PATH = "qwerty/"
+    const val BASE_ROBOHASH_ENDPOINT = "https://robohash.org"
+    const val BASE_TYPICODE_ENDPOINT = "http://jsonplaceholder.typicode.com"
 }
 
 object NetConTags {

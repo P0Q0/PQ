@@ -11,8 +11,8 @@ import pkg.what.a_0.data.io.network.DataSource
 /** @desc shorten alias with a meaningful representation */
 typealias CardHolder = CardAdapter.ViewHolder
 
-//TODO: CardAdapter, fix it
-class CardAdapter(private val source: DataSource) : RecyclerView.Adapter<CardHolder>() {
+//TODO: CardAdapter, fix it, for now @param is Int but change to @param DataSource
+class CardAdapter(private val source: Int) : RecyclerView.Adapter<CardHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val button = view.findViewById<MaterialButton>(pkg.what.pq.R.id.card_btn_a5)

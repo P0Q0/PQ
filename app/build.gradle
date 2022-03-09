@@ -70,7 +70,10 @@ dependencies {
     api "androidx.navigation:navigation-fragment-ktx:${versions.navfragment}"
     api "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
     api "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    api "com.squareup.retrofit2:converter-gson:${versions.gsonCvr}"
     api "com.squareup.retrofit2:converter-moshi:${versions.moshiCvr}"
+    api "com.squareup.moshi:moshi-kotlin:1.12.0"
+    api "com.squareup.moshi:moshi:1.13.0"
 
     //noinspection LifecycleAnnotationProcessorWithJava8 // @note do not remove that <- it's a suppression
     api(annotationProcessor("androidx.lifecycle:lifecycle-compiler:${versions.lcCompiler}"))
