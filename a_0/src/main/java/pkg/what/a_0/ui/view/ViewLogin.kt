@@ -29,6 +29,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import pkg.what.a_0.domain.controller.ViewModelLogin
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_CREATE_VIEW
+import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_START
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_VIEW_CREATED
 import pkg.what.pq.databinding.LayoutA0LoginBinding
 import pkg.what.pq.R
@@ -64,6 +65,7 @@ class ViewLogin : Fragment(), View.OnClickListener {
 
     override fun onStart() {
         super.onStart()
+        Log.d(LOG_INFO_TAG, LOG_START)
         val account = GoogleSignIn.getLastSignedInAccount(requireContext())
         reflectUi(account)
     }

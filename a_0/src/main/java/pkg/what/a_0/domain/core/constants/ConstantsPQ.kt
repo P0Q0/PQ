@@ -8,6 +8,7 @@ object ConstantsPQ {
 object FragLcTags {
     /** @NOTE Fragment lifecycle as of API 30 */
     const val LOG_ATTACH = "ON_ATTACH"
+    const val LOG_CREATE = "ON_CREATE"
     const val LOG_CREATE_VIEW = "ON_CREATE_VIEW"
     const val LOG_VIEW_CREATED = "ON_VIEW_CREATED"
     const val LOG_VIEW_STATE_RESTORED = "ON_VIEW_STATE_RESTORED"

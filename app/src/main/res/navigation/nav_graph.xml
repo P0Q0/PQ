@@ -28,5 +28,8 @@
         android:name="pkg.what.a_0.ui.view.ViewDisplay"
         android:label="Fragment:ViewDisplay"
         tools:layout="@layout/layout_a0_display">
+        <action
+            android:id="@+id/action_nav_a0_display_to_login"
+            app:destination="@id/nav_fragment_a0_login" />
     </fragment>
 </navigation>
