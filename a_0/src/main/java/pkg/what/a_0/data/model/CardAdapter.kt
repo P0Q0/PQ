@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
-import pkg.what.a_0.R
 
 /** @desc shorten alias with a meaningful representation */
 typealias CardHolder = CardAdapter.ViewHolder
@@ -34,9 +32,9 @@ class CardAdapter(private val users: List<DataModel.UserModel>
             }
         }
 
-        fun bind(data: DataModel.UserModel) {
+        fun bind(data: DataModel.UserModel, bitmap: Bitmap) {
             textView.text = data.name
-            imgView.setImageBitmap(images[IMAGE_INDEX])
+            imgView.setImageBitmap(bitmap)
         }
     }
 
@@ -47,7 +45,7 @@ class CardAdapter(private val users: List<DataModel.UserModel>
     }
 
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
-        holder.bind(users[position])
+        holder.bind(users[position],images[IMAGE_INDEX]) //TODO: CardAdapter, images[position]
     }
 
     override fun getItemCount(): Int {

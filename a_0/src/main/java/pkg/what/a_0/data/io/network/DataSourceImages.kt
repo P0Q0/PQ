@@ -7,6 +7,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import pkg.what.a_0.utils.StrTool
 
 class DataSourceImages(private val caller: RoboHashApi
     , private val ioDispatcher: CoroutineDispatcher) : DataSource() {
@@ -18,8 +19,7 @@ class DataSourceImages(private val caller: RoboHashApi
         suspend fun fetchImages(ld: MutableLiveData<Bitmap>): Any
             = withContext(ioDispatcher){
                 this.launch(Dispatchers.IO) {
-                    /** @Note endpoint and path can be passed into the source, path can be randomized */
-                    val bitmap = Picasso.get().load("https://robohash.org/qwerty").get()
+                    val bitmap = Picasso.get().load("https://robohash.org/${StrTool.strGenerateRandom()}").get()
                     ld.postValue(bitmap)
                 }
             }
