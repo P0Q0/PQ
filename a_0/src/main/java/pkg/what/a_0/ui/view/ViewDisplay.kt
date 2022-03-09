@@ -1,11 +1,14 @@
 package pkg.what.a_0.ui.view
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -27,7 +30,7 @@ class ViewDisplay : Fragment() {
     private fun di() {
         val domain = DomainDi()
         vmDisplay = ViewModelDisplay(
-            //domain.getRemoteDataRepoImagesFromRoboHash(),
+            domain.getRemoteDataRepoImagesFromRoboHash(),
             domain.getRemoteDataRepoUsersFromTypiCode())
     }
 
@@ -55,13 +58,19 @@ class ViewDisplay : Fragment() {
     private fun listenOnUiObservers(){
         vmDisplay.getUsers().observe(viewLifecycleOwner) { users ->
             users.forEach {
-                vmDisplay.model.getData().add(it)
+                vmDisplay.modelOfUsers.getData().add(it)
                 bind.a0DisplayRv.adapter?.notifyDataSetChanged()
             }
         }
+        vmDisplay.getImages().observe(viewLifecycleOwner) { that ->
+            val image = that as Bitmap
+            vmDisplay.modelOfImages.getData().add(image)
+            bind.a0DisplayRv.adapter?.notifyDataSetChanged()
+        }
     }
     private fun setupUi(){
-        bind.a0DisplayRv.adapter = CardAdapter(vmDisplay.model.getData())
+        bind.a0DisplayRv.adapter =
+            CardAdapter(vmDisplay.modelOfUsers.getData(),vmDisplay.modelOfImages.getData())
     }
 
     /** @desc file specific definitions, states, logging, strings */

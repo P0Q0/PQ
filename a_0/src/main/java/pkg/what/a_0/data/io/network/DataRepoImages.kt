@@ -1,10 +1,19 @@
 package pkg.what.a_0.data.io.network
 
-import com.google.gson.JsonObject
+import android.graphics.Bitmap
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class DataRepoImages(private val remoteImages: DataSourceImages) {
-    val data: Flow<List<JsonObject>>
-        = flow { remoteImages.fetchImages() }
+
+    private val ld: MutableLiveData<Bitmap> by lazy { MutableLiveData<Bitmap>() }
+
+    fun getLiveData(): LiveData<Bitmap> { return ld }
+
+    val data: Flow<Any>
+        = flow {
+            emit(remoteImages.fetchImages(ld))
+        }
 }

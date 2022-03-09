@@ -1,5 +1,6 @@
 package pkg.what.a_0.data.model
 
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,8 @@ import pkg.what.a_0.R
 /** @desc shorten alias with a meaningful representation */
 typealias CardHolder = CardAdapter.ViewHolder
 
-class CardAdapter(private val source: List<DataModel.UserModel>) : RecyclerView.Adapter<CardHolder>() {
+class CardAdapter(private val users: List<DataModel.UserModel>
+                    , private val images: List<Bitmap>) : RecyclerView.Adapter<CardHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val card = view.findViewById<MaterialCardView>(pkg.what.pq.R.id.card_view_root_a0)
@@ -34,7 +36,7 @@ class CardAdapter(private val source: List<DataModel.UserModel>) : RecyclerView.
 
         fun bind(data: DataModel.UserModel) {
             textView.text = data.name
-            //TODO: CardAdapter, imgView
+            imgView.setImageBitmap(images[IMAGE_INDEX])
         }
     }
 
@@ -45,10 +47,14 @@ class CardAdapter(private val source: List<DataModel.UserModel>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
-        holder.bind(source[position])
+        holder.bind(users[position])
     }
 
     override fun getItemCount(): Int {
-        return source.size
+        return users.size
+    }
+
+    companion object {
+        const val IMAGE_INDEX = 0
     }
 }
