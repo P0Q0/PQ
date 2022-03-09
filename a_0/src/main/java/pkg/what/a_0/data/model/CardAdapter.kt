@@ -45,7 +45,7 @@ class CardAdapter(private val users: List<DataModel.UserModel>
     }
 
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
-        holder.bind(users[position],images[IMAGE_INDEX]) //TODO: CardAdapter, images[position]
+        holder.bind(users[position], images[IMAGE_INDEX]) //TODO: CardAdapter, images[position]
     }
 
     override fun getItemCount(): Int {

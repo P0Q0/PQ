@@ -22,6 +22,13 @@ object FragLcTags {
     const val LOG_DETACH = "ON_DETACH"
 }
 
+object SharedPrefTags {
+    const val SHARED_PREFERENCES_DISK_KEY = "pkg.what.PREFERENCE_FILE_KEY"
+    const val SHARED_PREFERENCES_NULL = "NULL_SHARED_PREFERENCES"
+    const val STATE_MEMORY_STASH =   "STATE_MEMORY_STASH"
+    const val STATE_DISK_STASH =   "STATE_DISK_STASH"
+}
+
 object NetDataTags {
     const val NET_DATA_IMG_TAG = "img"
     const val NET_DATA_ID_TAG = "id"

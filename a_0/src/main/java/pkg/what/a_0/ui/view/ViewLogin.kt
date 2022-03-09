@@ -31,6 +31,8 @@ import pkg.what.a_0.domain.controller.ViewModelLogin
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_CREATE_VIEW
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_START
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_VIEW_CREATED
+import pkg.what.a_0.domain.core.constants.SharedPrefTags
+import pkg.what.a_0.domain.pref.PrefPQ
 import pkg.what.pq.databinding.LayoutA0LoginBinding
 import pkg.what.pq.R
 
@@ -47,6 +49,15 @@ class ViewLogin : Fragment(), View.OnClickListener {
     private lateinit var rs: ActivityResultLauncher<Intent>
 
     private val vmLogin: ViewModelLogin by viewModels()
+
+    private val pref: PrefPQ by lazy {  PrefPQ(requireContext()) }
+
+    private var stashedDisk: String? = null
+
+    override fun onCreate(state: Bundle?) {
+        super.onCreate(state)
+        this.stashedDisk = pref.read(state,SharedPrefTags.STATE_DISK_STASH)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, parent: ViewGroup?, state: Bundle?): View? {
         this.bind = LayoutA0LoginBinding.inflate(layoutInflater, parent, false)
@@ -65,7 +76,7 @@ class ViewLogin : Fragment(), View.OnClickListener {
 
     override fun onStart() {
         super.onStart()
-        Log.d(LOG_INFO_TAG, LOG_START)
+        Log.d(LOG_INFO_TAG, LOG_START+""+stashedDisk)
         val account = GoogleSignIn.getLastSignedInAccount(requireContext())
         reflectUi(account)
     }
@@ -85,7 +96,6 @@ class ViewLogin : Fragment(), View.OnClickListener {
 
     private fun reflectUi(account: GoogleSignInAccount?){
         if(account != null){
-            //TODO: ViewLogin, stash login account in shared preferences
             Toast.makeText(requireContext(),SIGN_IN_TAG,Toast.LENGTH_SHORT).show()
             bind.a0GoogleSignInBtn.visibility = View.GONE
             bind.a0GoogleSignOutBtn.visibility = View.VISIBLE
@@ -97,6 +107,8 @@ class ViewLogin : Fragment(), View.OnClickListener {
             bind.a0GoogleSignOutBtn.visibility = View.GONE
             debugSnack(account)
         }
+        Log.d(LOG_DEBUG_TAG, "REFLECT UI: $stashedDisk")
+        pref.write(SharedPrefTags.STATE_DISK_STASH, stashedDisk)
     }
 
     private fun register(){
@@ -135,9 +147,11 @@ class ViewLogin : Fragment(), View.OnClickListener {
     private fun handleSignInResult(task: Task<GoogleSignInAccount>) {
         try {
             val account = task.getResult(ApiException::class.java)
+            stashedDisk = account.email
             reflectUi(account)
         } catch (e: ApiException) {
             Log.d(LOG_INFO_TAG, "signInResult:failed code=" + e.statusCode)
+            stashedDisk = null
             reflectUi(null)
         }
     }
