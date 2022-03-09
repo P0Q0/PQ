@@ -7,23 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import kotlinx.coroutines.Dispatchers
-import pkg.what.a_0.data.io.network.*
 import pkg.what.a_0.data.model.CardAdapter
-import pkg.what.a_0.data.model.DataModel
 import pkg.what.a_0.domain.controller.ViewModelDisplay
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_CREATE_VIEW
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_VIEW_CREATED
 import pkg.what.a_0.domain.core.di.DomainDi
 import pkg.what.pq.databinding.LayoutA0DisplayBinding
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
 
 class ViewDisplay : Fragment() {
 
@@ -58,25 +49,19 @@ class ViewDisplay : Fragment() {
         this.navCntrl = Navigation.findNavController(view)
 
         listenOnUiObservers()
-        setupData()
         setupUi()
     }
 
     private fun listenOnUiObservers(){
         vmDisplay.getUsers().observe(viewLifecycleOwner) { users ->
-            //TODO:ViewDisplay, ui updates on observer
-            Log.d(LOG_DEBUG_TAG, "$users, in ${javaClass.name}")
+            users.forEach {
+                vmDisplay.model.getData().add(it)
+                bind.a0DisplayRv.adapter?.notifyDataSetChanged()
+            }
         }
     }
-
-    private fun setupData(){
-        //TODO: ViewDisplay, get the data, setupData
-    }
-
     private fun setupUi(){
-        //val source = DataSourceUsers() //TODO: ViewDisplay, package into a map of pairs, <ItemNumber, Pair<Source,Image>>
-        //val images = DataSourceImages() //TODO: ViewDisplay, package into a map of pairs, <ItemNumber, Pair<Source,Image>>
-        bind.a0DisplayRv.adapter = CardAdapter(0xFFFFFF) //todo: <--- change this back, after net io is fixed
+        bind.a0DisplayRv.adapter = CardAdapter(vmDisplay.model.getData())
     }
 
     /** @desc file specific definitions, states, logging, strings */
