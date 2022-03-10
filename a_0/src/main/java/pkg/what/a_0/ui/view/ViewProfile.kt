@@ -28,6 +28,9 @@ import pkg.what.pq.databinding.LayoutA0ProfileBinding
 
 class ViewProfile : Fragment() {
 
+    /**@note this is a non-Gg app, non-Gg apps should not be updating Gg profile information */
+    //TODO: CardAdapter, for demonstration, add ui edit field, to update remote data, but a brief note
+
     private lateinit var bind: LayoutA0ProfileBinding
 
     private var navCntrl: NavController? = null

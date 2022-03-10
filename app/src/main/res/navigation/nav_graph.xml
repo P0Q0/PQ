@@ -28,5 +28,14 @@
         android:name="pkg.what.a_0.ui.view.ViewDisplay"
         android:label="Fragment:ViewDisplay"
         tools:layout="@layout/layout_a0_display">
+        <action
+            android:id="@+id/action_nav_fragment_a0_display_to_nav_fragment_a0_profile"
+            app:destination="@id/nav_fragment_a0_profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_fragment_a0_profile"
+        android:name="pkg.what.a_0.ui.view.ViewProfile"
+        android:label="Fragment:ViewProfile"
+        tools:layout="@layout/layout_a0_profile">
     </fragment>
 </navigation>

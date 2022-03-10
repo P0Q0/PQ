@@ -153,7 +153,7 @@ class ViewDisplay : Fragment() , LogOutIf {
 
     private fun setupUi(){
         bind.a0DisplayRv.adapter =
-            CardAdapter(vmDisplay.modelOfUsers.getData(),vmDisplay.modelOfImages.getData())
+            CardAdapter(this,vmDisplay.modelOfUsers.getData(),vmDisplay.modelOfImages.getData())
     }
 
     private fun setListeners(){
