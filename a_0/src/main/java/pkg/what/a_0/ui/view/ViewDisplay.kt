@@ -11,7 +11,6 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import pkg.what.a_0.data.model.CardAdapter
 import pkg.what.a_0.domain.controller.ViewModelDisplay
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_ATTACH
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_CREATE
@@ -29,6 +28,7 @@ import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_STATE_RESTORED
 import pkg.what.a_0.domain.core.constant.SharedPrefTags
 import pkg.what.a_0.domain.core.di.DomainDi
 import pkg.what.a_0.domain.pref.PrefPQ
+import pkg.what.a_0.ui.CardAdapter
 import pkg.what.pq.databinding.LayoutA0DisplayBinding
 
 class ViewDisplay : Fragment() , LogOutIf {
