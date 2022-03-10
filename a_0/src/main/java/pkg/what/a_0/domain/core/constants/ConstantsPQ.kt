@@ -24,9 +24,12 @@ object FragLcTags {
 
 object SharedPrefTags {
     const val SHARED_PREFERENCES_DISK_KEY = "pkg.what.PREFERENCE_FILE_KEY"
-    const val SHARED_PREFERENCES_NULL = "NULL_SHARED_PREFERENCES"
-    const val STATE_MEMORY_STASH =   "STATE_MEMORY_STASH"
-    const val STATE_DISK_STASH =   "STATE_DISK_STASH"
+    const val SHARED_PREFERENCES_NULL = "null"
+    const val STATE_MEMORY_STASH = "STATE_MEMORY_STASH"
+    const val STATE_TOKEN_ON_DISK = "STATE_TOKEN_ON_DISK"
+    const val STATUS_TOKEN_ON_DISK = "STATUS_TOKEN_ON_DISK"
+    const val STATUS_DESTROY_ON_DISK = "1"
+    const val STATUS_PRESERVE_ON_DISK = "0"
 }
 
 object NetDataTags {

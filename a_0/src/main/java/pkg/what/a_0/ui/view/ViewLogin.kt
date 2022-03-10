@@ -1,5 +1,7 @@
 package pkg.what.a_0.ui.view
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.Nullable
@@ -23,18 +26,33 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import pkg.what.a_0.domain.controller.ViewModelLogin
+import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_ATTACH
+import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_CREATE
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_CREATE_VIEW
+import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_DESTROY
+import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_DESTROY_VIEW
+import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_DETACH
+import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_PAUSE
+import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_RESUME
+import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_SAVE_INSTANCE_STATE
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_START
+import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_STOP
 import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_VIEW_CREATED
-import pkg.what.a_0.domain.core.constants.SharedPrefTags
+import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_VIEW_STATE_RESTORED
+import pkg.what.a_0.domain.core.constants.SharedPrefTags.SHARED_PREFERENCES_NULL
+import pkg.what.a_0.domain.core.constants.SharedPrefTags.STATE_TOKEN_ON_DISK
+import pkg.what.a_0.domain.core.constants.SharedPrefTags.STATUS_DESTROY_ON_DISK
+import pkg.what.a_0.domain.core.constants.SharedPrefTags.STATUS_TOKEN_ON_DISK
 import pkg.what.a_0.domain.pref.PrefPQ
-import pkg.what.pq.databinding.LayoutA0LoginBinding
 import pkg.what.pq.R
+import pkg.what.pq.databinding.LayoutA0LoginBinding
+
 
 class ViewLogin : Fragment(), View.OnClickListener {
 
@@ -52,11 +70,27 @@ class ViewLogin : Fragment(), View.OnClickListener {
 
     private val pref: PrefPQ by lazy {  PrefPQ(requireContext()) }
 
-    private var stashedDisk: String? = null
+    private var stashedGgTokenOnDisk: String? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.d(LOG_INFO_TAG, LOG_ATTACH)
+    }
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
-        this.stashedDisk = pref.read(state,SharedPrefTags.STATE_DISK_STASH)
+        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                this@ViewLogin.childFragmentManager.popBackStack()
+                requireActivity().finishAffinity()
+                requireActivity().finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+
+        this.stashedGgTokenOnDisk = pref.read(STATE_TOKEN_ON_DISK)
+        if(pref.read(STATUS_TOKEN_ON_DISK) == STATUS_DESTROY_ON_DISK){ this.fireRevoke() }
+        Log.d(LOG_INFO_TAG, LOG_CREATE)
     }
 
     override fun onCreateView(inflater: LayoutInflater, parent: ViewGroup?, state: Bundle?): View? {
@@ -74,17 +108,56 @@ class ViewLogin : Fragment(), View.OnClickListener {
         setUi()
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.d(LOG_INFO_TAG, LOG_START+""+stashedDisk)
-        val account = GoogleSignIn.getLastSignedInAccount(requireContext())
-        reflectUi(account)
+    override fun onViewStateRestored(state: Bundle?) {
+        super.onViewStateRestored(state)
+        Log.i(LOG_INFO_TAG, LOG_VIEW_STATE_RESTORED)
     }
 
-    private fun navigate() =
-        this.requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.layout_a0_login, ViewDisplay()::class.java, Bundle())
-            .commit()
+    override fun onStart() {
+        super.onStart()
+        if(stashedGgTokenOnDisk != null
+            || stashedGgTokenOnDisk != SHARED_PREFERENCES_NULL){
+            fireSilentSignIn()
+        } else {
+            val account = GoogleSignIn.getLastSignedInAccount(requireContext())
+            reflectUi(account)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(LOG_INFO_TAG,LOG_RESUME)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(LOG_INFO_TAG,LOG_PAUSE)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(LOG_INFO_TAG,LOG_STOP)
+    }
+
+    override fun onSaveInstanceState(state: Bundle) {
+        Log.i(LOG_INFO_TAG, LOG_SAVE_INSTANCE_STATE)
+        super.onSaveInstanceState(state)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(LOG_INFO_TAG,LOG_DESTROY)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.i(LOG_INFO_TAG, LOG_DESTROY_VIEW)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.i(LOG_INFO_TAG, LOG_DETACH)
+    }
 
     private fun fireGoogleSignInConfigurationStage(){
         this.gso = vmLogin.getVmLoginBuilder().build()
@@ -96,33 +169,33 @@ class ViewLogin : Fragment(), View.OnClickListener {
 
     private fun reflectUi(account: GoogleSignInAccount?){
         if(account != null){
-            Toast.makeText(requireContext(),SIGN_IN_TAG,Toast.LENGTH_SHORT).show()
+            stashedGgTokenOnDisk = account.idToken
             bind.a0GoogleSignInBtn.visibility = View.GONE
             bind.a0GoogleSignOutBtn.visibility = View.VISIBLE
-            debugSnack(account)
             navCntrl?.navigate(R.id.nav_fragment_a0_display)
         } else {
-            Toast.makeText(requireContext(), SIGN_OUT_TAG,Toast.LENGTH_SHORT).show()
+            stashedGgTokenOnDisk = account?.email ?: SHARED_PREFERENCES_NULL
             bind.a0GoogleSignInBtn.visibility = View.VISIBLE
             bind.a0GoogleSignOutBtn.visibility = View.GONE
-            debugSnack(account)
         }
-        Log.d(LOG_DEBUG_TAG, "REFLECT UI: $stashedDisk")
-        pref.write(SharedPrefTags.STATE_DISK_STASH, stashedDisk)
+        pref.write(STATE_TOKEN_ON_DISK, stashedGgTokenOnDisk)
     }
 
     private fun register(){
         this.rs = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()) { lambda ->
-            if (lambda.resultCode ==  RESULT_CODE_SIGN_IN) {
-                val task = GoogleSignIn.getSignedInAccountFromIntent(lambda.data)
-                handleSignInResult(task)
+                when(lambda.resultCode){
+                    Activity.RESULT_OK -> {
+                        Log.d(LOG_DEBUG_TAG, "$javaClass, : ${lambda.resultCode}")
+                        val task = GoogleSignIn.getSignedInAccountFromIntent(lambda.data)
+                        handleSignInResult(task)
+                    }
+                    CommonStatusCodes.SUCCESS_CACHE -> {
+                        /** @note i've taken note of this issue, it's a cache thing with the emulator and rsa fingerprint */
+                    }
+                    else -> { Log.d(LOG_DEBUG_TAG,"$javaClass : ${lambda.resultCode}") }
+                }
             }
-            if (lambda.resultCode ==  RESULT_CODE_SIGN_OUT) {
-                val task = GoogleSignIn.getSignedInAccountFromIntent(lambda.data)
-                handleSignInResult(task)
-            }
-        }
     }
 
     private fun setUi(){
@@ -147,11 +220,9 @@ class ViewLogin : Fragment(), View.OnClickListener {
     private fun handleSignInResult(task: Task<GoogleSignInAccount>) {
         try {
             val account = task.getResult(ApiException::class.java)
-            stashedDisk = account.email
             reflectUi(account)
         } catch (e: ApiException) {
             Log.d(LOG_INFO_TAG, "signInResult:failed code=" + e.statusCode)
-            stashedDisk = null
             reflectUi(null)
         }
     }
@@ -160,12 +231,10 @@ class ViewLogin : Fragment(), View.OnClickListener {
         if(v != null) {
             when (v.id) {
                 R.id.a0_google_sign_in_btn -> { fireSignIn() }
-                R.id.a0_google_sign_out_btn -> { fireRevoke() }
+                R.id.a0_google_sign_out_btn -> { fireSignOut() }
             }
         } else {
-            Toast.makeText(requireContext()
-                ,"$javaClass is null, reason: can not set click listener on a view that is $v"
-                , Toast.LENGTH_SHORT).show()
+            Log.d(LOG_DEBUG_TAG, "$javaClass is null, reason: can not set click listener on a view that is $v")
         }
     }
 
@@ -174,6 +243,8 @@ class ViewLogin : Fragment(), View.OnClickListener {
         fireGoogleSignInBuildClientStage()
         if(this.gsc != null){
             val intent: Intent = gsc?.signInIntent as Intent
+            val bundle = Bundle().apply { putInt("RESULT_CODE_SIGN_IN",RESULT_CODE_SIGN_IN) }
+            intent.putExtras(bundle)
             rs.launch(intent)
         } else {
             debugSnack(null)
@@ -181,21 +252,45 @@ class ViewLogin : Fragment(), View.OnClickListener {
     }
 
     private fun fireSignOut(){
-        fireGoogleSignInConfigurationStage()
-        fireGoogleSignInBuildClientStage()
         gsc?.signOut()?.addOnCompleteListener(requireActivity(), object : OnCompleteListener<Void> {
             override fun onComplete(p0: Task<Void>) {
                 reflectUi(null)
             }
         })
+        //?.addOnSuccessListener(requireActivity(), object : OnSuccessListener<Void>{
+        //    override fun onSuccess(p0: Void?) {
+        //        rs.launch(Intent().putExtra("RESULT_CODE_SIGN_OUT", RESULT_CODE_SIGN_OUT))
+        //    }
+        //})?.addOnFailureListener(requireActivity(), object : OnFailureListener{
+        //    override fun onFailure(p0: Exception) {
+        //        p0.message?.let { Log.d(LOG_DEBUG_TAG, it) }
+        //        p0.printStackTrace()
+        //    }
+        //})
     }
 
     private fun fireRevoke(){
-        fireGoogleSignInConfigurationStage()
-        fireGoogleSignInBuildClientStage()
         gsc?.revokeAccess()?.addOnCompleteListener(requireActivity(), object : OnCompleteListener<Void> {
             override fun onComplete(p0: Task<Void>) {
                 reflectUi(null)
+            }
+        })
+        //?.addOnSuccessListener(requireActivity(), object : OnSuccessListener<Void>{
+        //    override fun onSuccess(p0: Void?) {
+        //        rs.launch(Intent().putExtra("RESULT_CODE_REVOKE", RESULT_CODE_REVOKE))
+        //    }
+        //})?.addOnFailureListener(requireActivity(), object : OnFailureListener{
+        //    override fun onFailure(p0: Exception) {
+        //        p0.message?.let { Log.d(LOG_DEBUG_TAG, it) }
+        //        p0.printStackTrace()
+        //    }
+        //})
+    }
+
+    private fun fireSilentSignIn(){
+        gsc?.silentSignIn()?.addOnCompleteListener(requireActivity(), object : OnCompleteListener<GoogleSignInAccount>{
+            override fun onComplete(p0: Task<GoogleSignInAccount>) {
+                reflectUi(p0.result)
             }
         })
     }
@@ -240,10 +335,9 @@ class ViewLogin : Fragment(), View.OnClickListener {
     companion object{
         const val LOG_DEBUG_TAG = "A0_VIEW_LOGIN_DEBUG_TAG"
         const val LOG_INFO_TAG = "A0_VIEW_LOGIN_INFO_TAG"
-        const val SIGN_IN_TAG = "SignInActivity"
-        const val SIGN_OUT_TAG = "SignOutActivity"
         const val RESULT_CODE_SIGN_IN = 9001
         const val RESULT_CODE_SIGN_OUT = 9002
+        const val RESULT_CODE_REVOKE = 9003
         const val UI_SNACK_HEIGHT = 500
         const val UI_SNACK_TEXT_LINES = 15
     }

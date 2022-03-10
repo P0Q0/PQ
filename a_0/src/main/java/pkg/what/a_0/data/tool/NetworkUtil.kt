@@ -3,6 +3,7 @@ package pkg.what.a_0.data.tool
 import android.util.Log
 import okhttp3.Response
 import pkg.what.a_0.domain.core.constants.ConstantsPQ.LOG_DEBUG_TAG
+import pkg.what.a_0.domain.core.constants.ConstantsPQ.LOG_INFO_TAG
 import pkg.what.a_0.domain.core.constants.NetConTags.LOG_CONNECT_SUCCESS
 
 class NetworkUtil {
@@ -12,6 +13,7 @@ class NetworkUtil {
             403 -> println("403 forbidden")
             200 -> println("200 ok")
         }
+        Log.d(LOG_INFO_TAG,"code:$code")
     }
 
     fun debugMsg(msg: String) {

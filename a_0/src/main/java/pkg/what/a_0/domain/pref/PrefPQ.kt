@@ -10,11 +10,13 @@ class PrefPQ(ctx: Context) {
     private val sharedPref: SharedPreferences =
         ctx.getSharedPreferences(SHARED_PREFERENCES_DISK_KEY, Context.MODE_PRIVATE)
 
+    fun getPref(): SharedPreferences { return this.sharedPref }
+
     fun write(key: String, value: String?) {
         sharedPref.edit().putString(key,value).apply()
     }
 
-    fun read(state: Bundle? , key: String): String? {
-        return state?.getString(key)
+    fun read(key: String): String? {
+        return sharedPref.getString(key,null)
     }
 }

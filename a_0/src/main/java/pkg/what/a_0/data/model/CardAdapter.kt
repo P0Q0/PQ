@@ -32,9 +32,9 @@ class CardAdapter(private val users: List<DataModel.UserModel>
             }
         }
 
-        fun bind(data: DataModel.UserModel, bitmap: Bitmap) {
+        fun bind(data: DataModel.UserModel) {
             textView.text = data.name
-            imgView.setImageBitmap(bitmap)
+            //imgView.setImageBitmap(bitmap)
         }
     }
 
@@ -45,14 +45,11 @@ class CardAdapter(private val users: List<DataModel.UserModel>
     }
 
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
-        holder.bind(users[position], images[IMAGE_INDEX]) //TODO: CardAdapter, images[position]
+        //TODO: CardAdapter, images[position]
+        holder.bind(users[position])
     }
 
     override fun getItemCount(): Int {
         return users.size
-    }
-
-    companion object {
-        const val IMAGE_INDEX = 0
     }
 }
