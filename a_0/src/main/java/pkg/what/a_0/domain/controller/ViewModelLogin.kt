@@ -3,7 +3,7 @@ package pkg.what.a_0.domain.controller
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import pkg.what.a_0.data.model.LoginsModel
-import pkg.what.pq.BuildConfig.GOOGLE_SERVICES_API_CLIENT_ID
+import pkg.what.a_0.domain.config.ConfigPQ
 
 class ViewModelLogin : ViewModel(){
 
@@ -11,7 +11,7 @@ class ViewModelLogin : ViewModel(){
         GoogleSignInOptions.Builder by lazy {
             GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
-                .requestIdToken(GOOGLE_SERVICES_API_CLIENT_ID) }
+                .requestIdToken(ConfigPQ.getClientId()) }
 
     private val model = LoginsModel()
 

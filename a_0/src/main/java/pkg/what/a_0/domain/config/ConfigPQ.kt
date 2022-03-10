@@ -1,5 +1,8 @@
 package pkg.what.a_0.domain.config
 
-/** @desc: TODO:ConfigPQ */
-class ConfigPQ {
+import pkg.what.pq.BuildConfig.GOOGLE_SERVICES_API_CLIENT_ID as SECRET_API_CLIENT_ID
+
+object ConfigPQ {
+    private val API_CLIENT_ID: String = SECRET_API_CLIENT_ID
+    fun getClientId() : String { return this.API_CLIENT_ID }
 }

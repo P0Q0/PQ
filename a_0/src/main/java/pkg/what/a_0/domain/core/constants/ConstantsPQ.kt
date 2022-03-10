@@ -22,6 +22,12 @@ object FragLcTags {
     const val LOG_DETACH = "ON_DETACH"
 }
 
+object SettingsTags {
+    const val SETTING_MODE = "MODE"
+    const val SETTING_CACHE = "CACHE"
+    const val SETTING_PERMISSIONS = "PERMISSIONS"
+}
+
 object SharedPrefTags {
     const val SHARED_PREFERENCES_DISK_KEY = "pkg.what.PREFERENCE_FILE_KEY"
     const val SHARED_PREFERENCES_NULL = "null"

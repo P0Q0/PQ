@@ -122,6 +122,7 @@ class ViewLogin : Fragment(), View.OnClickListener {
             val account = GoogleSignIn.getLastSignedInAccount(requireContext())
             reflectUi(account)
         }
+        Log.i(LOG_INFO_TAG,LOG_START)
     }
 
     override fun onResume() {
