@@ -24,11 +24,11 @@ utils
 ```
 
 ##### *** module a_0 ***
-    : TODO: module a_o readme.md
-    : TODO: single activity, navigation graph,
-    : TODO: dependency injection, mockito, espresso, junit,
-    : TODO: retrofit, moshi, work manager, room, live data
-    : TODO: mvvm design pattern, architecture components
+    : single activity, navigation graph,
+    : dependency injection, TODO: mockito, espresso, junit, roboelectric
+    : retrofit, moshi, live data, flows, parallelism, concurrency
+    : mvvm design pattern, architecture components
+    : TODO: work manager, room, and firebase
 
 ##### *** module a_1 ***
     : kotlin, activity lifecycle, states, shared preferences, io: memory and disk, lambdas, ui binding, logging
@@ -65,18 +65,17 @@ utils
 ##### *** Note about modernization ***
 ###### **** The following could be added to "modernize" the application: ****
     -migrate to abstraction with core support for inheritable data
-    -migrate to some form of architecture with agreed sdk and api
-    -migrate to design patterns such as an mvc variations mvvm
-    -migrate to single activity multiple fragments
-    -migrate to navigation graph
-    -migrate to clean
+    -migrate to clean domain use cases
     -support dynamic feature deployment to google play
     -support backwards compatibility for older sdks
     -support dark mode
     -support testing
     -support ci/cd
     -support code quality alerts by lint
-    -support isolate toolkit for generic api (shared preferences,firebase,permissions,etc.)
+    -support memory managers
+    -support test cases
+    -support state holders for unified data flow
+    -support isolated toolkit for generic api
 
 ##### *** Note about roadmap ***
 ###### **** Roadmap for new features by module: ****
@@ -93,11 +92,11 @@ utils
     -module a7: TODO: readme.md,A7 cameraX
     -module a8: TODO: readme.md,A8 fragments
     -module a9, dev for each type of vital, grid view for section title and section items
-    -module a0, TODO: readme.md,A0
+    -module a0, memory managers, settings, themes, state holders for achieveing unified data flow, 
+    database data access object definitions with repository pattern
     -module app, recycler with grid displaying items that'll invoke unique features
 
-##### *** Note about libraries ***
-###### **** Libraries that were used: ****
+##### *** Note about libraries for modules a1..a9 ***
     Annotations
     AppCompat
     Constraint
@@ -105,20 +104,28 @@ utils
     GSON
     Material
     Kotlin
-    Lifecycle
     OkHttp
     Picasso
     Google Play
     Recycler
-        Junit - TODO: junit test testing
-        Espresso - TODO: espresso test testing
-        Mockito - TODO: mockito for mock testing support
+###### **** Libraries that were used for module a0 on top of the libraries from above ^: ****
+    Moshi
+    Retrofit
+    Fragment
+    Navigation
+    Lifecycle
+    ViewModel
+    Flows
+    LiveData
+    Junit
+    Espresso
+    Roboelectric
+    Mockito
 
 ##### *** Note about SDK: ***
     'compileSdk'        : 31,
     'minSdk'            : 30,
     'targetSdk'         : 31,
-
 
 ##### *** module a_9 debug supplemental ***
 

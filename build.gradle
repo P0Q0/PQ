@@ -18,6 +18,7 @@ plugins {
     id 'com.android.dynamic-feature' version '7.1.2' apply false
 }
 
+def lifecycle = '2.5.0-alpha04'
 ext.versions = [
     'compileSdk'        : 31,
     'minSdk'            : 30,
@@ -36,15 +37,15 @@ ext.versions = [
     'junitEspresso'     : '3.4.0',
     'kotlin'            : '1.6.10',
     'ktxCore'           : '1.7.0',
-    'lifecycle'         : '2.5.0-alpha03',
-    'lcCompiler'        : '2.5.0-alpha03',
-    'lcLd'              : '2.5.0-alpha03',
+    'lifecycle'         : lifecycle,
+    'lcCompiler'        : lifecycle,
+    'lcLd'              : lifecycle,
     'lcLdTester'        : '2.1.0',
-    'lcProcess'         : '2.5.0-alpha03',
-    'lcRcStreams'       : '2.5.0-alpha03',
-    'lcService'         : '2.5.0-alpha03',
-    'lcVm'              : '2.5.0-alpha03',
-    'lcVmStates'        : '2.5.0-alpha03',
+    'lcProcess'         : lifecycle,
+    'lcRcStreams'       : lifecycle,
+    'lcService'         : lifecycle,
+    'lcVm'              : lifecycle,
+    'lcVmStates'        : lifecycle,
     'moshiCvr'          : '2.9.0',
     'navigation'        : '2.4.1',
     'navfragment'       : '2.4.1',
