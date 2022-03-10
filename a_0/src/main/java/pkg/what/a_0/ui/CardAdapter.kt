@@ -1,4 +1,4 @@
-package pkg.what.a_0.data.model
+package pkg.what.a_0.ui
 
 import android.graphics.Bitmap
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textview.MaterialTextView
+import pkg.what.a_0.data.model.DataModel
 import pkg.what.a_0.ui.view.ViewDisplay
 
 /** @desc shorten alias with a meaningful representation */

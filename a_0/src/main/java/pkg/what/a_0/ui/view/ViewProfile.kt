@@ -11,19 +11,19 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import pkg.what.a_0.domain.controller.ViewModelProfile
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_ATTACH
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_CREATE
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_CREATE_VIEW
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_DESTROY
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_DESTROY_VIEW
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_DETACH
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_PAUSE
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_RESUME
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_SAVE_INSTANCE_STATE
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_START
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_STOP
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_VIEW_CREATED
-import pkg.what.a_0.domain.core.constants.FragLcTags.LOG_VIEW_STATE_RESTORED
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_ATTACH
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_CREATE
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_CREATE_VIEW
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_DESTROY
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_DESTROY_VIEW
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_DETACH
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_PAUSE
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_RESUME
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_SAVE_INSTANCE_STATE
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_START
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_STOP
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_CREATED
+import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_STATE_RESTORED
 import pkg.what.pq.databinding.LayoutA0ProfileBinding
 
 class ViewProfile : Fragment() {

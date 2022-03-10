@@ -1,26 +1,43 @@
 
 ### README
-***
+*** this is an Android application called PQ ***
 
 ##### *** module a_0 layers ***
 ```md
 data
  -io
+  -cache
+   -define
+   -manager
+    -loader
+    -accelerator
   -disk
+   -local
+   -remote
   -network
+   -local
+   -remote
  -model
+  -definition
+ -tool
 domain
+ -usecase
  -config
  -controller
  -core
- -pref
-  -constants
+  -initializer
+  -constant
   -di
+   -injector
+ -pref
+ -service
  -settings
 ui
- -notifications
+ -adapter
+ -notification
+ -state
  -view
-utils
+util
 ```
 
 ##### *** module a_0 ***

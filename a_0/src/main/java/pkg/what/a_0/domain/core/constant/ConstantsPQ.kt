@@ -1,4 +1,4 @@
-package pkg.what.a_0.domain.core.constants
+package pkg.what.a_0.domain.core.constant
 
 object ConstantsPQ {
     const val LOG_INFO_TAG = "Log Info"

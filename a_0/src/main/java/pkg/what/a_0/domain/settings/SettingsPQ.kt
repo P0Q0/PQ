@@ -1,8 +1,8 @@
 package pkg.what.a_0.domain.settings
 
-import pkg.what.a_0.domain.core.constants.SettingsTags.SETTING_CACHE
-import pkg.what.a_0.domain.core.constants.SettingsTags.SETTING_MODE
-import pkg.what.a_0.domain.core.constants.SettingsTags.SETTING_PERMISSIONS
+import pkg.what.a_0.domain.core.constant.SettingsTags.SETTING_CACHE
+import pkg.what.a_0.domain.core.constant.SettingsTags.SETTING_MODE
+import pkg.what.a_0.domain.core.constant.SettingsTags.SETTING_PERMISSIONS
 
 class SettingsPQ {
 

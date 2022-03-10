@@ -2,9 +2,9 @@ package pkg.what.a_0.data.tool
 
 import android.util.Log
 import okhttp3.Response
-import pkg.what.a_0.domain.core.constants.ConstantsPQ.LOG_DEBUG_TAG
-import pkg.what.a_0.domain.core.constants.ConstantsPQ.LOG_INFO_TAG
-import pkg.what.a_0.domain.core.constants.NetConTags.LOG_CONNECT_SUCCESS
+import pkg.what.a_0.domain.core.constant.ConstantsPQ.LOG_DEBUG_TAG
+import pkg.what.a_0.domain.core.constant.ConstantsPQ.LOG_INFO_TAG
+import pkg.what.a_0.domain.core.constant.NetConTags.LOG_CONNECT_SUCCESS
 
 class NetworkUtil {
 

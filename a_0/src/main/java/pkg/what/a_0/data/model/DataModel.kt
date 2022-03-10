@@ -2,27 +2,26 @@ package pkg.what.a_0.data.model
 
 import android.graphics.Bitmap
 import android.widget.ImageView
-import com.google.gson.JsonObject
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_ADDRESS_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_BS_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_CATCHPHRASE_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_CITY_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_COMPANY_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_EMAIL_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_GEO_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_ID_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_IMG_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_LAT_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_LNG_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_NAME_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_PHONE_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_STREET_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_SUITE_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_USERNAME_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_WEBSITE_TAG
-import pkg.what.a_0.domain.core.constants.NetDataTags.NET_DATA_ZIPCODE_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_ADDRESS_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_BS_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_CATCHPHRASE_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_CITY_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_COMPANY_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_EMAIL_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_GEO_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_ID_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_IMG_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_LAT_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_LNG_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_NAME_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_PHONE_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_STREET_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_SUITE_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_USERNAME_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_WEBSITE_TAG
+import pkg.what.a_0.domain.core.constant.NetDataTags.NET_DATA_ZIPCODE_TAG
 
 /**@desc an extension utility to debug null data class values */
 fun Any?.toString(): String {

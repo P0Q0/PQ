@@ -1,4 +1,4 @@
-package pkg.what.a_0.utils
+package pkg.what.a_0.util
 
 import kotlin.random.Random
 

@@ -2,8 +2,7 @@ package pkg.what.a_0.domain.pref
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.os.Bundle
-import pkg.what.a_0.domain.core.constants.SharedPrefTags.SHARED_PREFERENCES_DISK_KEY
+import pkg.what.a_0.domain.core.constant.SharedPrefTags.SHARED_PREFERENCES_DISK_KEY
 
 class PrefPQ(ctx: Context) {
 
