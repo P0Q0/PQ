@@ -6,12 +6,11 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import pkg.what.a_0.domain.service.NotificationWorker
 
-/** @desc passing context is acceptable. holding a reference in the vm is absolutely not okay
- * , argument is screen rotates and vm persists, so the ctx is null, therefore causing crashes */
 class ViewModelProfile(application: Context) : ViewModel(){
 
     private val workManager by lazy {  WorkManager.getInstance(application) }
 
+    /** @desc call this from onDestroy() for a fragment, due to view model persistent lifecycle */
     internal fun applyNotification(){
         workManager.enqueue(OneTimeWorkRequest.from(NotificationWorker::class.java))
     }

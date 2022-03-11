@@ -7,6 +7,7 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import pkg.what.a_0.domain.service.SpecialAlertService
 
 class ViewSpecialAlert : AppCompatActivity() {
 
@@ -17,6 +18,8 @@ class ViewSpecialAlert : AppCompatActivity() {
                 Log.d("ViewSpecialAlert", "msg: ${intent.extras!!.getString("msg")}")
                 finishAffinity()
                 finish()
+
+                context!!.stopService(Intent(context, SpecialAlertService::class.java))
             }
         }
     }

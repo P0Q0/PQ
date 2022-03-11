@@ -130,7 +130,6 @@ class ViewProfile : Fragment() {
     override fun onDetach() {
         super.onDetach()
         Log.i(LOG_INFO_TAG, LOG_DETACH)
-        vmProfile.applyNotification()
     }
 
     /** @desc file specific definitions, states, logging, strings */

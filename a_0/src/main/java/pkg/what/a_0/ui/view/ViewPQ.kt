@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import pkg.what.a_0.domain.controller.ViewModelPQ
 import pkg.what.pq.databinding.LayoutA0Binding
 
 import pkg.what.pq.R
@@ -11,12 +12,61 @@ import pkg.what.pq.R
 class ViewPQ : AppCompatActivity() {
     private lateinit var bind: LayoutA0Binding
 
+    private lateinit var vmPQ: ViewModelPQ
+
+    private fun di() {
+        vmPQ = ViewModelPQ(this.applicationContext)
+    }
+
     override fun onCreate(state: Bundle?) {
+        Log.d(LOG_DEBUG_TAG,"$javaClass , onCreate")
         super.onCreate(state)
+        di()
         this.bind = LayoutA0Binding.inflate(layoutInflater).also { setContentView(it.root) }
         snack(
             R.string.purpose_a0
             ,"$localClassName , ${resources.getString(R.string.sb_on_click)}")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(LOG_INFO_TAG,"$javaClass , onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(LOG_INFO_TAG,"$javaClass , onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(LOG_INFO_TAG,"$javaClass , onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(LOG_INFO_TAG,"$javaClass , onStop")
+        vmPQ.applyNotification()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i(LOG_INFO_TAG,"$javaClass , onRestart")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(LOG_INFO_TAG,"$javaClass , onDestroy")
+    }
+
+    override fun onSaveInstanceState(state: Bundle) {
+        super.onSaveInstanceState(state)
+        Log.i(LOG_INFO_TAG,"$javaClass , onSaveInstanceState")
+    }
+
+    override fun onRestoreInstanceState(state: Bundle) {
+        super.onRestoreInstanceState(state)
+        Log.i(LOG_INFO_TAG,"$javaClass , onRestoreInstanceState")
     }
 
     /** @desc file specific for short snackbar */

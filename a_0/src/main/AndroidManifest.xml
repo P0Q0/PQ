@@ -38,7 +38,8 @@
             </intent-filter>
         </activity>
         <service
-            android:name="pkg.what.a_0.domain.service.SpecialAlertService">
+            android:name="pkg.what.a_0.domain.service.SpecialAlertService"
+            android:isolatedProcess="true">
         </service>
     </application>
 </manifest>

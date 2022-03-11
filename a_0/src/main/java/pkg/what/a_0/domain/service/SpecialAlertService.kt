@@ -30,7 +30,7 @@ class SpecialAlertService : Service() {
         Log.d("SpecialAlertService","onStartCommand")
         val killer = Intent("KILL:WHO:APP").apply { putExtra("msg","killer") }
         localBroadcastManager.sendBroadcast(killer)
-        return START_NOT_STICKY
+        return super.onStartCommand(intent, flags, startId)
     }
 
     override fun onDestroy() {
