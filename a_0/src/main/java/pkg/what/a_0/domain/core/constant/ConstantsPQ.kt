@@ -23,6 +23,7 @@ object FragLcTags {
 }
 
 object ProfileTags {
+    const val TAG_USER_SIGNED_IN = "userSignedIn"
     const val TAG_WEBTKN = "webtkn"
     const val TAG_ID = "id"
     const val TAG_NAME = "name"

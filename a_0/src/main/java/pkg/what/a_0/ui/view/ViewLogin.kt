@@ -46,6 +46,10 @@ import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_START
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_STOP
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_CREATED
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_STATE_RESTORED
+import pkg.what.a_0.domain.core.constant.ProfileTags.TAG_EMAIL
+import pkg.what.a_0.domain.core.constant.ProfileTags.TAG_IMGURL
+import pkg.what.a_0.domain.core.constant.ProfileTags.TAG_NAME
+import pkg.what.a_0.domain.core.constant.ProfileTags.TAG_USER_SIGNED_IN
 import pkg.what.a_0.domain.core.constant.SharedPrefTags.SHARED_PREFERENCES_NULL
 import pkg.what.a_0.domain.core.constant.SharedPrefTags.STATE_TOKEN_ON_DISK
 import pkg.what.a_0.domain.core.constant.SharedPrefTags.STATUS_DESTROY_ON_DISK
@@ -173,7 +177,12 @@ class ViewLogin : Fragment(), View.OnClickListener {
             stashedGgTokenOnDisk = account.idToken
             bind.a0GoogleSignInBtn.visibility = View.GONE
             bind.a0GoogleSignOutBtn.visibility = View.VISIBLE
-            navCntrl?.navigate(R.id.nav_fragment_a0_display)
+            account.idToken?.let { vmLogin.getModel().getCache().add(it) }
+            navCntrl?.navigate(R.id.nav_fragment_a0_display,
+                bundleOf(TAG_USER_SIGNED_IN to account.idToken
+                    , TAG_EMAIL to account.email
+                    , TAG_NAME to account.displayName
+                    , TAG_IMGURL to account.photoUrl))
         } else {
             stashedGgTokenOnDisk = account?.email ?: SHARED_PREFERENCES_NULL
             bind.a0GoogleSignInBtn.visibility = View.VISIBLE

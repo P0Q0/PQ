@@ -50,14 +50,14 @@ class CardAdapter(private val vd: ViewDisplay
         //TODO: CardAdapter, images[position]
         holder.bind(users[position])
         holder.itemView.setOnClickListener {
-            val webtkn = users[position].id ?: "webtkn: - - - - -"
-            val id = users[position].id ?: "id: - - - - -"
-            val name = users[position].name ?: "name: - - - - -"
-            val email = users[position].email ?: "email: - - - - -"
-            val phone = users[position].phone ?: "phone: - - - - -"
-            val employer = users[position].company?.name ?: "employer: - - - - -"
-            val city = users[position].address?.city ?: "city: - - - - -"
-            val zip = users[position].address?.zipcode ?: "zip: - - - - -"
+            val webtkn = users[position].id ?: "- - - - -"
+            val id = users[position].id ?: "- - - - -"
+            val name = users[position].name ?: "- - - - -"
+            val email = users[position].email ?: "- - - - -"
+            val phone = users[position].phone ?: "- - - - -"
+            val employer = users[position].company?.name ?: "- - - - -"
+            val city = users[position].address?.city ?: "- - - - -"
+            val zip = users[position].address?.zipcode ?: "- - - - -"
             val navCntrl = vd.findNavController()
             navCntrl.navigate(
                 pkg.what.pq.R.id.action_nav_fragment_a0_display_to_nav_fragment_a0_profile

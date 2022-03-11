@@ -11,6 +11,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import pkg.what.a_0.data.model.DataModel
 import pkg.what.a_0.domain.controller.ViewModelDisplay
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_ATTACH
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_CREATE
@@ -25,6 +26,10 @@ import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_START
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_STOP
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_CREATED
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_STATE_RESTORED
+import pkg.what.a_0.domain.core.constant.ProfileTags.TAG_EMAIL
+import pkg.what.a_0.domain.core.constant.ProfileTags.TAG_IMGURL
+import pkg.what.a_0.domain.core.constant.ProfileTags.TAG_NAME
+import pkg.what.a_0.domain.core.constant.ProfileTags.TAG_USER_SIGNED_IN
 import pkg.what.a_0.domain.core.constant.SharedPrefTags
 import pkg.what.a_0.domain.core.di.DomainDi
 import pkg.what.a_0.domain.pref.PrefPQ
@@ -79,6 +84,14 @@ class ViewDisplay : Fragment() , LogOutIf {
         super.onViewCreated(view, state)
         Log.d(LOG_INFO_TAG, LOG_VIEW_CREATED)
         this.navCntrl = Navigation.findNavController(view)
+
+        /** adds the current user signed in, only after navCntrl initializes */
+        val user = DataModel.UserModel(
+            name = arguments?.getString(TAG_USER_SIGNED_IN)
+            , email = arguments?.getString(TAG_EMAIL)
+            , username = arguments?.getString(TAG_NAME)
+            , website = arguments?.getString(TAG_IMGURL))
+        vmDisplay.modelOfUsers.getData().add(user)
 
         listenOnUiObservers()
         setupUi()
