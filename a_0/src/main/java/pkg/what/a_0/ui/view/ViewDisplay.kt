@@ -85,6 +85,9 @@ class ViewDisplay : Fragment() , LogOutIf {
         Log.d(LOG_INFO_TAG, LOG_VIEW_CREATED)
         this.navCntrl = Navigation.findNavController(view)
 
+        //TODO: Key imgurl expected String but value
+        // was a android.net.Uri$StringUri.
+        // The default value <null> was returned.
         /** adds the current user signed in, only after navCntrl initializes */
         val user = DataModel.UserModel(
             name = arguments?.getString(TAG_USER_SIGNED_IN)

@@ -39,5 +39,5 @@
                 <action android:name="android.intent.action.View" />
             </intent-filter>
         </activity>
-</application>
+    </application>
 </manifest>

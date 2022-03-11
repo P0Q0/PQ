@@ -16,11 +16,6 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.TaskStackBuilder
 import com.google.android.material.snackbar.Snackbar
-import pkg.what.a_6.UiNotifierStates.Companion.TAG_EMITTER
-import pkg.what.a_6.UiNotifierStates.Companion.TAG_INJECT_EMIT
-import pkg.what.a_6.UiNotifierStates.Companion.TAG_INJECT_OMIT
-import pkg.what.a_6.UiNotifierStates.Companion.TAG_OMITTER
-import pkg.what.a_6.UiNotifierStates.Companion.TAG_UNKNOWN
 import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutA6Binding
 
@@ -45,8 +40,6 @@ class ViewA6 : AppCompatActivity() {
     private fun fireUiNotifier(){
         prepIntents()
 
-        uiNotifier(
-            UiNotifierStates.Unknown(TAG_UNKNOWN))
         val builder = generateContent(
             getString(R.string.ui_content_title)
             , getString(R.string.ui_content_text)
@@ -123,24 +116,6 @@ class ViewA6 : AppCompatActivity() {
 
     private fun uiBadgeNotifier(){ TODO(reason = "uiBadgeNotifier under development") }
 
-    private fun uiNotifier(event: UiNotifierStates) = when(event) {
-        is UiNotifierStates.Unknown -> {
-            event.note = TAG_UNKNOWN
-            Note.UNKNOWN.msg(event.note)
-            event.state = event.note
-        }
-        is UiNotifierStates.Emitter -> {
-            event.note = TAG_EMITTER
-            Note.LONG.msg(event.note)
-            event.state = event.note
-        }
-        is UiNotifierStates.Omitter -> {
-            event.note = TAG_OMITTER
-            Note.SHORT.msg(event.note)
-            event.state = event.note
-        }
-    }
-
     /** @note version check is good practice, regardless what the current configuration is
      * , until there's an alternative when using modern api's, this will remain */
     @SuppressLint("ObsoleteSdkInt")
@@ -174,62 +149,4 @@ class ViewA6 : AppCompatActivity() {
         const val PENDING_SPECIAL_REQUEST_CODE = 0xFE
         const val PENDING_REGULAR_REQUEST_CODE = 0xFF
     }
-}
-
-/** @desc shorten alias with a meaningful representation */
-typealias Note = UiNotifierStates.UiNotifierMsg
-
-/** @desc immutable type set of notification states as classes */
-/** @note semantics help clarify the intentions of the constructor */
-@Suppress("ConvertSecondaryConstructorToPrimary")
-sealed class UiNotifierStates : UiNotifier {
-
-    var state: String? = null
-
-    private constructor(){ this.state = TAG_DEFAULT }
-
-    data class Unknown(var note: String) : UiNotifierStates()
-
-    data class Omitter(var note: String) : UiNotifierStates()
-
-    data class Emitter(var note: String) : UiNotifierStates()
-
-    /** @desc immutable type set of notification messages as values */
-    enum class UiNotifierMsg {
-        UNKNOWN { override fun msg(s: String) { UiNotifierFlow.NfFl.emit("$TAG_UNKNOWN: $s") } },
-        SHORT { override fun msg(s: String) { UiNotifierFlow.NfFl.emit("$TAG_SHORT: $s") } },
-        LONG { override fun msg(s: String) { UiNotifierFlow.NfFl.emit("$TAG_LONG: $s") } };
-        abstract fun msg(s : String)
-    }
-
-    companion object {
-        const val TAG_DEFAULT = "zzz default zzz"
-        const val TAG_UNKNOWN = "unknown"
-        const val TAG_OMITTER = "omitter"
-        const val TAG_EMITTER = "emitter"
-        const val TAG_SHORT = "short"
-        const val TAG_LONG = "long"
-        const val TAG_INJECT_OMIT = "inject omit"
-        const val TAG_INJECT_EMIT = "inject emit"
-    }
-}
-
-/** @desc definition type for ui notifications wishing for precise message data flow */
-sealed interface UiNotifier: UiNotifierFlow
-
-/** @desc contractual requirement to grant access to message flow control */
-sealed interface UiNotifierFlow {
-    object NfFl: NotifierFlow()
-}
-
-/** @desc definition for the flow, it omits and it emits */
-sealed class NotifierFlow : NotificationFlowControl {
-    override fun omit(status: String){ status.plus(TAG_INJECT_OMIT) }
-    override fun emit(status: String){ status.plus(TAG_INJECT_EMIT) }
-}
-
-/** @desc definition for the flow control */
-sealed interface NotificationFlowControl {
-    fun omit(status: String)
-    fun emit(status: String)
 }
