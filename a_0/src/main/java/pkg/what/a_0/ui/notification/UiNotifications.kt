@@ -40,9 +40,9 @@ class UiNotifications {
     internal fun generateAction(builder: NotificationCompat.Builder, rpi: PendingIntent, spi: PendingIntent, ctx: Context) {
         builder
             .addAction(androidx.core.R.drawable.notification_icon_background
-                ,ctx.getString(R.string.ui_action_regular_btn), rpi)
+                ,ctx.getString(R.string.ui_action_launch_btn), rpi)
             .addAction(androidx.core.R.drawable.notification_icon_background
-                ,ctx.getString(R.string.ui_action_special_btn), spi)
+                ,ctx.getString(R.string.ui_action_goodbye_btn), spi)
     }
 
     internal fun showNotification(builder: NotificationCompat.Builder, ctx: Context) {

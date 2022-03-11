@@ -16,6 +16,7 @@ class NotificationWorker(private val ctx: Context, params: WorkerParameters) : W
 
     private var specialIntent: Intent? = null
     private var specialPendingIntent: PendingIntent? = null
+
     private var regularIntent: Intent? = null
     private var regularPendingIntent: PendingIntent? = null
 
@@ -48,12 +49,6 @@ class NotificationWorker(private val ctx: Context, params: WorkerParameters) : W
             builder
             , ctx
         )
-
-        //TODO: NotificationsWorker, fire reminder
-        // listen for the selection
-        // is yes dequeue the worker launch the last viewed screen
-        // is no kill the worker kill the app
-
         return Result.success()
     }
 

@@ -31,13 +31,14 @@
         </activity>
         <activity
             android:name="pkg.what.a_0.ui.notification.ViewSpecialAlert"
-            android:launchMode="singleTask"
-            android:taskAffinity=""
-            android:excludeFromRecents="true"
+            android:parentActivityName="pkg.what.a_0.ui.view.ViewPQ"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.View" />
             </intent-filter>
         </activity>
+        <service
+            android:name="pkg.what.a_0.domain.service.SpecialAlertService">
+        </service>
     </application>
 </manifest>

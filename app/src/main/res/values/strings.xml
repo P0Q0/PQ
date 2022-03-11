@@ -108,6 +108,8 @@
     <string name="ui_describe_channel_name">Describe UiChannel</string>
     <string name="ui_content_title">Ui Channel Title</string>
     <string name="ui_content_text">Ui Channel Text</string>
+    <string name="ui_action_launch_btn">Launch</string>
+    <string name="ui_action_goodbye_btn">Goodbye</string>
     <string name="ui_action_regular_btn">Regular</string>
     <string name="ui_action_special_btn">Special</string>
     <string name="status_bar_channel_name">StatusBarChannel</string>
