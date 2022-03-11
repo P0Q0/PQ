@@ -1,7 +1,8 @@
 package pkg.what.a_0.ui.notification
 
-import pkg.what.a_0.ui.notification.UiNotifierStates
-
 interface NotifyIf {
+    object Helper {
+        val noty by lazy { UiNotifications() }
+    }
     fun uiNotifier(event: UiNotifierStates)
 }

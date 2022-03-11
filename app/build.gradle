@@ -69,7 +69,7 @@ dependencies {
     api "com.google.android.gms:play-services-auth:${versions.playauth}"
     api "com.squareup.okhttp3:okhttp:${versions.okhttp}"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutinescore}"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutinesandroid}"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesandroid"
     api "com.google.code.gson:gson:${versions.gson}"
     api "com.squareup.picasso:picasso:${versions.picasso}"
     api "androidx.fragment:fragment-ktx:${versions.fragment}"
@@ -78,8 +78,11 @@ dependencies {
     api "com.squareup.retrofit2:retrofit:${versions.retrofit}"
     api "com.squareup.retrofit2:converter-gson:${versions.gsonCvr}"
     api "com.squareup.retrofit2:converter-moshi:${versions.moshiCvr}"
-    api "com.squareup.moshi:moshi-kotlin:1.12.0"
-    api "com.squareup.moshi:moshi:1.13.0"
+    api "com.squareup.moshi:moshi-kotlin:1.13.0"
+    api "com.squareup.moshi:moshi:${versions.moshi}"
+    api "androidx.work:work-runtime-ktx:${versions.workKtx}"
+    androidTestImplementation("androidx.work:work-testing:${versions.workTest}")
+
 
     //noinspection LifecycleAnnotationProcessorWithJava8 // @note do not remove that <- it's a suppression
     api(annotationProcessor("androidx.lifecycle:lifecycle-compiler:${versions.lcCompiler}"))

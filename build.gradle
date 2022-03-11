@@ -47,6 +47,8 @@ ext.versions = [
     'lcVm'              : lifecycle,
     'lcVmStates'        : lifecycle,
     'moshiCvr'          : '2.9.0',
+    'moshiKtx'          : '1.12.0',
+    'moshi'             : '1.13.0',
     'navigation'        : '2.4.1',
     'navfragment'       : '2.4.1',
     'okhttp'            : '5.0.0-alpha.5',
@@ -55,7 +57,9 @@ ext.versions = [
     'playauth'          : '20.1.0',
     'recyclerview'      : '1.2.1',
     'retrofit'          : '2.9.0',
-    'safeargs'          : '2.4.1'
+    'safeargs'          : '2.4.1',
+    'workKtx'           : '2.7.1',
+    'workTest'          : '2.7.1'
 ]
 
 tasks.withType(Test) {
