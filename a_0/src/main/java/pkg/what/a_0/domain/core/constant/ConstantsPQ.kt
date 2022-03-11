@@ -22,6 +22,18 @@ object FragLcTags {
     const val LOG_DETACH = "ON_DETACH"
 }
 
+object ProfileTags {
+    const val TAG_WEBTKN = "webtkn"
+    const val TAG_ID = "id"
+    const val TAG_NAME = "name"
+    const val TAG_EMAIL = "email"
+    const val TAG_PHONE = "phone"
+    const val TAG_EMPLOYER = "employer"
+    const val TAG_CITY = "city"
+    const val TAG_ZIP = "zip"
+    const val TAG_IMGURL = "imgurl"
+}
+
 object SettingsTags {
     const val SETTING_MODE = "MODE"
     const val SETTING_CACHE = "CACHE"

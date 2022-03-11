@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import pkg.what.a_0.R
 import pkg.what.a_0.domain.controller.ViewModelProfile
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_ATTACH
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_CREATE
@@ -24,6 +25,7 @@ import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_START
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_STOP
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_CREATED
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_STATE_RESTORED
+import pkg.what.a_0.domain.core.constant.ProfileTags
 import pkg.what.pq.databinding.LayoutA0ProfileBinding
 
 class ViewProfile : Fragment() {
@@ -50,6 +52,7 @@ class ViewProfile : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, parent: ViewGroup?, state: Bundle?): View? {
         this.bind = LayoutA0ProfileBinding.inflate(layoutInflater, parent, false)
         Log.d(LOG_INFO_TAG, LOG_CREATE_VIEW)
+        setUi()
         return bind.root
     }
 
@@ -57,6 +60,26 @@ class ViewProfile : Fragment() {
         super.onViewCreated(view, state)
         Log.d(LOG_INFO_TAG, LOG_VIEW_CREATED)
         this.navCntrl = Navigation.findNavController(view)
+    }
+    private fun setUi(){
+        bind.profileImageUi.text =
+            arguments?.get(ProfileTags.TAG_IMGURL).toString()
+        bind.profileNameUi.text =
+            getString(pkg.what.pq.R.string.profile_name).plus(arguments?.get(ProfileTags.TAG_NAME).toString())
+        bind.profileEmailUi.text =
+            getString(pkg.what.pq.R.string.profile_email).plus(arguments?.get(ProfileTags.TAG_EMAIL).toString())
+        bind.profileIdUi.text =
+            getString(pkg.what.pq.R.string.profile_id).plus(arguments?.get(ProfileTags.TAG_ID).toString())
+        bind.profilePhoneUi.text =
+            getString(pkg.what.pq.R.string.profile_phone).plus(arguments?.get(ProfileTags.TAG_PHONE).toString())
+        bind.profileEmployerUi.text =
+            getString(pkg.what.pq.R.string.profile_employer).plus(arguments?.get(ProfileTags.TAG_EMPLOYER).toString())
+        bind.profileCityUi.text =
+            getString(pkg.what.pq.R.string.profile_city).plus(arguments?.get(ProfileTags.TAG_CITY).toString())
+        bind.profileZipUi.text =
+            getString(pkg.what.pq.R.string.profile_zip).plus(arguments?.get(ProfileTags.TAG_ZIP).toString())
+
+        Log.d(LOG_DEBUG_TAG, "$javaClass : ${arguments?.get(ProfileTags.TAG_WEBTKN).toString()}")
     }
 
     override fun onViewStateRestored(state: Bundle?) {

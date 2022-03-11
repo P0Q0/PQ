@@ -132,6 +132,16 @@
     <!--data string tools -->
     <string name="is_empty">""</string>
     <string name="remote_source_image_view_description">an image pulled from a remote source</string>
+    <!-- strings for profile -->
+    <string name="profile_name">Name: </string>
+    <string name="profile_id">ID: </string>
+    <string name="profile_email">Email: </string>
+    <string name="profile_img">Img: </string>
+    <string name="profile_webtkn">WebTkn: </string>
+    <string name="profile_phone">Phone: </string>
+    <string name="profile_employer">Employer: </string>
+    <string name="profile_city">City: </string>
+    <string name="profile_zip">Zip: </string>
     <!-- other data -->
     <string name="card_tv_a0_str">Name:</string>
 </resources>

@@ -15,6 +15,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.Nullable
+import androidx.core.os.bundleOf
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -52,7 +53,6 @@ import pkg.what.a_0.domain.core.constant.SharedPrefTags.STATUS_TOKEN_ON_DISK
 import pkg.what.a_0.domain.pref.PrefPQ
 import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutA0LoginBinding
-
 
 class ViewLogin : Fragment(), View.OnClickListener {
 
