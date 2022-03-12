@@ -53,9 +53,10 @@ class NotificationWorker(private val ctx: Context, params: WorkerParameters) : W
     }
 
     private fun prepIntents(){
-        specialIntent = Intent(ctx, ViewSpecialAlert::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
+        specialIntent = Intent(ctx, ViewSpecialAlert(applicationContext)::class.java)
+            .apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
         specialPendingIntent = PendingIntent.getActivity(
             ctx, UiNotifications.PENDING_SPECIAL_REQUEST_CODE, specialIntent,
             (PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)

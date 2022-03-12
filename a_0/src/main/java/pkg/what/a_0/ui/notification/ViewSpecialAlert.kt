@@ -4,35 +4,30 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import pkg.what.a_0.domain.service.SpecialAlertService
 
-class ViewSpecialAlert : AppCompatActivity() {
+class ViewSpecialAlert(context: Context){
 
     private val remoteBroadcastRx: BroadcastReceiver = object : BroadcastReceiver(){
         override fun onReceive(context: Context?, intent: Intent?) {
             Log.d("ViewSpecialAlert","onReceive")
-            if(intent != null){
-                Log.d("ViewSpecialAlert", "msg: ${intent.extras!!.getString("msg")}")
-                finishAffinity()
-                finish()
-
-                context!!.stopService(Intent(context, SpecialAlertService::class.java))
-            }
+            Log.d("ViewSpecialAlert", "msg: ${intent?.extras!!.getString("msg")}")
+            context!!.stopService(Intent(context, SpecialAlertService::class.java))
+            Log.d("ViewSpecialAlert","stopService")
+            context.unregisterReceiver(this)
+            Log.d("ViewSpecialAlert","unregisterRx")
         }
     }
 
-    override fun onCreate(state: Bundle?) {
-        Log.d("ViewSpecialAlert","onCreate")
-        super.onCreate(state)
-        registerReceiver(remoteBroadcastRx, IntentFilter("KILL:WHO:APP"))
-    }
-
-    override fun onDestroy() {
-        Log.d("ViewSpecialAlert","onDestroy")
-        super.onDestroy()
-        unregisterReceiver(remoteBroadcastRx)
+    init {
+        Log.d("ViewSpecialAlert","registerRx")
+//        val killer = Intent("KILL:WHO:NOTAPP").apply { putExtra("msg","NOTkiller") }
+//        val localBroadcastManager: LocalBroadcastManager = LocalBroadcastManager.getInstance(context)
+//        localBroadcastManager.sendBroadcast(killer)
+        context.registerReceiver(remoteBroadcastRx, IntentFilter("KILL:WHO:APP"))
+        val service = Intent(context, SpecialAlertService::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        context.startService(service)
     }
 }

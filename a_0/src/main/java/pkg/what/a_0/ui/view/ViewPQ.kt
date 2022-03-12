@@ -46,7 +46,6 @@ class ViewPQ : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         Log.i(LOG_INFO_TAG,"$javaClass , onStop")
-        vmPQ.applyNotification()
     }
 
     override fun onRestart() {
@@ -57,6 +56,7 @@ class ViewPQ : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.i(LOG_INFO_TAG,"$javaClass , onDestroy")
+        vmPQ.applyNotification()
     }
 
     override fun onSaveInstanceState(state: Bundle) {

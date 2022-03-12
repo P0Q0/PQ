@@ -96,6 +96,7 @@ class UiNotifications {
         const val NOTIFICATION_ID_STATUS_BAR = 0x01
         const val NOTIFICATION_ID_HEADS_UP = 0x02
         const val NOTIFICATION_ID_BADGE = 0x03
+        const val PENDING_SERVICE_REQUEST_CODE = 0xFD
         const val PENDING_SPECIAL_REQUEST_CODE = 0xFE
         const val PENDING_REGULAR_REQUEST_CODE = 0xFF
     }

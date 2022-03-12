@@ -29,17 +29,9 @@
                 <action android:name="android.intent.action.View" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="pkg.what.a_0.ui.notification.ViewSpecialAlert"
-            android:parentActivityName="pkg.what.a_0.ui.view.ViewPQ"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.View" />
-            </intent-filter>
-        </activity>
         <service
             android:name="pkg.what.a_0.domain.service.SpecialAlertService"
-            android:isolatedProcess="true">
+            android:exported="false">
         </service>
     </application>
 </manifest>
