@@ -29,13 +29,33 @@
                 <action android:name="android.intent.action.View" />
             </intent-filter>
         </activity>
-        <service
-            android:name="pkg.what.a_0.domain.service.NotySpecialRemoteAlert"
-            android:exported="false">
-        </service>
+        <activity
+            android:name="pkg.what.a_0.ui.notification.NotySpecialAlert"
+            android:parentActivityName="pkg.what.a_0.ui.view.ViewPQ"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.View" />
+            </intent-filter>
+        </activity>
         <service
             android:name="pkg.what.a_0.domain.service.NotySpecialLocalAlert"
             android:exported="false">
         </service>
+        <service
+            android:name="pkg.what.a_0.domain.service.NotySpecialRemoteAlert"
+            android:exported="false">
+        </service>
+        <activity
+            android:name="pkg.what.a_0.ui.notification.ViewNotyDead"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:clearTaskOnLaunch="true">
+        </activity>
     </application>
 </manifest>

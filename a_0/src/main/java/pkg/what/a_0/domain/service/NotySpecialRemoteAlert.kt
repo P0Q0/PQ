@@ -1,6 +1,6 @@
 package pkg.what.a_0.domain.service
 
-import android.app.Application
+import android.app.NotificationManager
 import android.app.Service
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -13,6 +13,7 @@ import pkg.what.a_0.domain.service.NotySpecialLocalAlert.Companion.I_AM_KILL_APP
 import pkg.what.a_0.domain.service.NotySpecialLocalAlert.Companion.I_AM_KILL_APP_KEY
 import pkg.what.a_0.domain.service.NotySpecialLocalAlert.Companion.I_WILL_KILL_APP
 import pkg.what.a_0.domain.service.NotySpecialLocalAlert.Companion.I_WILL_KILL_APP_KEY
+import pkg.what.a_0.ui.notification.ViewNotyDead
 
 class NotySpecialRemoteAlert : Service() {
 
@@ -35,6 +36,16 @@ class NotySpecialRemoteAlert : Service() {
                 localBroadcastManager.unregisterReceiver(this)
                 Log.i("$javaClass", "onReceive : ${intent?.getStringExtra(I_WILL_KILL_APP_KEY)}")
 
+                val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                notificationManager.deleteNotificationChannel(getString(pkg.what.pq.R.string.ui_channel_name))
+                notificationManager.cancelAll()
+
+                val temp = Intent(context,ViewNotyDead::class.java)
+                temp.flags =
+                        Intent.FLAG_ACTIVITY_NEW_TASK or
+                            Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(temp)
 
                 context!!.stopService(Intent(context, NotySpecialRemoteAlert::class.java))
                 Log.d("$javaClass", "stopService")
