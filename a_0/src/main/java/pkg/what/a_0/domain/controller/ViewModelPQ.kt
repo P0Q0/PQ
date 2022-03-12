@@ -16,4 +16,6 @@ class ViewModelPQ(application: Context) : ViewModel(){
     internal fun applyNotification(){
         workManager.enqueue(OneTimeWorkRequest.from(NotificationWorker::class.java))
     }
+
+
 }

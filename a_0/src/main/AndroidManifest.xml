@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="pkg.what.a_0.ui.notification.ViewRegularAlert"
+            android:name="pkg.what.a_0.ui.notification.NotyRegularAlert"
             android:parentActivityName="pkg.what.a_0.ui.view.ViewPQ"
             android:exported="false">
             <intent-filter>
@@ -30,7 +30,11 @@
             </intent-filter>
         </activity>
         <service
-            android:name="pkg.what.a_0.domain.service.SpecialAlertService"
+            android:name="pkg.what.a_0.domain.service.NotySpecialRemoteAlert"
+            android:exported="false">
+        </service>
+        <service
+            android:name="pkg.what.a_0.domain.service.NotySpecialLocalAlert"
             android:exported="false">
         </service>
     </application>

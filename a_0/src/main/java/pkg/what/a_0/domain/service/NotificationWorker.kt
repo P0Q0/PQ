@@ -8,6 +8,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.TaskStackBuilder
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import pkg.what.a_0.domain.service.NotySpecialLocalAlert.Companion.ACTION_CLOSE
 import pkg.what.a_0.ui.notification.*
 import pkg.what.a_0.ui.notification.NotifyIf.Helper.noty
 import pkg.what.a_0.ui.notification.UiNotifications.Companion.CHANNEL_ID_UI
@@ -38,13 +39,9 @@ class NotificationWorker(private val ctx: Context, params: WorkerParameters) : W
             , NotificationManager.IMPORTANCE_DEFAULT
             , ctx
         )
-        regularPendingIntent?.let { rpi ->
-            specialPendingIntent?.let { spi ->
-                noty.generateAction(
-                    builder, rpi, spi, ctx
-                )
-            }
-        }
+        noty.generateAction(
+            builder, regularPendingIntent!!, specialPendingIntent!!, ctx
+        )
         noty.showNotification(
             builder
             , ctx
@@ -53,18 +50,19 @@ class NotificationWorker(private val ctx: Context, params: WorkerParameters) : W
     }
 
     private fun prepIntents(){
-        specialIntent = Intent(ctx, ViewSpecialAlert(applicationContext)::class.java)
+        specialIntent = Intent(ctx, NotySpecialLocalAlert::class.java)
             .apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                action = ACTION_CLOSE
             }
-        specialPendingIntent = PendingIntent.getActivity(
-            ctx, UiNotifications.PENDING_SPECIAL_REQUEST_CODE, specialIntent,
+        specialPendingIntent = PendingIntent.getService(
+            ctx, UiNotifications.PENDING_SPECIAL_REQUEST_CODE, specialIntent!!,
             (PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         )
 
-        regularIntent = Intent(ctx, ViewRegularAlert::class.java)
+        regularIntent = Intent(ctx, NotyRegularAlert::class.java)
         val stackBuilder: TaskStackBuilder = TaskStackBuilder.create(ctx)
-        stackBuilder.addParentStack(ViewRegularAlert::class.java)
+        stackBuilder.addParentStack(NotyRegularAlert::class.java)
         stackBuilder.addNextIntent(regularIntent!!)
         regularPendingIntent =
             PendingIntent.getActivity(ctx,
