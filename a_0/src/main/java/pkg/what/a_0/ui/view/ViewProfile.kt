@@ -38,11 +38,12 @@ class ViewProfile : Fragment() {
     private lateinit var vmProfile: ViewModelProfile
 
     private fun di() {
-        vmProfile = ViewModelProfile(requireContext().applicationContext)
+        vmProfile = ViewModelProfile(super.requireContext())
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+
         di()
         Log.d(LOG_INFO_TAG, LOG_ATTACH)
     }
@@ -50,7 +51,6 @@ class ViewProfile : Fragment() {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         Log.d(LOG_INFO_TAG, LOG_CREATE)
-        // TODO: ViewProfile, work manager will take care of this, fireUiNotifier()
     }
 
     override fun onCreateView(inflater: LayoutInflater, parent: ViewGroup?, state: Bundle?): View? {

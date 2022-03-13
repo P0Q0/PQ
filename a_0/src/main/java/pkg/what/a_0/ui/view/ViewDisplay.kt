@@ -51,6 +51,7 @@ class ViewDisplay : Fragment() , LogOutIf {
     private fun di() {
         val domain = DomainDi()
         vmDisplay = ViewModelDisplay(
+            super.requireContext(),
             domain.getRemoteDataRepoImagesFromRoboHash(),
             domain.getRemoteDataRepoUsersFromTypiCode())
     }

@@ -6,9 +6,9 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import pkg.what.a_0.domain.service.NotificationWorker
 
-class ViewModelProfile(application: Context) : ViewModel(){
+class ViewModelProfile(context: Context) : ViewModel(){
 
-    private val workManager by lazy {  WorkManager.getInstance(application) }
+    private val workManager by lazy {  WorkManager.getInstance(context) }
 
     /** @desc call this from onDestroy() for a fragment, due to view model persistent lifecycle */
     internal fun applyNotification(){

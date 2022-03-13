@@ -45,6 +45,12 @@ class ViewPQ : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         Log.i(LOG_INFO_TAG,"$javaClass , onStop")
+        /** @STRATEGY
+         * 1) fragment is in the background explicitly, activity is in the background implicitly
+         * 2) fragment is in the foreground, activity is in the foreground implicitly
+         * 3) fragment is in process death, activity is in process life
+         * 4) activity is in destroyed */
+        vmPQ.applyNotification()
     }
 
     override fun onRestart() {
@@ -55,7 +61,6 @@ class ViewPQ : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.i(LOG_INFO_TAG,"$javaClass , onDestroy")
-        vmPQ.applyNotification()
     }
 
     override fun onSaveInstanceState(state: Bundle) {

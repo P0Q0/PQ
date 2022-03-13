@@ -18,7 +18,6 @@ import androidx.annotation.Nullable
 import androidx.core.os.bundleOf
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -57,6 +56,7 @@ import pkg.what.a_0.domain.core.constant.SharedPrefTags.STATUS_TOKEN_ON_DISK
 import pkg.what.a_0.domain.pref.PrefPQ
 import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutA0LoginBinding
+import java.net.URI
 
 class ViewLogin : Fragment(), View.OnClickListener {
 
@@ -70,14 +70,20 @@ class ViewLogin : Fragment(), View.OnClickListener {
 
     private lateinit var rs: ActivityResultLauncher<Intent>
 
-    private val vmLogin: ViewModelLogin by viewModels()
+    private lateinit var vmLogin: ViewModelLogin
 
     private val pref: PrefPQ by lazy {  PrefPQ(requireContext()) }
 
     private var stashedGgTokenOnDisk: String? = null
 
+    private fun di() {
+        vmLogin = ViewModelLogin(super.requireContext())
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
+
+        di()
         Log.d(LOG_INFO_TAG, LOG_ATTACH)
     }
 
@@ -182,7 +188,7 @@ class ViewLogin : Fragment(), View.OnClickListener {
                 bundleOf(TAG_USER_SIGNED_IN to account.idToken
                     , TAG_EMAIL to account.email
                     , TAG_NAME to account.displayName
-                    , TAG_IMGURL to account.photoUrl))
+                    , TAG_IMGURL to URI(account.photoUrl?.toString()).toString() ))
         } else {
             stashedGgTokenOnDisk = account?.email ?: SHARED_PREFERENCES_NULL
             bind.a0GoogleSignInBtn.visibility = View.VISIBLE
