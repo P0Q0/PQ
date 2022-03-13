@@ -4,12 +4,14 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import org.jetbrains.annotations.NotNull
 
 class ViewNotyDead : Activity() {
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
+        Log.d("$javaClass" , "onCreate")
         super.finishAndRemoveTask()
         super.finishAffinity()
         super.finish()

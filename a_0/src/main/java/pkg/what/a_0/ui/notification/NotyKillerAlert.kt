@@ -8,7 +8,7 @@ import pkg.what.a_0.ui.view.ViewPQ
 import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutViewSpecialAlertDetailsBinding
 
-class NotySpecialAlert : AppCompatActivity() {
+class NotyKillerAlert : AppCompatActivity() {
     private lateinit var bind: LayoutViewSpecialAlertDetailsBinding
 
     override fun onCreate(state: Bundle?) {

@@ -8,7 +8,7 @@ import pkg.what.a_0.ui.view.ViewPQ
 import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutViewRegularAlertDetailsBinding
 
-class NotyRegularAlert : AppCompatActivity() {
+class NotyRestoringAlert : AppCompatActivity() {
     private lateinit var bind: LayoutViewRegularAlertDetailsBinding
 
     override fun onCreate(state: Bundle?) {

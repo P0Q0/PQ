@@ -1,6 +1,7 @@
 package pkg.what.a_0.domain.controller
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,7 +14,7 @@ import pkg.what.a_0.data.io.network.DataRepoUsers
 import pkg.what.a_0.data.model.DataModel
 import pkg.what.a_0.data.model.ImagesModel
 import pkg.what.a_0.data.model.UsersModel
-import pkg.what.a_0.domain.service.NotificationWorker
+import pkg.what.a_0.domain.service.NotificationOnStopWorker
 
 class ViewModelDisplay(
     context: Context,
@@ -22,9 +23,16 @@ class ViewModelDisplay(
 
     private val workManager by lazy {  WorkManager.getInstance(context) }
 
-    /** @desc call this from onDestroy() for a fragment, due to view model persistent lifecycle */
+    /** @desc call this from onDestroy() for a fragment */
+    internal fun cancelNotification(){
+        Log.d("$javaClass","cancelNotification ...")
+        workManager.cancelAllWork()
+    }
+
+    /** @desc call this from onStop() or onDetach() for a fragment */
     internal fun applyNotification(){
-        workManager.enqueue(OneTimeWorkRequest.from(NotificationWorker::class.java))
+        Log.d("$javaClass","applyNotification ...")
+        workManager.enqueue(OneTimeWorkRequest.from(NotificationOnStopWorker::class.java))
     }
 
     private val users: MutableLiveData<List<DataModel.UserModel>>

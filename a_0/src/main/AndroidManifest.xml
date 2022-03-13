@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="pkg.what.a_0.ui.notification.NotyRegularAlert"
+            android:name="pkg.what.a_0.ui.notification.NotyRestoringAlert"
             android:parentActivityName="pkg.what.a_0.ui.view.ViewPQ"
             android:exported="false">
             <intent-filter>
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="pkg.what.a_0.ui.notification.NotySpecialAlert"
+            android:name="pkg.what.a_0.ui.notification.NotyKillerAlert"
             android:parentActivityName="pkg.what.a_0.ui.view.ViewPQ"
             android:exported="false"
             android:launchMode="singleTask"

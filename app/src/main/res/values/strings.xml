@@ -127,7 +127,7 @@
     <string name="ui_notifications">Notifications</string>
     <string name="ui_view_regular_alert_details">View Regular Alert Details</string>
     <string name="ui_view_special_alert_details">View Special Alert Details</string>
-    <!-- ui notifications -->
+    <!-- ui messages -->
     <string name="debug_anr_vital">Vital: ANR</string>
     <string name="debug_render_vital">Vital: Render</string>
     <string name="debug_crash_vital">Vital: Crash</string>

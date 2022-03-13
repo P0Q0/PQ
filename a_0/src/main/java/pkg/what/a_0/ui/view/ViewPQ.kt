@@ -11,6 +11,11 @@ import pkg.what.pq.databinding.LayoutA0Binding
 class ViewPQ : AppCompatActivity() {
     private lateinit var bind: LayoutA0Binding
 
+    /** @STRATEGY_FOR_INVOKING_WORKER
+     * 1) fragment is in the background explicitly, activity is in the background implicitly
+     * 2) fragment is in the foreground, activity is in the foreground implicitly
+     * 3) fragment is in process death, activity is in process life
+     * 4) activity is in destroyed */
     private lateinit var vmPQ: ViewModelPQ
 
     private fun di() {
@@ -45,11 +50,6 @@ class ViewPQ : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         Log.i(LOG_INFO_TAG,"$javaClass , onStop")
-        /** @STRATEGY
-         * 1) fragment is in the background explicitly, activity is in the background implicitly
-         * 2) fragment is in the foreground, activity is in the foreground implicitly
-         * 3) fragment is in process death, activity is in process life
-         * 4) activity is in destroyed */
         vmPQ.applyNotification()
     }
 
@@ -61,6 +61,8 @@ class ViewPQ : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.i(LOG_INFO_TAG,"$javaClass , onDestroy")
+        vmPQ.cancelNotification()
+        vmPQ.applyNotification()
     }
 
     override fun onSaveInstanceState(state: Bundle) {
