@@ -2,8 +2,10 @@ package pkg.what.a_0.domain.core
 
 import kotlin.system.exitProcess
 
-/** @desc anything in this should rarely be touched, if so must be done with caution, and on a thread,
- * note that this is not aware of any lifecycle, it's strictly in the realm of processes  */
+/** @desc anything in this should rarely be touched
+ * , if so must be done with caution and possibly on a different thread
+ * , note that this is not aware of any lifecycle, so leaks can happen
+ * , therefore be mindful it is in the realm of processes  */
 class OsSafeGuard {
     fun pidKill(){
         val pid = android.os.Process.myPid()
@@ -17,5 +19,13 @@ class OsSafeGuard {
     }
     fun gracefulGcKill(){
         System.runFinalization()
+    }
+    fun forcefulKill(){
+        val pid = Runtime.getRuntime().exec("pidof pkg.what.pq")
+        println(pid)
+        val killer = Runtime.getRuntime().exec("kill $pid")
+        println(killer)
+        val app = Runtime.getRuntime().exec("am force-stop pkg.what.pq")
+        println(app)
     }
 }

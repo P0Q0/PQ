@@ -19,6 +19,7 @@ class NotySpecialLocalAlert : Service(){
         const val ACTION_CLOSE = "pkg.what.a_0.domain.service.ACTION_CLOSE"
     }
 
+
     override fun onCreate() {
         Log.d("$javaClass","onCreate")
 
@@ -29,11 +30,10 @@ class NotySpecialLocalAlert : Service(){
                 localBroadcastManager.unregisterReceiver(this)
                 Log.d("$javaClass", "onReceive : ${intent?.extras!!.getString(I_AM_KILL_APP_KEY)}")
 
-                localBroadcastManager.sendBroadcast(Intent(I_WILL_KILL_APP).putExtra(
-                    I_WILL_KILL_APP_KEY, I_WILL_KILL_APP
-                ))
+                localBroadcastManager.sendBroadcast(
+                    Intent(I_WILL_KILL_APP).putExtra(I_WILL_KILL_APP_KEY, I_WILL_KILL_APP))
 
-                context!!.stopService(Intent(context, NotySpecialLocalAlert::class.java))
+                context?.let{ us -> us.stopService(Intent(us, NotySpecialLocalAlert::class.java)) }
                 Log.d("$javaClass", "stopService")
             }
         }

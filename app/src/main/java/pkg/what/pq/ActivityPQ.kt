@@ -24,15 +24,14 @@ class ActivityPQ : AppCompatActivity() {
         this.bind.pqA0.setOnClickListener {
             Intent().setClassName(packageName, getString(R.string.class_a0)).also {
                 /** @note, ensure backstack is cleared before proceeding
-                 * , either clear the top or run the logic, reset task or clear task
-                 * , single activity compliance, from here on out, only fragments, and this activity **/
-                it.flags =
-                    (Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED or
-                        Intent.FLAG_ACTIVITY_CLEAR_TASK) xor
-                            Intent.FLAG_ACTIVITY_CLEAR_TOP
+                 * , from here on out, only fragments, and this activity that will start **/
+                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                    Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
                 startActivity(it)
-                this.finishAffinity()
-                this.finish()
+                super.finishAffinity()
+                super.finish()
+                super.finishAndRemoveTask()
             }
         }
         this.bind.pqA1.setOnClickListener {

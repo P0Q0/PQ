@@ -55,7 +55,8 @@
             android:taskAffinity=""
             android:excludeFromRecents="true"
             android:noHistory="true"
-            android:clearTaskOnLaunch="true">
+            android:clearTaskOnLaunch="true"
+            android:theme="@android:style/Theme.NoDisplay">
         </activity>
     </application>
 </manifest>
