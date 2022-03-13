@@ -8,9 +8,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.IBinder
 import android.util.Log
-import androidx.core.content.getSystemService
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import pkg.what.a_0.domain.core.OsSafeGuard
 import pkg.what.a_0.domain.service.NotySpecialLocalAlert.Companion.I_AM_KILL_APP
 import pkg.what.a_0.domain.service.NotySpecialLocalAlert.Companion.I_AM_KILL_APP_KEY
 import pkg.what.a_0.domain.service.NotySpecialLocalAlert.Companion.I_WILL_KILL_APP
@@ -43,24 +41,6 @@ class NotySpecialRemoteAlert : Service() {
                 notificationManager.cancelAll()
 
                 context?.let { us -> ViewNotyDead.exit(us) }
-
-
-                /** @STRATEGY
-                 * TODO: NotySpecialRemoteAlert,
-                 *  PEEK AT PS
-                 *  WATCH THE PS
-                 *  IDENTIFY ITS BEHAVIOR
-                 *  HANDLE STUFF HERE
-                 *  BACKTRACK ROOT CAUSE
-                 *  FIX
-                 *   NOTE AT THE MOMENT THERE IS A BUG
-                 *   "RECENT HISTORY" BUTTON, THE SQUARE,
-                 *   IT IS NOT CLEARING THE APP,
-                 *   RATHER IT IS LAUNCHING IT,
-                 *   THIS IS STILL IN PROGRESS
-                 */
-                OsSafeGuard().forcefulKill()
-
 
                 context?.let { us -> us.stopService(Intent(us, NotySpecialRemoteAlert::class.java)) }
                 Log.d("$javaClass", "stopService")

@@ -23,9 +23,13 @@ class OsSafeGuard {
     fun forcefulKill(){
         val pid = Runtime.getRuntime().exec("pidof pkg.what.pq")
         println(pid)
-        val killer = Runtime.getRuntime().exec("kill $pid")
-        println(killer)
-        val app = Runtime.getRuntime().exec("am force-stop pkg.what.pq")
-        println(app)
+        if(pid.isAlive) {
+            val killer = Runtime.getRuntime().exec("kill $pid")
+            println(killer)
+            if(killer.isAlive){
+                val app = Runtime.getRuntime().exec("am force-stop pkg.what.pq")
+                println(app)
+            }
+        }
     }
 }

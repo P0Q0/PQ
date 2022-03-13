@@ -19,7 +19,6 @@ class NotySpecialLocalAlert : Service(){
         const val ACTION_CLOSE = "pkg.what.a_0.domain.service.ACTION_CLOSE"
     }
 
-
     override fun onCreate() {
         Log.d("$javaClass","onCreate")
 

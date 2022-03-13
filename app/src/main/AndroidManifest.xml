@@ -18,7 +18,11 @@
         android:theme="@style/Theme.PQ"
         tools:replace="android:theme">
         <activity android:name="pkg.what.pq.ActivityPQ"
-            android:exported="true">
+            android:exported="true"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -5,9 +5,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import pkg.what.a_0.domain.controller.ViewModelPQ
-import pkg.what.pq.databinding.LayoutA0Binding
-
 import pkg.what.pq.R
+import pkg.what.pq.databinding.LayoutA0Binding
 
 class ViewPQ : AppCompatActivity() {
     private lateinit var bind: LayoutA0Binding

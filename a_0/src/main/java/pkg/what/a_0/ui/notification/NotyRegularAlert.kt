@@ -1,11 +1,10 @@
 package pkg.what.a_0.ui.notification
 
-import pkg.what.a_0.ui.view.ViewPQ
-
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import pkg.what.a_0.ui.view.ViewPQ
 import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutViewRegularAlertDetailsBinding
 
