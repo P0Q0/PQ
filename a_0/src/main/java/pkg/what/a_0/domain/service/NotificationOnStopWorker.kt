@@ -6,19 +6,23 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.app.NotificationCompat
 import androidx.core.app.TaskStackBuilder
+import androidx.work.CoroutineWorker
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import pkg.what.a_0.domain.service.NotySpecialLocalAlert.Companion.ACTION_CLOSE
 import pkg.what.a_0.ui.notification.*
 import pkg.what.a_0.ui.notification.NotifyIf.Helper.noty
 import pkg.what.a_0.ui.notification.UiNotifications.Companion.CHANNEL_ID_UI
+import pkg.what.a_0.ui.view.ViewPQ
+import pkg.what.pq.ApplicationPQ
 
 /** @desc worker that is invoked when onStop launches notifications
  * , essentially we know a view model is still alive
  * , therefore expose an observable that will bring the activity back to the front
  * , after restore the fragment state
  */
-class NotificationOnStopWorker(private val ctx: Context, params: WorkerParameters) : Worker(ctx,params) , NotifyIf {
+class NotificationOnStopWorker(
+    private val ctx: Context, params: WorkerParameters) : CoroutineWorker(ctx,params) , NotifyIf {
 
     private var specialCancellingIntent: Intent? = null
     private var specialCancellingPendingIntent: PendingIntent? = null
@@ -26,16 +30,16 @@ class NotificationOnStopWorker(private val ctx: Context, params: WorkerParameter
     private var regularRestoringIntent: Intent? = null
     private var regularRestoringPendingIntent: PendingIntent? = null
 
-    override fun doWork(): Result {
+    override suspend fun doWork(): Result {
         this.prepIntents()
         uiNotifier(
             UiNotifierStates.Unknown(UiNotifierStates.TAG_UNKNOWN)
         )
         val builder = noty.generateContent(
-            ctx.getString(pkg.what.pq.R.string.ui_content_title),
-            ctx.getString(pkg.what.pq.R.string.ui_content_text),
-            NotificationCompat.PRIORITY_DEFAULT,
-            ctx
+            ctx.getString(pkg.what.pq.R.string.ui_content_title)
+            , ctx.getString(pkg.what.pq.R.string.ui_content_text)
+            , NotificationCompat.PRIORITY_DEFAULT
+            , ctx
         )
         noty.generateChannel(
             CHANNEL_ID_UI
@@ -45,7 +49,10 @@ class NotificationOnStopWorker(private val ctx: Context, params: WorkerParameter
             , ctx
         )
         noty.generateAction(
-            builder, regularRestoringPendingIntent!!, specialCancellingPendingIntent!!, ctx
+            builder
+            , regularRestoringPendingIntent!!
+            , specialCancellingPendingIntent!!
+            , ctx
         )
         noty.showNotification(
             builder
@@ -65,9 +72,10 @@ class NotificationOnStopWorker(private val ctx: Context, params: WorkerParameter
             (PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         )
 
-        regularRestoringIntent = Intent(ctx, NotyRestoringAlert::class.java)
+        regularRestoringIntent = Intent(ctx, ViewPQ::class.java)
+            .apply { flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT }
         val stackBuilder: TaskStackBuilder = TaskStackBuilder.create(ctx)
-        stackBuilder.addParentStack(NotyRestoringAlert::class.java)
+        stackBuilder.addParentStack(ViewPQ::class.java)
         stackBuilder.addNextIntent(regularRestoringIntent!!)
         regularRestoringPendingIntent =
             PendingIntent.getActivity(ctx,

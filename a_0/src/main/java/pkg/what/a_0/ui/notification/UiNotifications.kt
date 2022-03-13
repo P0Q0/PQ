@@ -41,6 +41,8 @@ class UiNotifications {
         builder
             .addAction(androidx.core.R.drawable.notification_icon_background
                 ,ctx.getString(R.string.ui_action_launch_btn), rpi)
+
+        builder
             .addAction(androidx.core.R.drawable.notification_icon_background
                 ,ctx.getString(R.string.ui_action_goodbye_btn), spi)
     }

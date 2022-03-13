@@ -18,7 +18,9 @@ import pkg.what.a_0.ui.notification.*
  * , then navigate to the fragment
  * , after restore the fragment state
  */
-class NotificationOnDestroyWorker(private val ctx: Context, params: WorkerParameters) : Worker(ctx,params) , NotifyIf {
+class NotificationOnDestroyWorker(
+    private val ctx: Context, params: WorkerParameters) : Worker(ctx,params) , NotifyIf {
+
     private var specialDestroyingIntent: Intent? = null
     private var specialDestroyingPendingIntent: PendingIntent? = null
 
@@ -31,10 +33,10 @@ class NotificationOnDestroyWorker(private val ctx: Context, params: WorkerParame
             UiNotifierStates.Unknown(UiNotifierStates.TAG_UNKNOWN)
         )
         val builder = NotifyIf.Helper.noty.generateContent(
-            ctx.getString(pkg.what.pq.R.string.ui_content_title),
-            ctx.getString(pkg.what.pq.R.string.ui_content_text),
-            NotificationCompat.PRIORITY_DEFAULT,
-            ctx
+            ctx.getString(pkg.what.pq.R.string.ui_content_title)
+            , ctx.getString(pkg.what.pq.R.string.ui_content_text)
+            , NotificationCompat.PRIORITY_DEFAULT
+            , ctx
         )
         NotifyIf.Helper.noty.generateChannel(
             UiNotifications.CHANNEL_ID_UI
@@ -44,7 +46,10 @@ class NotificationOnDestroyWorker(private val ctx: Context, params: WorkerParame
             , ctx
         )
         NotifyIf.Helper.noty.generateAction(
-            builder, regularDestroyingPendingIntent!!, specialDestroyingPendingIntent!!, ctx
+            builder
+            , regularDestroyingPendingIntent!!
+            , specialDestroyingPendingIntent!!
+            , ctx
         )
         NotifyIf.Helper.noty.showNotification(
             builder
