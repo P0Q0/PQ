@@ -38,6 +38,7 @@ ext.versions = [
     'kotlin'            : '1.6.10',
     'ktxCore'           : '1.7.0',
     'lifecycle'         : lifecycle,
+    'leakCanary'        : '2.8.1',
     'lcCompiler'        : lifecycle,
     'lcLd'              : lifecycle,
     'lcLdTester'        : '2.1.0',

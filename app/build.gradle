@@ -82,7 +82,7 @@ dependencies {
     api "com.squareup.moshi:moshi:${versions.moshi}"
     api "androidx.work:work-runtime-ktx:${versions.workKtx}"
     androidTestImplementation("androidx.work:work-testing:${versions.workTest}")
-
+    api "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}"
 
     //noinspection LifecycleAnnotationProcessorWithJava8 // @note do not remove that <- it's a suppression
     api(annotationProcessor("androidx.lifecycle:lifecycle-compiler:${versions.lcCompiler}"))
