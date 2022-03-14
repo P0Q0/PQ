@@ -1,6 +1,7 @@
 package pkg.what.a_0.ui.view
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -67,8 +68,8 @@ class ViewProfile : Fragment() {
     }
 
     private fun setUi(){
-        bind.profileImageUi.text =
-            arguments?.get(ProfileTags.TAG_IMGURL).toString()
+        bind.profileImageUi.setImageBitmap(
+            arguments?.get(ProfileTags.TAG_IMGURL) as Bitmap )
         bind.profileNameUi.text =
             getString(pkg.what.pq.R.string.profile_name).plus(arguments?.get(ProfileTags.TAG_NAME).toString())
         bind.profileEmailUi.text =

@@ -58,7 +58,7 @@ class ViewModelDisplay(
             images.postValue(modelOfImages.getData())
         }
     }
-    inline fun <reified T> cast(instance: Any?, body: T.() -> Unit){
+    private inline fun <reified T> cast(instance: Any?, body: T.() -> Unit){
         if(instance is T) body(instance)
     }
 }

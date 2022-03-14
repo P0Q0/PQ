@@ -37,6 +37,16 @@ class CardAdapter(private val vd: ViewDisplay
         fun bind(position: Int) {
             textView.text = users[position].name
             if(images.isNotEmpty()){ imgView.setImageBitmap(images[position]) }
+            else {
+                /** @documentation_for_the_future
+                 * suppose that the images are not ready due to whatever
+                 * this can be adjusted,
+                 * 1) make coroutines doing the work faster
+                 * 2) , or use an api such as promises to continue execution on deferred objects
+                 * 3) , or prefill the data model of images with empty bitmaps
+                 * 4) , or use a progress bar to intuitively instruct the user to wait (mh...)
+                 */
+            }
         }
     }
 
@@ -78,7 +88,7 @@ class CardAdapter(private val vd: ViewDisplay
                     , TAG_EMPLOYER to employer
                     , TAG_CITY to city
                     , TAG_ZIP to zip
-                    , TAG_IMGURL to "imgurl") //TODO: CardAdapter, TAG_IMGURL for ProfileView, images[position]
+                    , TAG_IMGURL to images[position])
             )
         }
     }

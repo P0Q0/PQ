@@ -22,8 +22,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/colorLight"
             android:background="@color/colorDark">
-            <!-- TODO: layout_a0_profile.xml, replace with image view -->
-            <com.google.android.material.textview.MaterialTextView
+            <ImageView
                 android:id="@+id/profile_image_ui"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -31,11 +30,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/a0_profile_inner_gl50_h"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text=""
-                android:textColor="@color/colorDark"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:background="@color/colorLight"/>
+                android:contentDescription="@string/remote_source_image_view_description" />
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/profile_id_ui"
                 android:layout_width="match_parent"
