@@ -10,10 +10,11 @@ class DataRepoImages(private val remoteImages: DataSourceImages) {
 
     private val ld: MutableLiveData<Bitmap> by lazy { MutableLiveData<Bitmap>() }
 
-    fun getLiveData(): LiveData<Bitmap> { return ld }
+    private fun getLiveData(): LiveData<Bitmap> { return ld }
 
     val data: Flow<Any>
         = flow {
-            emit(remoteImages.fetchImages(ld))
+            remoteImages.fetchImages(ld)
+            emit(getLiveData())
         }
 }

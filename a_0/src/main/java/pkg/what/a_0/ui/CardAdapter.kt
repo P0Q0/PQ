@@ -34,9 +34,9 @@ class CardAdapter(private val vd: ViewDisplay
         private val textView = view.findViewById<MaterialTextView>(pkg.what.pq.R.id.card_tv_a0)
         private val imgView = view.findViewById<ImageView>(pkg.what.pq.R.id.card_img_a0)
 
-        fun bind(data: DataModel.UserModel) {
-            textView.text = data.name
-            //imgView.setImageBitmap(bitmap)
+        fun bind(position: Int) {
+            textView.text = users[position].name
+            if(images.isNotEmpty()){ imgView.setImageBitmap(images[position]) }
         }
     }
 
@@ -47,8 +47,17 @@ class CardAdapter(private val vd: ViewDisplay
     }
 
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
-        //TODO: CardAdapter, images[position]
-        holder.bind(users[position])
+
+        if(users.isEmpty()){
+            println("users.isEmpty()")
+        }
+
+        if(images.isEmpty()){
+            println("images.isEmpty()")
+        }
+
+        holder.bind(position)
+
         holder.itemView.setOnClickListener {
             val webtkn = users[position].id ?: "- - - - -"
             val id = users[position].id ?: "- - - - -"
@@ -69,7 +78,7 @@ class CardAdapter(private val vd: ViewDisplay
                     , TAG_EMPLOYER to employer
                     , TAG_CITY to city
                     , TAG_ZIP to zip
-                    , TAG_IMGURL to "imgurl")
+                    , TAG_IMGURL to "imgurl") //TODO: CardAdapter, TAG_IMGURL for ProfileView, images[position]
             )
         }
     }
