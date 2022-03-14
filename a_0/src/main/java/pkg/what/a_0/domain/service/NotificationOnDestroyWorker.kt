@@ -78,12 +78,10 @@ class NotificationOnDestroyWorker(
 
         val stackBuilder: TaskStackBuilder = TaskStackBuilder.create(ctx)
         stackBuilder.addParentStack(ViewPQ::class.java)
-        println("HERE: ${inputData.getString("KEY_DESTINATION")}")
         regularDestroyingIntent = Intent(ctx, ViewPQ::class.java)
             .apply {
-                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                putExtras(
-                    bundleOf(Pair("KEY_DESTINATION",inputData.getString("KEY_DESTINATION"))))
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                putExtra("KEY_DESTINATION",inputData.getString("KEY_DESTINATION"))
             }
         stackBuilder.addNextIntent(regularDestroyingIntent!!)
         regularDestroyingPendingIntent =

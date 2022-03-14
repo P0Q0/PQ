@@ -3,7 +3,9 @@ package pkg.what.a_0.ui.view
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.snackbar.Snackbar
 import pkg.what.a_0.domain.controller.ViewModelPQ
 import pkg.what.pq.R
@@ -24,29 +26,48 @@ class ViewPQ : AppCompatActivity() {
         vmPQ = ViewModelPQ(this.applicationContext)
     }
 
+    private var path: String? = null
+
+    private lateinit var host: NavHostFragment
+
     override fun onCreate(state: Bundle?) {
+        super.onCreate(state)
+
+        di()
+
         Log.d(LOG_DEBUG_TAG,"$javaClass , onCreate")
-        if(state != null) {
-            println("state is not null $state")
-//            val temp = state.getString("KEY_DESTINATION")
-//            val navHost = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
-//            navHost?.requireView()?.let {
-//                Navigation.findNavController(it).navigate(R.id.nav_fragment_a0_login)
-//            }
-        } else {
-            super.onCreate(state)
-            println("state is null $state")
-            di()
-            this.bind = LayoutA0Binding.inflate(layoutInflater).also { setContentView(it.root) }
-            snack(
-                R.string.purpose_a0
-                ,"$localClassName , ${resources.getString(R.string.sb_on_click)}")
+        this.bind = LayoutA0Binding.inflate(layoutInflater).also { setContentView(it.root) }
+        snack(
+            R.string.purpose_a0,
+            "$localClassName , ${resources.getString(R.string.sb_on_click)}"
+        )
+
+        host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        if(intent.hasExtra("KEY_DESTINATION")) {
+            path = intent.getStringExtra("KEY_DESTINATION")
         }
     }
 
     override fun onStart() {
         super.onStart()
         Log.i(LOG_INFO_TAG,"$javaClass , onStart")
+
+        if(path != null){
+            when (path) {
+                "ViewLogin" -> {
+                    supportFragmentManager.beginTransaction().replace(host.id,ViewLogin()).commit()
+                }
+                "ViewDisplay" -> {
+                    supportFragmentManager.beginTransaction().replace(host.id,ViewDisplay()).commit()
+                }
+                "ViewProfile" -> {
+                    supportFragmentManager.beginTransaction().replace(host.id,ViewProfile()).commit()
+                }
+            }
+            val controller = Navigation.findNavController(host.requireView())
+            Navigation.setViewNavController(host.requireView(),controller)
+        }
     }
 
     override fun onResume() {
@@ -72,8 +93,7 @@ class ViewPQ : AppCompatActivity() {
 
     override fun onDestroy() {
         var stash = ""
-        supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
-            ?.view?.let lift@ { that ->
+        host.view?.let lift@ { that ->
                 stash = Navigation.findNavController(that)
                     .currentDestination?.label.toString()
                         .substringAfter(':')
