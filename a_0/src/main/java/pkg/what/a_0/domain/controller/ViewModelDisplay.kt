@@ -44,15 +44,18 @@ class ViewModelDisplay(
                 users.value = it
                 users.postValue(it)
             }
-            imgRepo.data.collect { that ->
-                cast<LiveData<Bitmap>>(that){
-                    modelOfUsers.getData().forEach { _ ->
-                        modelOfImages.getData().add(this.value as Bitmap)
+
+        @Suppress("LocalVariableName")
+        val N = modelOfUsers.getData().size
+            for(i in 0..N){
+                imgRepo.data.collect { that ->
+                    cast<LiveData<Bitmap>>(that){
+                        modelOfImages.getData().add( i , this.value as Bitmap )
                     }
-                    images.value = modelOfImages.getData()
-                    images.postValue(modelOfImages.getData())
                 }
             }
+            images.value = modelOfImages.getData()
+            images.postValue(modelOfImages.getData())
         }
     }
     inline fun <reified T> cast(instance: Any?, body: T.() -> Unit){
