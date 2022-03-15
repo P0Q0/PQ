@@ -14,7 +14,7 @@ class DataSourceImages(private val caller: RoboHashApi
 
         /** @Note: DaraSourceImages, fetchImage with Picasso-n/Glide-s **/
         suspend fun fetchImagesUsingRetrofit(): Any
-            = withContext(ioDispatcher){ caller.getRoboHash("qwerty") }
+            = withContext(ioDispatcher){ caller.getRoboHash("path") }
 
         suspend fun fetchImages(ld: MutableLiveData<Bitmap>): Any
             = withContext(ioDispatcher){

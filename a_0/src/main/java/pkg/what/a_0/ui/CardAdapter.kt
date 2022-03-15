@@ -27,7 +27,7 @@ typealias CardHolder = CardAdapter.ViewHolder
 
 class CardAdapter(private val vd: ViewDisplay
     , private val users: List<DataModel.UserModel>
-        , private val images: List<Bitmap>) : RecyclerView.Adapter<CardHolder>() {
+        , private val images: List<Bitmap?>) : RecyclerView.Adapter<CardHolder>() {
 
     inner class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         private val card = view.findViewById<MaterialCardView>(pkg.what.pq.R.id.card_view_root_a0)
@@ -36,7 +36,7 @@ class CardAdapter(private val vd: ViewDisplay
 
         fun bind(position: Int) {
             textView.text = users[position].name
-            if(images.isNotEmpty()){ imgView.setImageBitmap(images[position]) }
+            if (images.isNotEmpty()) imgView.setImageBitmap(images[position])
             else {
                 /** @documentation_for_the_future
                  * suppose that the images are not ready due to whatever
@@ -57,14 +57,6 @@ class CardAdapter(private val vd: ViewDisplay
     }
 
     override fun onBindViewHolder(holder: CardHolder, position: Int) {
-
-        if(users.isEmpty()){
-            println("users.isEmpty()")
-        }
-
-        if(images.isEmpty()){
-            println("images.isEmpty()")
-        }
 
         holder.bind(position)
 

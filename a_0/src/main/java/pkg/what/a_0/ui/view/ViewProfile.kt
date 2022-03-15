@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.google.android.material.snackbar.Snackbar
 import pkg.what.a_0.domain.controller.ViewModelProfile
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_ATTACH
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_CREATE
@@ -58,6 +59,7 @@ class ViewProfile : Fragment() {
         this.bind = LayoutA0ProfileBinding.inflate(layoutInflater, parent, false)
         Log.d(LOG_INFO_TAG, LOG_CREATE_VIEW)
         setUi()
+        setListeners()
         return bind.root
     }
 
@@ -70,6 +72,7 @@ class ViewProfile : Fragment() {
     private fun setUi(){
         bind.profileImageUi.setImageBitmap(
             arguments?.get(ProfileTags.TAG_IMGURL) as Bitmap )
+
         bind.profileNameUi.text =
             getString(pkg.what.pq.R.string.profile_name).plus(arguments?.get(ProfileTags.TAG_NAME).toString())
         bind.profileEmailUi.text =
@@ -86,6 +89,13 @@ class ViewProfile : Fragment() {
             getString(pkg.what.pq.R.string.profile_zip).plus(arguments?.get(ProfileTags.TAG_ZIP).toString())
 
         Log.d(LOG_DEBUG_TAG, "$javaClass : ${arguments?.get(ProfileTags.TAG_WEBTKN).toString()}")
+    }
+
+    private fun setListeners(){
+        bind.profileCameraInvokerFab.setOnClickListener {
+            Snackbar.make(requireView(), "CameraX Api Invoker", Snackbar.LENGTH_LONG).show()
+            //TODO: ViewProfile, CameraX implementation
+        }
     }
 
     override fun onViewStateRestored(state: Bundle?) {

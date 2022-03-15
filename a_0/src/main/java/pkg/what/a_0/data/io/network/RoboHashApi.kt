@@ -13,6 +13,6 @@ interface RoboHashApi {
     @Headers("Content-Type: image/png")
     @GET("${NetEptTags.BASE_ROBOHASH_ENDPOINT}/{path}")
     suspend fun getRoboHash(
-        @Path("qwerty") path: String
+        @Path("path") path: String
     ) : Any
 }

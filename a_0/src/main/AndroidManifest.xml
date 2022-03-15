@@ -14,6 +14,7 @@
     </dist:module>
     <application
         tools:ignore="AllowBackup,MissingApplicationIcon"
+        android:usesCleartextTraffic="true"
         android:hardwareAccelerated="true">
         <activity android:name="pkg.what.a_0.ui.view.ViewPQ"
             android:exported="false">

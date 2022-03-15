@@ -26,9 +26,9 @@ class ViewModelDisplay(
     }
     val modelOfUsers = UsersModel()
 
-    private val images: MutableLiveData<List<Bitmap>>
-        by lazy { MutableLiveData<List<Bitmap>>() }
-    fun getImages(): LiveData<List<Bitmap>> {
+    private val images: MutableLiveData<List<Bitmap?>>
+        by lazy { MutableLiveData<List<Bitmap?>>() }
+    fun getImages(): LiveData<List<Bitmap?>> {
         return images
     }
     val modelOfImages = ImagesModel()
@@ -50,7 +50,7 @@ class ViewModelDisplay(
             for(i in 0..N){
                 imgRepo.data.collect { that ->
                     cast<LiveData<Bitmap>>(that){
-                        modelOfImages.getData().add( i , this.value as Bitmap )
+                        modelOfImages.getData().add(this.value as Bitmap )
                     }
                 }
             }

@@ -6,6 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLight">
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/profile_camera_invoker_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/layout_a0_card_profile_root"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/a0_profile_gl50_v"
+        app:layout_constraintEnd_toEndOf="@+id/a0_profile_gl50_v"
+        style="@style/MaterialTheme.CameraInvokerBtn"
+        android:contentDescription="@string/remote_source_image_view_description" />
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/layout_a0_card_profile_root"
         android:layout_width="0dp"
