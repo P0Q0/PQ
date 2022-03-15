@@ -68,7 +68,9 @@ class ViewLogin : Fragment(), View.OnClickListener {
 
     private var gsc: GoogleSignInClient? = null
 
-    private lateinit var rs: ActivityResultLauncher<Intent>
+    private var rs: ActivityResultLauncher<Intent>? = null
+
+    private var callback: OnBackPressedCallback? = null
 
     private lateinit var vmLogin: ViewModelLogin
 
@@ -89,14 +91,14 @@ class ViewLogin : Fragment(), View.OnClickListener {
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
-        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        this.callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 this@ViewLogin.childFragmentManager.popBackStack()
                 requireActivity().finishAffinity()
                 requireActivity().finish()
             }
         }
-        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback as OnBackPressedCallback)
 
         this.stashedGgTokenOnDisk = pref.read(STATE_TOKEN_ON_DISK)
         if(pref.read(STATUS_TOKEN_ON_DISK) == STATUS_DESTROY_ON_DISK){ this.fireRevoke() }
@@ -158,6 +160,9 @@ class ViewLogin : Fragment(), View.OnClickListener {
     override fun onDestroy() {
         super.onDestroy()
         Log.i(LOG_INFO_TAG,LOG_DESTROY)
+
+        rs = null
+        callback = null
     }
 
     override fun onDestroyView() {
@@ -261,7 +266,7 @@ class ViewLogin : Fragment(), View.OnClickListener {
             val intent: Intent = gsc?.signInIntent as Intent
             val bundle = Bundle().apply { putInt("RESULT_CODE_SIGN_IN",RESULT_CODE_SIGN_IN) }
             intent.putExtras(bundle)
-            rs.launch(intent)
+            rs?.launch(intent)
         } else {
             debugSnack(null)
         }

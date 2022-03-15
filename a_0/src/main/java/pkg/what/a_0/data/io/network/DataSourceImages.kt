@@ -26,7 +26,15 @@ class DataSourceImages(private val caller: RoboHashApi
                          *  we ld.post which will usually flow.emit which will then ld.observe and
                          *  finally uiThread.run as far as the data flow goes for this application
                          *  and update the ui with a null pointer is unacceptable
-                         *  so in essence waste somme time idling, ie delay */
+                         *  so in essence waste somme time idling, ie delay
+                         *  3) garbage collector is super fast from the logs we can see it's chewing
+                         *  up the memory this is an issue because it's interfering with the
+                         *  image decode process, sample gc log:
+                         *  D/LeakCanary: Analysis in progress, 0% done, working on Parsing heap dump
+                         *  D/Picasso: Hunter decoded      [ R26 ]+442ms
+                         *  D/Picasso: Main   created      [ R27 ] Request{http://robohash.org/d6hW}
+                         *  ===> GC: I/pkg.what.pq: Background concurrent copying GC freed 17(535KB)
+                         *  AllocSpace objects, 1(516KB) LOS objects, 42% free, 32MB/56MB, paused 451us total 168.803ms */
                         val bitmap = picasso.load("http://robohash.org/$path").get()
                         @Suppress("LocalVariableName") //semantics overrule
                         val NETWORK_REQUEST_IMAGE_WRAP_OBJECT_SYNTHESIZE_THEN_CREATE_AND_DECODE = 3000L
