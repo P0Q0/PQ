@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -26,11 +27,13 @@ import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_STOP
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_CREATED
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_STATE_RESTORED
 import pkg.what.a_0.domain.core.constant.ProfileTags
+import pkg.what.a_0.ui.messages.Dialoger
+import pkg.what.a_0.ui.messages.DialogerListener
 import pkg.what.a_0.ui.messages.Snacks
 import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutA0ProfileBinding
 
-class ViewProfile : Fragment() {
+class ViewProfile : Fragment(), DialogerListener {
 
     /**@note this is a non-Gg app, non-Gg apps should not be updating Gg profile information */
     //TODO: CardAdapter, for demonstration, add ui edit field, to update remote data, but a brief note
@@ -96,7 +99,7 @@ class ViewProfile : Fragment() {
     private fun setListeners(){
         bind.profileCameraInvokerFab.setOnClickListener {
             Snacks(requireView(), getString(R.string.purpose_a0_profile), Snackbar.LENGTH_LONG,this.javaClass)
-            //TODO: ViewProfile, CameraX implementation
+            Dialoger(this).show(this.parentFragmentManager,"DialogInvoker")
         }
     }
 
@@ -143,6 +146,14 @@ class ViewProfile : Fragment() {
     override fun onDetach() {
         super.onDetach()
         Log.i(LOG_INFO_TAG, LOG_DETACH)
+    }
+
+    override fun onDialogPositiveClick(dialog: DialogFragment, id: String) {
+        Log.d("$javaClass", "onDialogPositiveClick , fire camerax, $id")
+    }
+
+    override fun onDialogNegativeClick(dialog: DialogFragment, id: String) {
+        Log.d("$javaClass", "onDialogPositiveClick , fire[d] dismiss, $id")
     }
 
     /** @desc file specific definitions, states, logging, strings */

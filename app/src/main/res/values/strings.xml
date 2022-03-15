@@ -145,6 +145,10 @@
     <string name="profile_employer">Employer: </string>
     <string name="profile_city">City: </string>
     <string name="profile_zip">Zip: </string>
+    <!-- strings for dialogs -->
+    <string name="camerax_dialog_message">CameraX</string>
+    <string name="dialog_okay">Okay</string>
+    <string name="dialog_cancel">Cancel</string>
     <!-- other data -->
     <string name="card_tv_a0_str">Name:</string>
 </resources>

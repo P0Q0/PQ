@@ -44,7 +44,7 @@ util
 ```
 
 ##### *** module a_0 ***
-    : single activity, navigation graph, lifecycleStates, backStack
+    : single activity, navigation graph, lifecycleStates, backStack, dialogs
     : dependency injection, TODO: mockito, espresso, junit, roboelectric
     : retrofit, moshi, live data, flows, parallelism, concurrency
     : clean layers, mvvm design pattern

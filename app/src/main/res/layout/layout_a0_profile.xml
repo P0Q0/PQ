@@ -14,6 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/a0_profile_gl50_v"
         app:layout_constraintEnd_toEndOf="@+id/a0_profile_gl50_v"
+        app:srcCompat="@drawable/mi_24dp_white_camera"
         style="@style/MaterialTheme.CameraInvokerBtn"
         android:contentDescription="@string/remote_source_image_view_description" />
     <com.google.android.material.card.MaterialCardView

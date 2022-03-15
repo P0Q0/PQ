@@ -14,10 +14,10 @@
         <item name="colorOnSurface">@color/colorLightOnSurface</item>
         <item name="colorOnError">@color/colorLightOnError</item>
     </style>
-    <style name="MaterialTheme.CameraInvokerBtn" parent="Widget.MaterialComponents.FloatingActionButton">
+    <style name="MaterialTheme.CameraInvokerBtn" parent="@style/Widget.MaterialComponents.FloatingActionButton">
         <item name="backgroundTint">@color/colorDark</item>
         <item name="rippleColor">@color/colorLight</item>
         <item name="fabSize">mini</item>
-        <item name="icon">@drawable/mi_24dp_white_camera</item>
+        <item name="tint">@color/colorLight</item>
     </style>
 </resources>
