@@ -24,10 +24,11 @@ internal class Dialoger(private val caller: ViewProfile) : DialogFragment() {
         return activity?.let {
             AlertDialog.Builder(it).setMessage(pkg.what.pq.R.string.camerax_dialog_message)
                 .setPositiveButton(pkg.what.pq.R.string.dialog_okay) { _, id ->
-                    callback.onDialogNegativeClick(this,id.toString())
+                    callback.onDialogPositiveClick(caller,this,id.toString())
                 }
-                .setNegativeButton(pkg.what.pq.R.string.dialog_cancel) { _, id ->
-                    callback.onDialogNegativeClick(this,id.toString())
+                .setNegativeButton(pkg.what.pq.R.string.dialog_cancel) { d, id ->
+                    callback.onDialogNegativeClick(caller,this,id.toString())
+                    d.dismiss()
                 }
                 .create()
         } ?: throw IllegalStateException("$javaClass, activity is null")
@@ -35,6 +36,6 @@ internal class Dialoger(private val caller: ViewProfile) : DialogFragment() {
 }
 
 interface DialogerListener {
-    fun onDialogPositiveClick(dialog: DialogFragment, id: String)
-    fun onDialogNegativeClick(dialog: DialogFragment, id: String)
+    fun onDialogPositiveClick(caller: ViewProfile, dialog: DialogFragment, id: String)
+    fun onDialogNegativeClick(caller: ViewProfile, dialog: DialogFragment, id: String)
 }

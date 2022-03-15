@@ -22,7 +22,9 @@ class CardAdapter(private val source: DataSource) : RecyclerView.Adapter<CardHol
 
         private fun setupListeners(view: View) {
             button.setOnClickListener {
-                Snackbar.make(it,"$BUTTON_SNACK_MSG button_text=${button.text}",Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(it,"$BUTTON_SNACK_MSG button_text=${button.text}",Snackbar.LENGTH_SHORT)
+                    .setTextColor(it.resources.getColor(pkg.what.pq.R.color.colorDark,null))
+                    .show()
             }
         }
 

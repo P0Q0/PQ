@@ -12,7 +12,7 @@ object StrTool {
             .joinToString(separator = "")
     }
     private const val START_BEGIN = 0
-    private const val FINISH_BEGIN = 10
-    private const val START_END = 10
-    private const val FINISH_END = 100
+    private const val FINISH_BEGIN = 5
+    private const val START_END = 5
+    private const val FINISH_END = 10
 }

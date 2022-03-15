@@ -37,5 +37,14 @@
         android:name="pkg.what.a_0.ui.view.ViewProfile"
         android:label="Fragment:ViewProfile"
         tools:layout="@layout/layout_a0_profile">
+        <action
+            android:id="@+id/action_nav_fragment_a0_profile_to_nav_fragment_a0_camerax"
+            app:destination="@id/nav_fragment_a0_camerax" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_fragment_a0_camerax"
+        android:name="pkg.what.a_0.ui.media.ViewCameraX"
+        android:label="Fragment:ViewCameraX"
+        tools:layout="@layout/camerax_layout">
     </fragment>
 </navigation>

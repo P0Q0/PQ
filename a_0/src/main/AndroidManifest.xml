@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="pkg.what.a_0">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <dist:module
         dist:instant="false"
         dist:title="@string/module_a0">
@@ -12,10 +14,11 @@
         </dist:delivery>
         <dist:fusing dist:include="true" />
     </dist:module>
-    <application
+    <application android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         tools:ignore="AllowBackup,MissingApplicationIcon"
-        android:usesCleartextTraffic="true"
         android:hardwareAccelerated="true">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/> <!-- for http support-->
         <activity android:name="pkg.what.a_0.ui.view.ViewPQ"
             android:exported="false">
             <intent-filter>

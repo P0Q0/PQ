@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.camera.view.PreviewView
+        android:id="@+id/camerax_preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/camerax_image_capture_button"
+        android:layout_width="125dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="50dp"
+        android:elevation="2dp"
+        app:cornerRadius="100dp"
+        app:rippleColor="@color/colorDark"
+        android:shadowColor="@color/colorLight"
+        android:text="@string/camerax_take_photo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/camerax_gl_50v" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/camerax_video_capture_button"
+        android:layout_width="125dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="50dp"
+        android:elevation="2dp"
+        app:cornerRadius="100dp"
+        app:rippleColor="@color/colorDark"
+        android:shadowColor="@color/colorLight"
+        android:text="@string/camerax_start_capture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/camerax_gl_50v" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/camerax_gl_50v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".50" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

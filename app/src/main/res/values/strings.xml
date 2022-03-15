@@ -149,6 +149,10 @@
     <string name="camerax_dialog_message">CameraX</string>
     <string name="dialog_okay">Okay</string>
     <string name="dialog_cancel">Cancel</string>
+    <!-- strings for camerax -->
+    <string name="camerax_take_photo">Photo: Take</string>
+    <string name="camerax_start_capture">Capture: Start</string>
+    <string name="camerax_stop_capture">Capture: Stop</string>
     <!-- other data -->
     <string name="card_tv_a0_str">Name:</string>
 </resources>

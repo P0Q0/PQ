@@ -67,7 +67,8 @@ dependencies {
     api "androidx.constraintlayout:constraintlayout:${versions.constraint}"
     api "androidx.recyclerview:recyclerview:${versions.recyclerview}"
     api "com.google.android.gms:play-services-auth:${versions.playauth}"
-    api "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    api "com.squareup.okhttp3:okhttp:${versions.okhttpClient}"
+    api "com.squareup.okhttp:logging-interceptor:${versions.okhttpLogging}"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutinescore}"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutinesandroid"
     api "com.google.code.gson:gson:${versions.gson}"
@@ -82,6 +83,12 @@ dependencies {
     api "com.squareup.moshi:moshi:${versions.moshi}"
     api "androidx.work:work-runtime-ktx:${versions.workKtx}"
     androidTestImplementation("androidx.work:work-testing:${versions.workTest}")
+    api "androidx.camera:camera-core:${versions.cameraX}"
+    api "androidx.camera:camera-camera2:${versions.cameraX}"
+    api "androidx.camera:camera-lifecycle:${versions.cameraX}"
+    api "androidx.camera:camera-video:${versions.cameraX}"
+    api "androidx.camera:camera-view:${versions.cameraX}"
+    api "androidx.camera:camera-extensions:${versions.cameraX}"
     api "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}"
 
     //noinspection LifecycleAnnotationProcessorWithJava8 // @note do not remove that <- it's a suppression

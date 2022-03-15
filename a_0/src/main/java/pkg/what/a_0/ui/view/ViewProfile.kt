@@ -50,7 +50,6 @@ class ViewProfile : Fragment(), DialogerListener {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
         di()
         Log.d(LOG_INFO_TAG, LOG_ATTACH)
     }
@@ -99,7 +98,7 @@ class ViewProfile : Fragment(), DialogerListener {
     private fun setListeners(){
         bind.profileCameraInvokerFab.setOnClickListener {
             Snacks(requireView(), getString(R.string.purpose_a0_profile), Snackbar.LENGTH_LONG,this.javaClass)
-            Dialoger(this).show(this.parentFragmentManager,"DialogInvoker")
+            Dialoger(this).show(childFragmentManager,"DialogInvoker")
         }
     }
 
@@ -148,12 +147,13 @@ class ViewProfile : Fragment(), DialogerListener {
         Log.i(LOG_INFO_TAG, LOG_DETACH)
     }
 
-    override fun onDialogPositiveClick(dialog: DialogFragment, id: String) {
+    override fun onDialogPositiveClick(caller: ViewProfile, dialog: DialogFragment, id: String) {
         Log.d("$javaClass", "onDialogPositiveClick , fire camerax, $id")
+        caller.navCntrl?.navigate(R.id.nav_fragment_a0_camerax)
     }
 
-    override fun onDialogNegativeClick(dialog: DialogFragment, id: String) {
-        Log.d("$javaClass", "onDialogPositiveClick , fire[d] dismiss, $id")
+    override fun onDialogNegativeClick(caller: ViewProfile, dialog: DialogFragment, id: String) {
+        Log.d("$javaClass", "onDialogNegativeClick , fire[d] dismiss, $id")
     }
 
     /** @desc file specific definitions, states, logging, strings */

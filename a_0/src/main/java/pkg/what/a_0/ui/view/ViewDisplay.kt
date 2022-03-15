@@ -1,7 +1,6 @@
 package pkg.what.a_0.ui.view
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,8 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import pkg.what.a_0.data.model.DataModel
 import pkg.what.a_0.domain.controller.ViewModelDisplay
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_ATTACH
@@ -49,7 +51,7 @@ class ViewDisplay : Fragment() , LogOutIf {
     private var stashedDisk: String? = null
 
     private fun di() {
-        val domain = DomainDi()
+        val domain = DomainDi(super.requireContext().applicationContext)
         vmDisplay = ViewModelDisplay(
             super.requireContext(),
             domain.getRemoteDataRepoImagesFromRoboHash(),
@@ -153,10 +155,14 @@ class ViewDisplay : Fragment() , LogOutIf {
 
     private fun listenOnUiObservers(){
         vmDisplay.getUsers().observe(viewLifecycleOwner) {
-            bind.a0DisplayRv.adapter?.notifyItemRangeChanged(0,it.size,null)
+            requireActivity().lifecycleScope.launch(Dispatchers.Main){
+                bind.a0DisplayRv.adapter?.notifyItemRangeChanged(0,it.size,null)
+            }
         }
         vmDisplay.getImages().observe(viewLifecycleOwner) {
-            bind.a0DisplayRv.adapter?.notifyItemRangeChanged(0,it.size,null)
+            requireActivity().lifecycleScope.launch(Dispatchers.Main){
+                bind.a0DisplayRv.adapter?.notifyItemRangeChanged(0,it.size,null)
+            }
         }
     }
 

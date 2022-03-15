@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="pkg.what.a_2">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <dist:module
         dist:instant="false"
         dist:title="@string/module_a2">
