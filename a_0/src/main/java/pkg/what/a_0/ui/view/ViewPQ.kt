@@ -3,11 +3,11 @@ package pkg.what.a_0.ui.view
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.snackbar.Snackbar
 import pkg.what.a_0.domain.controller.ViewModelPQ
+import pkg.what.a_0.ui.messages.Snacks
 import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutA0Binding
 
@@ -37,10 +37,8 @@ class ViewPQ : AppCompatActivity() {
 
         Log.d(LOG_DEBUG_TAG,"$javaClass , onCreate")
         this.bind = LayoutA0Binding.inflate(layoutInflater).also { setContentView(it.root) }
-        snack(
-            R.string.purpose_a0,
-            "$localClassName , ${resources.getString(R.string.sb_on_click)}"
-        )
+
+        Snacks(bind.root.rootView, getString(R.string.purpose_a0), Snackbar.LENGTH_LONG,this.javaClass)
 
         host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
@@ -113,17 +111,6 @@ class ViewPQ : AppCompatActivity() {
         super.onRestoreInstanceState(state)
         Log.i(LOG_INFO_TAG,"$javaClass , onRestoreInstanceState")
     }
-
-    /** @desc file specific for short snackbar */
-    private fun snack(ui_msg: Int, log_msg: String) =
-        Snackbar.make(
-            findViewById(R.id.layout_a0)
-            ,getString(ui_msg)
-            , Snackbar.LENGTH_SHORT)
-            .setTextColor(getColor(R.color.colorDark))
-            .setAction(getString(R.string.sb_dismiss))
-            { Log.d(LOG_INFO_TAG,log_msg) }
-            .show()
 
     /** @desc file specific definitions, states, logging, strings */
     companion object{

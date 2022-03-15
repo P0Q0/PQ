@@ -86,6 +86,7 @@
     <string name="purpose_a0">Purpose: application pq</string>
     <string name="purpose_a0_login">Purpose: Snack, login</string>
     <string name="purpose_a0_display">Purpose: Snack, display</string>
+    <string name="purpose_a0_profile">Purpose: CameraX Api Invoker</string>
     <string name="purpose_a1">Purpose: domain lifecycle &amp; states  </string>
     <string name="purpose_a2">Purpose: api permissions </string>
     <string name="purpose_a3">Purpose: sdk google sign-in &amp; oauth_2.0 </string>

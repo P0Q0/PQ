@@ -26,6 +26,8 @@ import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_STOP
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_CREATED
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_VIEW_STATE_RESTORED
 import pkg.what.a_0.domain.core.constant.ProfileTags
+import pkg.what.a_0.ui.messages.Snacks
+import pkg.what.pq.R
 import pkg.what.pq.databinding.LayoutA0ProfileBinding
 
 class ViewProfile : Fragment() {
@@ -93,7 +95,7 @@ class ViewProfile : Fragment() {
 
     private fun setListeners(){
         bind.profileCameraInvokerFab.setOnClickListener {
-            Snackbar.make(requireView(), "CameraX Api Invoker", Snackbar.LENGTH_LONG).show()
+            Snacks(requireView(), getString(R.string.purpose_a0_profile), Snackbar.LENGTH_LONG,this.javaClass)
             //TODO: ViewProfile, CameraX implementation
         }
     }
