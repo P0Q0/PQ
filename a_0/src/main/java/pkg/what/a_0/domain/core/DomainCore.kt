@@ -12,35 +12,9 @@ class DomainCore : Application() {
     override fun onCreate() {
         super.onCreate()
         Log.d(ConstantsPQ.LOG_INFO_TAG, " $javaClass : onCreate() : Application")
-
-        /** @reference
-         * https://wh0.github.io/2020/08/12/closeguard.html
-         */
-        //try {
-        //    Class.forName("dalvik.system.CloseGuard")
-        //        .getMethod("setEnabled", Boolean::class.javaPrimitiveType)
-        //        .invoke(null, true)
-        //} catch (e: ReflectiveOperationException) {
-        //    throw RuntimeException(e)
-        //}
-
-        /** @reference
-         * https://developer.android.com/reference/android/os/StrictMode.html
-         */
-        //StrictMode.setThreadPolicy(
-        //    ThreadPolicy.Builder()
-        //        .detectDiskReads()
-        //        .detectDiskWrites()
-        //        .detectNetwork()
-        //        .penaltyLog()
-        //        .build()
-        //)
-        //StrictMode.setVmPolicy(
-        //    VmPolicy.Builder()
-        //        .detectLeakedClosableObjects()
-        //        .penaltyLog()
-        //        .build()
-        //)
+        //invokeCloseGuard()
+        //invokeStrictModeThreads()
+        //invokeStrictModeVm()
     }
     override fun onLowMemory() {
         super.onLowMemory()
@@ -49,5 +23,38 @@ class DomainCore : Application() {
     override fun onTrimMemory(level: Int) {
         super.onTrimMemory(level)
         Log.d(ConstantsPQ.LOG_INFO_TAG, " $javaClass : onTrimMemory($level) : Application")
+    }
+
+    private fun invokeCloseGuard(){
+        /** @reference https://wh0.github.io/2020/08/12/closeguard.html */
+        try {
+            Class.forName("dalvik.system.CloseGuard")
+                .getMethod("setEnabled", Boolean::class.javaPrimitiveType)
+                .invoke(null, true)
+        } catch (e: ReflectiveOperationException) {
+            throw RuntimeException(e)
+        }
+    }
+
+    private fun invokeStrictModeThreads(){
+        /** @reference https://developer.android.com/reference/android/os/StrictMode.html */
+        StrictMode.setThreadPolicy(
+            ThreadPolicy.Builder()
+                .detectDiskReads()
+                .detectDiskWrites()
+                .detectNetwork()
+                .penaltyLog()
+                .build()
+        )
+    }
+
+    private fun invokeStrictModeVm(){
+        /** @reference https://developer.android.com/reference/android/os/StrictMode.html */
+        StrictMode.setVmPolicy(
+            VmPolicy.Builder()
+                .detectLeakedClosableObjects()
+                .penaltyLog()
+                .build()
+        )
     }
 }

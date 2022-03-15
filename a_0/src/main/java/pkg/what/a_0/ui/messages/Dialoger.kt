@@ -8,6 +8,7 @@ import androidx.fragment.app.DialogFragment
 import pkg.what.a_0.ui.view.ViewProfile
 
 /** @note mindful that [caller] could potentially leak if used incorrectly */
+//TODO:Dialoger, better handling of constructor parameter 'caller' as it could lead to leaks
 internal class Dialoger(private val caller: ViewProfile) : DialogFragment() {
 
     @Suppress("MemberVisibilityCanBePrivate")

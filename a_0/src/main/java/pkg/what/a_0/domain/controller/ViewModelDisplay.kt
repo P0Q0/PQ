@@ -44,7 +44,9 @@ class ViewModelDisplay(
                 users.postValue(it)
             }
 
-        @Suppress("LocalVariableName")
+        // TODO:ViewModelDisplay, add error handling for when LiveData<Bitmap> is null
+        //  this will happen when the image decoding is not ready or there is io issues
+        @Suppress("LocalVariableName") //semantics overrule
         val N = modelOfUsers.getData().size
             for(i in 0..N){
                 imgRepo.data.collect { that ->

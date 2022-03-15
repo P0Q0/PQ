@@ -23,6 +23,7 @@ class ViewModelPQ(application: Context) : ViewModel(){
 
     /** @desc call this from onStop() for an activity */
     internal fun loadOnStopWork(lifecycleOwner: LifecycleOwner){
+        // TODO:ViewModelPQ, add progress dialog for loadOnStopWork
         val statusOnStopWorkRequest: WorkRequest
             = OneTimeWorkRequestBuilder<NotificationOnStopWorker>().build()
         vmPqWorkManager.enqueue(statusOnStopWorkRequest)
@@ -36,9 +37,8 @@ class ViewModelPQ(application: Context) : ViewModel(){
 
     /** @desc call this from onDestroy() for an activity */
     internal fun loadOnDestroyWork(lifecycleOwner: LifecycleOwner, destination: String){
-
         cancelNotification()
-
+        // TODO:ViewModelPQ, add progress dialog for loadOnDestroyWork
         val statusOnDestroyWorkRequest: WorkRequest
             = OneTimeWorkRequestBuilder<NotificationOnDestroyWorker>()
                 .setInputData(
