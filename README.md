@@ -1,6 +1,8 @@
 
 ### README
-*** this is an Android application called PQ ***
+*** this is an Android called PQ ***
+
+[![Awesome Kotlin Badge](https://kotlin.link/awesome-kotlin.svg)](https://github.com/KotlinBy/awesome-kotlin)
 
 ##### *** module a_0 layers ***
 ```md
@@ -34,6 +36,7 @@ domain
  -settings
 ui
  -adapter
+ -messages
  -notification
  -state
  -view
@@ -41,11 +44,13 @@ util
 ```
 
 ##### *** module a_0 ***
-    : single activity, navigation graph,
+    : single activity, navigation graph, lifecycleStates, backStack
     : dependency injection, TODO: mockito, espresso, junit, roboelectric
     : retrofit, moshi, live data, flows, parallelism, concurrency
-    : mvvm design pattern, architecture components
-    : TODO: work manager, room, and firebase
+    : clean layers, mvvm design pattern
+    : work manager, service, buses for broadcasting
+    : TODO: room, gcp: firebase db and notifications
+    : TODO: promises api: async, await, futures, deferrables
 
 ##### *** module a_1 ***
     : kotlin, activity lifecycle, states, shared preferences, io: memory and disk, lambdas, ui binding, logging
@@ -101,7 +106,7 @@ util
     add clear permissions ui reset individual permissions, add clear all permissions ui to reset all permissions,
     polish file i/o, add additional ui for setting each permission individually, support multiple storage from different vendors,
     migrate to scoped storage, migrate to dynamic on single use permissions this would clear on each app destroyed event
-    -module a3, FIX google sign-out button functionality consider revoke access as well, ui to display status
+    -module a3, [FIX IN A3] but [FIXED IN A0] google sign-out button functionality consider revoke access as well, ui to display status
     -module a4, improve with viewmodel api and livedata which will constrain and keep the network flow tight
     -module a5, further extension to adapter with abstraction to reduce boilerplate for future adapters
     -module a6, support for generic expansion, worthwhile to investigate compile and runtime polymorphic type expectations,
@@ -138,6 +143,8 @@ util
     Espresso
     Roboelectric
     Mockito
+    WorkManager
+    LeakCanary
 
 ##### *** Note about SDK: ***
     'compileSdk'        : 31,
@@ -151,7 +158,25 @@ util
 [RECORDINGS](https://github.com/P0Q0/PQ/tree/main/media/screenrecordings "See Recordings") where a video walkthrough exists, usually gifs 
 
 ##### *** media ***
+
 ### module a_9, debug anr using adb, rootcause: deadlock
 <p>
 <img align="left" src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/pq_p9_anr_thread_deadlock.gif" width="750" height="350">
 </p>
+
+### module a_0, application invoker, ui notifications, data flow invoke
+<p>
+<img align="left" src="https://github.com/P0Q0/PQ/blob/main/media/diagrams/android_ui-notifications_app-invoker.png" width="750" height="350">
+</p>
+
+### module a_0, application desist, ui notifications, data flow desist
+<p>
+<img align="left" src="https://github.com/P0Q0/PQ/blob/main/media/diagrams/android_ui-notifications_app-desist.png" width="750" height="350">
+</p>
+
+##### *** dependencies ***
+    1) place file 'credentials.json' at the root, i.e. , ...\PQ\credentials.jason
+    2) add to 'local.properties': example: 
+        `# local defines stashing google api credentials, omit { and } on the string
+        GOOGLE_SERVICES_API_CLIENT_ID = "{token-A}.apps.googleusercontent.com"
+        GOOGLE_SERVICES_API_CLIENT_SECRET = "{token-B}"`
