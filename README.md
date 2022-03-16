@@ -2,7 +2,42 @@
 ### README
 *** this is an Android called PQ ***
 
+---
+
+##
+##  _____   ____  
+##|  __ \ / __ \
+##| |__) | |  | |
+##|  ___/| |  | |
+##| |    | |__| |
+##|_|     \___\_\
+##
+
+---
+
 [![Awesome Kotlin Badge](https://kotlin.link/awesome-kotlin.svg)](https://github.com/KotlinBy/awesome-kotlin)
+
+---
+
+## Runtime Demonstration
+
+---
+
+<p>
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_module_mode.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_Gg_signin.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_net_io.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_recycler_view.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_profile_view.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_noty_on_stopers.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_noty_on_destroyers.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_dialogs.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_runtime_permissions.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_camerax_photos.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_camerax_video.gif" width="175" height="200" />
+</p>
+
+---
 
 ##### *** module a_0 layers ***
 ```md
@@ -43,6 +78,8 @@ ui
 util
 ```
 
+---
+
 ##### *** module a_0 ***
     : single activity, navigation graph, lifecycleStates, backStack, dialogs
     : dependency injection, TODO: mockito, espresso, junit, roboelectric
@@ -52,37 +89,59 @@ util
     : TODO: room, gcp: firebase db and notifications
     : TODO: promises api: async, await, futures, deferrables
 
+---
+
 ##### *** module a_1 ***
     : kotlin, activity lifecycle, states, shared preferences, io: memory and disk, lambdas, ui binding, logging
+
+---
 
 ##### *** module a_2 ***
     : runtime permissions, external storage, internal storage, ui interfacing, sdk aware
 
+---
+
 ##### *** module a_3 ***
     : google api, synchronous calls, ui listeners, debugging
+
+---
 
 ##### *** module a_4 ***
     : network data, asynchronous calls, data structures, serialization, lifecycle scope, coroutines, dispatchers,
      tokenization, json, parsers, lazy and val, mutability, bitmaps, extensions, scope functions, mvc design pattern
 
+---
+
 ##### *** module a_5 ***
     : recycler view strategy: adapter pattern and view holder pattern, material design,
+
+---
 
 ##### *** module a_6 ***
     : notifications, notify types, grammar: sealed, typealias, object, data, interface, channels, sdk versioning,
      inheritance, encapsulation, abstraction, polymorphism, intents: explicit and implicit, custom api
 
+---
+
 ##### *** module a_7 ***
     : TODO:  module a_7, cameraX
+
+---
 
 ##### *** module a_8 ***
     : TODO:  module a_8, fragments
 
+---
+
 ##### *** module a_9 ***
     : debugging tools: logcat & adb, for, forensics and analysis: logs, bugs, and crashes
 
+---
+
 ##### *** module_app ***
     :  manifest, gradle, dynamic feature modules, resources: layouts, values, and themes
+
+---
 
 ##### *** Note about modernization ***
 ###### **** The following could be added to "modernize" the application: ****
@@ -98,6 +157,8 @@ util
     -support test cases
     -support state holders for unified data flow
     -support isolated toolkit for generic api
+
+---
 
 ##### *** Note about roadmap ***
 ###### **** Roadmap for new features by module: ****
@@ -117,6 +178,8 @@ util
     -module a0, memory managers, settings, themes, state holders for achieveing unified data flow, 
     database data access object definitions with repository pattern
     -module app, recycler with grid displaying items that'll invoke unique features
+
+---
 
 ##### *** Note about libraries for modules a1..a9 ***
     Annotations
@@ -146,16 +209,22 @@ util
     WorkManager
     LeakCanary
 
+---
+
 ##### *** Note about SDK: ***
     'compileSdk'        : 31,
     'minSdk'            : 30,
     'targetSdk'         : 31,
+
+---
 
 ##### *** module a_9 debug supplemental ***
 
 [METADATA](https://github.com/P0Q0/PQ/tree/main/metadata "See Metadata") where data about data exists, usually text files and binaries
 
 [RECORDINGS](https://github.com/P0Q0/PQ/tree/main/media/screenrecordings "See Recordings") where a video walkthrough exists, usually gifs 
+
+---
 
 ##### *** media ***
 
@@ -164,15 +233,35 @@ util
 <img align="left" src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/pq_p9_anr_thread_deadlock.gif" width="750" height="350">
 </p>
 
+---
+
+<p>
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a1.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a2.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a3.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a4.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a5.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a6.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a7.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a8.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a9.gif" width="175" height="200" />
+</p>
+
+---
+
 ### module a_0, application invoker, ui notifications, data flow invoke
 <p>
 <img align="left" src="https://github.com/P0Q0/PQ/blob/main/media/diagrams/android_ui-notifications_app-invoker.png" width="750" height="350">
 </p>
 
+---
+
 ### module a_0, application desist, ui notifications, data flow desist
 <p>
 <img align="left" src="https://github.com/P0Q0/PQ/blob/main/media/diagrams/android_ui-notifications_app-desist.png" width="750" height="350">
 </p>
+
+---
 
 ##### *** dependencies ***
     1) place file 'credentials.json' at the root, i.e. , ...\PQ\credentials.jason
@@ -180,3 +269,5 @@ util
         `# local defines stashing google api credentials, omit { and } on the string
         GOOGLE_SERVICES_API_CLIENT_ID = "{token-A}.apps.googleusercontent.com"
         GOOGLE_SERVICES_API_CLIENT_SECRET = "{token-B}"`
+
+---
