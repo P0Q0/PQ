@@ -19,10 +19,12 @@
         app:rippleColor="@color/colorDark"
         android:shadowColor="@color/colorLight"
         android:text="@string/camerax_take_photo"
+        android:textColor="@color/colorLight"
+        android:textStyle="bold"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintEnd_toStartOf="@id/camerax_gl_50v" />
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/camerax_video_capture_button"
         android:layout_width="125dp"
@@ -34,6 +36,9 @@
         app:rippleColor="@color/colorDark"
         android:shadowColor="@color/colorLight"
         android:text="@string/camerax_start_capture"
+        android:textColor="@color/colorLight"
+        android:textStyle="bold"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/camerax_gl_50v" />
 
