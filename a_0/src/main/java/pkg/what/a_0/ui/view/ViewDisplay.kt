@@ -1,18 +1,22 @@
 package pkg.what.a_0.ui.view
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import pkg.what.a_0.R
 import pkg.what.a_0.data.model.DataModel
 import pkg.what.a_0.domain.controller.ViewModelDisplay
 import pkg.what.a_0.domain.core.constant.FragLcTags.LOG_ATTACH
@@ -50,12 +54,20 @@ class ViewDisplay : Fragment() , LogOutIf {
 
     private var stashedDisk: String? = null
 
+    private val cachedBitmap: Bitmap? by lazy {
+        AppCompatResources.
+            getDrawable(
+                super.requireContext()
+                ,pkg.what.pq.R.drawable.mi_24dp_black_camera)
+                    ?.toBitmap(50,50) }
+
     private fun di() {
         val domain = DomainDi(super.requireContext().applicationContext)
         vmDisplay = ViewModelDisplay(
             super.requireContext(),
             domain.getRemoteDataRepoImagesFromRoboHash(),
             domain.getRemoteDataRepoUsersFromTypiCode())
+                .apply { cachedBitmap?.let { this.setCachedBitmap(it) } }
     }
 
     override fun onAttach(context: Context) {

@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import pkg.what.a_0.R
 import pkg.what.a_0.data.io.network.DataRepoImages
 import pkg.what.a_0.data.io.network.DataRepoUsers
 import pkg.what.a_0.data.model.DataModel
@@ -51,7 +52,11 @@ class ViewModelDisplay(
             for(i in 0..N){
                 imgRepo.data.collect { that ->
                     cast<LiveData<Bitmap>>(that){
-                        modelOfImages.getData().add(this.value as Bitmap )
+                        if (this.value != null) {
+                            modelOfImages.getData().add(this.value as Bitmap)
+                        } else {
+                            modelOfImages.getData().add(getCachedBitmap())
+                        }
                     }
                 }
             }
@@ -62,4 +67,8 @@ class ViewModelDisplay(
     private inline fun <reified T> cast(instance: Any?, body: T.() -> Unit){
         if(instance is T) body(instance)
     }
+
+    private var cachedBitmap: Bitmap? = null
+    fun setCachedBitmap(bitmap: Bitmap){ this.cachedBitmap = bitmap }
+    private fun getCachedBitmap(): Bitmap? { return this.cachedBitmap }
 }

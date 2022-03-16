@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.ImageProxy
 import androidx.camera.core.ImageCaptureException
@@ -20,9 +21,7 @@ import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.camera.video.Quality
 import androidx.camera.video.MediaStoreOutputOptions
-import androidx.camera.video.QualitySelector
 import androidx.camera.video.Recorder
 import androidx.camera.video.Recording
 import androidx.camera.video.VideoCapture
@@ -54,6 +53,8 @@ class ViewCameraX : Fragment() {
 
     private var videoCapture: VideoCapture<Recorder>? = null
 
+    private var requestPermissionLauncher: ActivityResultLauncher<String>? = null
+
     private lateinit var cameraXExecutor: ExecutorService
 
     override fun onAttach(context: Context) {
@@ -70,7 +71,7 @@ class ViewCameraX : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, parent: ViewGroup?, state: Bundle?): View? {
         this.bind = CameraxLayoutBinding.inflate(layoutInflater, parent, false)
         Log.d(LOG_INFO_TAG, FragLcTags.LOG_CREATE_VIEW)
-        permissions()
+        prePermissions()
         return bind.root
     }
 
@@ -83,9 +84,10 @@ class ViewCameraX : Fragment() {
         cameraXExecutor = Executors.newSingleThreadExecutor()
     }
 
-    private fun permissions(){
+    private fun prePermissions(){
         if (allPermissionsGranted()) {
-            startCamera()
+            Log.d("$javaClass","starting camera")
+            startCameraForImageAnalysis()
         } else {
             Toast.makeText(requireContext(),
                 "Permissions not granted by the user.",
@@ -94,28 +96,52 @@ class ViewCameraX : Fragment() {
         }
     }
 
+    private fun postPermissions(useCaseFlag : Int){
+        when(useCaseFlag) {
+            USE_CASE_CAMERA_ANALYSIS_IMAGE -> {
+                if (allPermissionsGranted()) {
+                    Log.d("$javaClass","starting camera")
+                    startCameraForImageAnalysis()
+                } else {
+                    Log.d("$javaClass","permission_check: Manifest.permission.CAMERA")
+                    requestPermissionLauncher?.launch(Manifest.permission.CAMERA)
+                    Log.d("$javaClass","permission_check: Manifest.permission.RECORD_AUDIO")
+                    requestPermissionLauncher?.launch(Manifest.permission.RECORD_AUDIO)
+                }
+            }
+            USE_CASE_CAMERA_CAPTURE_IMAGE -> {
+                if (allPermissionsGranted()) {
+                    Log.d("$javaClass","starting camera")
+                    startCameraForImageCapture()
+                } else {
+                    Log.d("$javaClass","permission_check: Manifest.permission.CAMERA")
+                    requestPermissionLauncher?.launch(Manifest.permission.CAMERA)
+                    Log.d("$javaClass","permission_check: Manifest.permission.RECORD_AUDIO")
+                    requestPermissionLauncher?.launch(Manifest.permission.RECORD_AUDIO)
+                }
+            }
+            USE_CASE_CAMERA_CAPTURE_VIDEO -> {
+                if (allPermissionsGranted()) {
+                    Log.d("$javaClass","starting camera")
+                    startCameraForVideCapture()
+                } else {
+                    Log.d("$javaClass","permission_check: Manifest.permission.CAMERA")
+                    requestPermissionLauncher?.launch(Manifest.permission.CAMERA)
+                    Log.d("$javaClass","permission_check: Manifest.permission.RECORD_AUDIO")
+                    requestPermissionLauncher?.launch(Manifest.permission.RECORD_AUDIO)
+                }
+            }
+        }
+    }
+
     private fun register(){
-        val requestPermissionLauncher =
+        this.requestPermissionLauncher =
             registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             if (granted) {
                 Log.d("$javaClass","G:permissions_status: $granted")
             } else {
                 Log.d("$javaClass","D:permissions_status: $granted")
             }
-        }
-
-        if (allPermissionsGranted()) {
-            Log.d("$javaClass","starting camera")
-            startCamera()
-        } else {
-            Log.d("$javaClass","permission_check: Manifest.permission.CAMERA")
-            requestPermissionLauncher.launch(
-                Manifest.permission.CAMERA
-            )
-            Log.d("$javaClass","permission_check: Manifest.permission.RECORD_AUDIO")
-            requestPermissionLauncher.launch(
-                Manifest.permission.RECORD_AUDIO
-            )
         }
     }
 
@@ -125,10 +151,12 @@ class ViewCameraX : Fragment() {
         }
         bind.cameraxImageCaptureButton.setOnClickListener {
             Log.d("$javaClass","cameraxImageCaptureButton.setOnClickListener")
+            postPermissions(USE_CASE_CAMERA_CAPTURE_IMAGE)
             this.takePhoto()
         }
         bind.cameraxVideoCaptureButton.setOnClickListener {
             Log.d("$javaClass","cameraxVideoCaptureButton.setOnClickListener")
+            postPermissions(USE_CASE_CAMERA_CAPTURE_VIDEO)
             this.captureVideo()
         }
     }
@@ -165,6 +193,7 @@ class ViewCameraX : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+        requestPermissionLauncher = null
         Log.i(LOG_INFO_TAG, FragLcTags.LOG_DESTROY)
     }
 
@@ -179,30 +208,59 @@ class ViewCameraX : Fragment() {
         Log.i(LOG_INFO_TAG, FragLcTags.LOG_DETACH)
     }
 
-    private fun startCamera() {
+    private fun startCameraForImageCapture() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext().applicationContext)
         cameraProviderFuture.addListener({
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
             val preview = Preview.Builder()
                 .build()
                 .also { it.setSurfaceProvider(bind.cameraxPreviewView.surfaceProvider) }
-            val recorder = Recorder.Builder()
-                .setQualitySelector(QualitySelector.from(Quality.HIGHEST))
-                .build()
-            videoCapture = VideoCapture.withOutput(recorder)
             imageCapture = ImageCapture.Builder().build()
-            val imageAnalyzer = ImageAnalysis.Builder()
-                .build()
-                    .also {
-                        it.setAnalyzer(cameraXExecutor, LuminosityAnalyzer { luma ->
-                            Log.d(TAG, "Average luminosity: $luma") })
-                    }
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
             try {
                 cameraProvider.unbindAll()
-                //useCaseForImageCapture(cameraProvider,cameraSelector,preview)
-                //useCaseForImageAnalysis(cameraProvider,cameraSelector,imageAnalyzer,preview)
+                useCaseForImageCapture(cameraProvider,cameraSelector,preview)
+            } catch(e: Exception) {
+                Log.e(TAG, "Use case binding failed: $e")
+            }
+        }, ContextCompat.getMainExecutor(requireContext()))
+    }
+
+    private fun startCameraForVideCapture() {
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext().applicationContext)
+        cameraProviderFuture.addListener({
+            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            val preview = Preview.Builder()
+                .build()
+                .also { it.setSurfaceProvider(bind.cameraxPreviewView.surfaceProvider) }
+            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+            try {
+                cameraProvider.unbindAll()
                 useCaseForVideoCapture(cameraProvider,cameraSelector,preview)
+            } catch(e: Exception) {
+                Log.e(TAG, "Use case binding failed: $e")
+            }
+        }, ContextCompat.getMainExecutor(requireContext()))
+    }
+
+    private fun startCameraForImageAnalysis() {
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext().applicationContext)
+        cameraProviderFuture.addListener({
+            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            val preview = Preview.Builder()
+                .build()
+                .also { it.setSurfaceProvider(bind.cameraxPreviewView.surfaceProvider) }
+            imageCapture = ImageCapture.Builder().build()
+            val imageAnalyzer = ImageAnalysis.Builder()
+                .build()
+                .also {
+                    it.setAnalyzer(cameraXExecutor, LuminosityAnalyzer { luma ->
+                        Log.d(TAG, "Average luminosity: $luma") })
+                }
+            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+            try {
+                cameraProvider.unbindAll()
+                useCaseForImageAnalysis(cameraProvider,cameraSelector,imageAnalyzer,preview)
             } catch(e: Exception) {
                 Log.e(TAG, "Use case binding failed: $e")
             }
@@ -357,6 +415,10 @@ class ViewCameraX : Fragment() {
         const val LOG_INFO_TAG = "A0_VIEW_CAMERAX_INFO_TAG"
         private const val TAG = "a_0" //pkg.what.pq.ApplicationPQ
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
+        const val USE_CASE_CAMERA_CAPTURE_IMAGE = 0
+        const val USE_CASE_CAMERA_CAPTURE_VIDEO = 1
+        const val USE_CASE_CAMERA_ANALYSIS_IMAGE = 2
+
         private val REQUIRED_PERMISSIONS =
             mutableListOf (
                 Manifest.permission.CAMERA,
