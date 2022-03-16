@@ -1,5 +1,4 @@
 
-
 <div dir=rtl>.80.81.</div>
 <p align="right">
 <img align="center" src="https://github.com/P0Q0/PQ/blob/main/media/screenshots/pq_logo.png" width="75" height="75" />
@@ -307,3 +306,20 @@ util
 
 
 ---
+
+## Liability 
+Please use this project for learning, demonstration purposes, and evalutaion of my skillset.
+
+## License
+```xml
+The [NAME_OF_LICENSE] License
+
+Copyright (c) 2022 P0Q0 @ https://github.com/P0Q0
+
+[DESCRIPTION_OF_LICENSE]
+```
+
+---
+
+
+###### Point Of Contact: Jose Pablo Rosas
