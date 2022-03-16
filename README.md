@@ -1,11 +1,13 @@
 
+
+<div dir=rtl>.80.81.</div>
+<p align="right">
+<img align="center" src="https://github.com/P0Q0/PQ/blob/main/media/screenshots/pq_logo.png" width="75" height="75" />
+</p>
+
 #### ``` *** PQ_README ***```
 
 [![Awesome Kotlin Badge](https://kotlin.link/awesome-kotlin.svg)](https://github.com/KotlinBy/awesome-kotlin)
-
-<p>
-<img align="center" src="https://github.com/P0Q0/PQ/blob/main/media/screenshots/pq_logo.png" width="75" height="75" />
-</p>
 
 ### Runtime Demonstration
 
