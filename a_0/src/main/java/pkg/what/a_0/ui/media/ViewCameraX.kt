@@ -32,7 +32,6 @@ import androidx.core.content.PermissionChecker
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import pkg.what.a_0.R
 import pkg.what.a_0.domain.core.constant.FragLcTags
 import pkg.what.pq.databinding.CameraxLayoutBinding
 import java.nio.ByteBuffer
@@ -201,18 +200,51 @@ class ViewCameraX : Fragment() {
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
             try {
                 cameraProvider.unbindAll()
-                cameraProvider.bindToLifecycle(
-                    this
-                    , cameraSelector
-                    , preview
-                    , imageCapture
-//                    , imageAnalyzer
-//                    , videoCapture
-                )
+                //useCaseForImageCapture(cameraProvider,cameraSelector,preview)
+                //useCaseForImageAnalysis(cameraProvider,cameraSelector,imageAnalyzer,preview)
+                useCaseForVideoCapture(cameraProvider,cameraSelector,preview)
             } catch(e: Exception) {
                 Log.e(TAG, "Use case binding failed: $e")
             }
         }, ContextCompat.getMainExecutor(requireContext()))
+    }
+
+    private fun useCaseForImageCapture(
+        provider: ProcessCameraProvider
+        , cameraSelector: CameraSelector
+        , preview: Preview) {
+            provider.bindToLifecycle(
+                this
+                , cameraSelector
+                , preview
+                , imageCapture
+            )
+    }
+
+    private fun useCaseForImageAnalysis(
+        provider: ProcessCameraProvider
+        , cameraSelector: CameraSelector
+        , analysisSelector: ImageAnalysis
+        , preview: Preview) {
+            provider.bindToLifecycle(
+                this
+                , cameraSelector
+                , preview
+                , analysisSelector
+                , imageCapture
+            )
+    }
+
+    private fun useCaseForVideoCapture(
+        provider: ProcessCameraProvider
+        , cameraSelector: CameraSelector
+        , preview: Preview) {
+            provider.bindToLifecycle(
+                this
+                , cameraSelector
+                , preview
+                , videoCapture
+            )
     }
 
     private fun takePhoto() {
