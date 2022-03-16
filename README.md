@@ -1,25 +1,13 @@
 
-### README
-*** this is an Android called PQ ***
-
----
-
-##
-##  _____   ____  
-##|  __ \ / __ \
-##| |__) | |  | |
-##|  ___/| |  | |
-##| |    | |__| |
-##|_|     \___\_\
-##
-
----
+#### ``` *** PQ_README ***```
 
 [![Awesome Kotlin Badge](https://kotlin.link/awesome-kotlin.svg)](https://github.com/KotlinBy/awesome-kotlin)
 
----
+<p>
+<img align="center" src="https://github.com/P0Q0/PQ/blob/main/media/screenshots/pq_logo.png" width="75" height="75" />
+</p>
 
-## Runtime Demonstration
+### Runtime Demonstration
 
 ---
 
@@ -33,6 +21,13 @@
 <img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_noty_on_destroyers.gif" width="175" height="200" />
 <img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_dialogs.gif" width="175" height="200" />
 <img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_runtime_permissions.gif" width="175" height="200" />
+</p>
+
+---
+
+### CameraX 
+
+<p>
 <img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_camerax_photos.gif" width="175" height="200" />
 <img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/features_singled/pq_p0_what_camerax_video.gif" width="175" height="200" />
 </p>
@@ -226,42 +221,52 @@ util
 
 ---
 
+
 ##### *** media ***
+
+
+---
+
 
 ### module a_9, debug anr using adb, rootcause: deadlock
 <p>
-<img align="left" src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/pq_p9_anr_thread_deadlock.gif" width="750" height="350">
+<img align="center" src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/pq_p9_anr_thread_deadlock.gif" width="750" height="350">
 </p>
 
+
 ---
+
 
 <p>
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a1.gif" width="175" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a2.gif" width="175" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a3.gif" width="175" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a4.gif" width="175" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a5.gif" width="175" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a6.gif" width="175" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a7.gif" width="175" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a8.gif" width="175" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a9.gif" width="175" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a1.gif" width="150" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a2.gif" width="150" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a3.gif" width="150" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a4.gif" width="150" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a5.gif" width="150" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a6.gif" width="150" height="200" />
 </p>
 
+
 ---
+
 
 ### module a_0, application invoker, ui notifications, data flow invoke
 <p>
-<img align="left" src="https://github.com/P0Q0/PQ/blob/main/media/diagrams/android_ui-notifications_app-invoker.png" width="750" height="350">
+<img align="center" src="https://github.com/P0Q0/PQ/blob/main/media/diagrams/android_ui-notifications_app-invoker.png" width="750" height="350">
 </p>
 
+
 ---
+
 
 ### module a_0, application desist, ui notifications, data flow desist
 <p>
-<img align="left" src="https://github.com/P0Q0/PQ/blob/main/media/diagrams/android_ui-notifications_app-desist.png" width="750" height="350">
+<img align="center" src="https://github.com/P0Q0/PQ/blob/main/media/diagrams/android_ui-notifications_app-desist.png" width="750" height="350">
 </p>
 
+
 ---
+
 
 ##### *** dependencies ***
     1) place file 'credentials.json' at the root, i.e. , ...\PQ\credentials.jason
@@ -269,5 +274,6 @@ util
         `# local defines stashing google api credentials, omit { and } on the string
         GOOGLE_SERVICES_API_CLIENT_ID = "{token-A}.apps.googleusercontent.com"
         GOOGLE_SERVICES_API_CLIENT_SECRET = "{token-B}"`
+
 
 ---
