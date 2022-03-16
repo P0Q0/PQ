@@ -268,12 +268,12 @@ util
 
 
 <p>
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a1.gif" width="150" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a2.gif" width="150" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a3.gif" width="150" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a4.gif" width="150" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a5.gif" width="150" height="200" />
-<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a6.gif" width="150" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a1.gif" width="125" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a2.gif" width="125" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a3.gif" width="125" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a4.gif" width="125" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a5.gif" width="125" height="200" />
+<img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a6.gif" width="125" height="200" />
 </p>
 
 
