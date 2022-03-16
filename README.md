@@ -239,6 +239,34 @@ util
 ---
 
 
+### module a_9, AppInspection, scenario: Garbage Collector and Cpu are hunting, Threads are racing to finish before they get hunted
+<p>
+<img align="center" src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/analysis/pq_p0_appinspection_net_io.gif" width="750" height="350">
+</p>
+
+
+---
+
+
+### module a_9, Profiler, scenario: Runtime Analysis, Part#1
+<p>
+<img align="center" src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/analysis/pq_p0_profiler_memory_cpu_part1.gif" width="750" height="350">
+</p>
+
+
+---
+
+
+### module a_9, Profiler, scenario: Runtime Analysis, Part#2
+<p>
+<img align="center" src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/analysis/pq_p0_profiler_memory_cpu_part2.gif" width="750" height="350">
+</p>
+
+
+
+---
+
+
 <p>
 <img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a1.gif" width="150" height="200" />
 <img src="https://github.com/P0Q0/PQ/blob/main/media/screenrecordings/modules_singled/pq_a2.gif" width="150" height="200" />
