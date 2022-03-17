@@ -9,23 +9,31 @@ import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
+import pkg.what.pq.ApplicationPQ
 
 @RunWith(MockitoJUnitRunner::class)
 class UnitTestDomainDi {
 
     @Mock private lateinit var mockCtx: Context
 
-    private lateinit var picasso: Picasso
+    @Mock private lateinit var mockPicasso: Picasso
 
-    @Before fun setUp(){
+    @Before fun initialize(){
         /** Given mocked dependencies **/
-        mockCtx = mock()
-        /** When picasso is built **/
-        picasso = Picasso.Builder(mockCtx).build() //TODO: UnitTestDomainDi
+        mockCtx = mock { on(mock.applicationContext).thenReturn(ApplicationPQ().applicationContext) }
+        mockPicasso = mock()
+        /** When context and picasso are built interact with them **/
+        try {
+            mockCtx.applicationContext
+            mockPicasso.isLoggingEnabled
+        } catch (npe : NullPointerException){
+            println(npe.printStackTrace())
+        }
     }
 
     @Test fun picasso_builder_test_di(){
         /** Then verify di succeeded by an operation on the non null object **/
-        verify(picasso).isLoggingEnabled
+        verify(mockCtx).applicationContext
+        verify(mockPicasso).isLoggingEnabled
     }
 }
