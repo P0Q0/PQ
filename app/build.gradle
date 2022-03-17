@@ -49,7 +49,6 @@ android {
     }
     testOptions {
         unitTests {
-            includeAndroidResources = true
             all {
                 minHeapSize = "128m"
                 maxHeapSize = "1024m"
@@ -107,5 +106,4 @@ dependencies {
 
     testImplementation "junit:junit:${versions.junit}"
     androidTestImplementation "androidx.test.ext:junit:${versions.junitExt}"
-    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.junitEspresso}"
 }

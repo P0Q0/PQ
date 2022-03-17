@@ -10,6 +10,10 @@ android {
         targetSdk versions.targetSdk
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -18,8 +22,35 @@ android {
     viewBinding {
         enabled = true
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/*.kotlin_module'
+    }
+    testOptions {
+        unitTests {
+            returnDefaultValues = true
+            includeAndroidResources = true
+            all {
+                minHeapSize = "128m"
+                maxHeapSize = "1024m"
+            }
+        }
+    }
 }
 
 dependencies {
     implementation project(":app")
+
+    testImplementation "junit:junit:${versions.junit}"
+    testImplementation "androidx.test:core:${versions.junitCore}"
+    testImplementation "org.mockito:mockito-core:${versions.mockitoCore}"
+    testImplementation "org.mockito:mockito-inline:${versions.mockitoInline}"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:${versions.mockitoKotlin}"
+    testImplementation "com.google.truth:truth:${versions.truth}"
+
+    androidTestImplementation "androidx.test.ext:junit:${versions.junitExt}"
+    androidTestImplementation "androidx.test:runner:${versions.junitRunner}"
+    androidTestImplementation "androidx.test:rules:${versions.junitRules}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.junitEspresso}"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:${versions.uiAutomator}"
 }
